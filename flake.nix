@@ -21,14 +21,13 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./configuration.nix
-        inputs.home-manager.nixosModules.default
       ];
     };
-	homeConfigurations = {
-      koye = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-		modules = [ ./home.nix ];
-	  };
-	};
+		homeConfigurations = {
+			koye = home-manager.lib.homeManagerConfiguration {
+				inherit pkgs;
+				modules = [ ./home.nix ];
+			};
+		};
   };
 }
