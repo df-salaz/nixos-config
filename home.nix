@@ -39,10 +39,10 @@
 				man = "batman";
 				jrun = "mvn compile && mvn exec:java";
 # Nix likes to touch the .git directory as root :)
-				nix-chown = "sudo chown -R koye ~/nixos-config";
-				nixr = "sudo nixos-rebuild switch --flake ~/nixos-config && nix-chown";
-				nixb = "sudo nixos-rebuild boot --flake ~/nixos-config && nix-chown";
-				nixu = "nix flake update ~/nixos-config";
+				nix-chown = "sudo chown -R koye ~/.nixos-config";
+				nixr = "sudo nixos-rebuild switch --flake ~/.nixos-config && nix-chown";
+				nixb = "sudo nixos-rebuild boot --flake ~/.nixos-config && nix-chown";
+				nixu = "nix flake update ~/.nixos-config";
 			};
 			autosuggestion.enable = true;
 			syntaxHighlighting.enable = true;
