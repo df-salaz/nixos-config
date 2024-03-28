@@ -1,0 +1,81 @@
+@define-color high #61afef;
+@define-color text-dark #21252b;
+@define-color text-high #abb2bf;
+@define-color term #282c34;
+@defime-color dark #21252b;
+
+* {
+	font: JetBrainsMonoNerdFont 14;
+}
+
+#input {
+	margin: 10px; /* how much padding there is around the input box */
+	border: 0px; /* border around the input box */
+	border-radius: 8px;
+	outline: none;
+	box-shadow: none;
+	background-color: @text-dark; /* background color of the text input box itself */
+	color: @text-high; /* text color as you type inside the input box */
+	border-color: @high;
+}
+
+#entry {
+	border-radius: 8px;
+}
+
+#entry:selected{
+	background-color: @high;
+	color: @text-dark;
+	outline: none;
+	border: none;
+}
+
+#text:selected{
+	font-weight: bold;
+	color: @text-dark;
+	outline: none;
+}
+
+#inner-box {
+	margin: 5px;
+	box-shadow: none;
+	border: none; /* horizontal bar that appears above the search results */
+	background-color: @term; /* background color behind the search results */
+    color: @text-high; /* text color of each search result */
+}
+
+#outer-box {
+	border-radius: 8px;
+	margin: 5px; /* margin between the outer edges of the main window and its contents inside */
+	border: none; /* border around all the internal window components */
+	background-color: @term; /* background color of entire inner window */
+}
+
+#text {
+	outline: none;
+	font-weight: 300;
+	margin: 5px;
+	border: none; /* border around each individual item within the search results */
+	background-color: transparent; /* background behind each individual item within the search results */
+    color: @text-high;
+}
+
+/* Remove the search icon 
+#input > image.left {
+        -gtk-icon-transform:scaleX(0);
+}
+*/
+
+#scroll {
+	margin: 6px;
+	background-color: @term; /* background color behind the search slider */
+}
+
+
+
+window {
+	margin: 10px;
+	border: 4px solid @high; /* border around the entire window */
+	border-radius: 10px;
+	background-color: @term;
+}

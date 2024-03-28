@@ -1,0 +1,9 @@
+[Unit]
+Description=automatic power profile manager
+
+[Service]
+ExecStart=/home/koye/.local/bin/power_monitor
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
