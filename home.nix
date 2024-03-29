@@ -34,8 +34,8 @@
 				ll = "ls -l";
 				la = "ll -a";
 				c = "clear";
-				vim = "neovide --no-fork &> /dev/null";
-				svim = "sudo -E neovide --no-fork &> /dev/null";
+#				vim = "neovide --no-fork &> /dev/null";
+#				svim = "sudo -E neovide --no-fork &> /dev/null";
 				man = "batman";
 				jrun = "mvn compile && mvn exec:java";
 # Nix likes to touch the .git directory as root :)
