@@ -172,6 +172,7 @@
 		noto-fonts-cjk
 		liberation_ttf
 		jetbrains-mono
+		dejavu_fonts
 		(nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 	];
 
