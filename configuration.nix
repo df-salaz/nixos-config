@@ -219,7 +219,7 @@
 
 	zramSwap = {
 		enable = true;
-		memoryPercent = 100;
+		memoryPercent = 150;
 	};
 
 # Enable services.
