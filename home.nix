@@ -1,6 +1,7 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
+	imports = [ inputs.ags.homeManagerModules.default ];
 	home.username = "koye";
 	home.homeDirectory = "/home/koye";
 
