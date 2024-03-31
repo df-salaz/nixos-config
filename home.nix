@@ -48,6 +48,9 @@
 			autosuggestion.enable = true;
 			syntaxHighlighting.enable = true;
 			autocd = true;
+			initExtraFirst = ''
+				source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+			'';
 			initExtra = ''
 				ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion history)
 				[[ ! -f ~/.dotfiles/p10k.zsh ]] || source ~/.dotfiles/p10k.zsh
