@@ -188,6 +188,7 @@ in {
 		dejavu_fonts
 		(nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 	];
+	fonts.fontDir.enable = true;
 
 	qt.style = "adwaita";
 	qt.platformTheme = "gnome";
