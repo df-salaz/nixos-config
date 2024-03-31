@@ -20,7 +20,6 @@ in {
 # $ nix search wget
 	environment.systemPackages = with pkgs; [
 		libdbusmenu-gtk3
-		upower
 		libnotify
 		gnome.gnome-calculator
 		cinnamon.nemo
@@ -238,6 +237,7 @@ in {
 # Enable services.
 	services.openssh.enable = true;
 	services.power-profiles-daemon.enable = true;
+	services.upower.enable = true;
 	services.dbus.implementation = "broker";
 	services.udisks2.enable = true;
 
