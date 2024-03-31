@@ -20,6 +20,7 @@ in {
 # $ nix search wget
 	environment.systemPackages = with pkgs; [
 		blender
+		cava
 		libdbusmenu-gtk3
 		libnotify
 		gnome.gnome-calculator

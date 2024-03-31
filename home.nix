@@ -73,6 +73,10 @@
 			name = "adw-gtk3";
 			package = pkgs.adw-gtk3;
 		};
+		iconTheme = {
+			name = "Papirus";
+			package = pkgs.papirus-icon-theme;
+		};
 	};
 
 	# Let Home Manager install and manage itself.
