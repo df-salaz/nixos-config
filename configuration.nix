@@ -4,7 +4,9 @@
 
 { config, pkgs, inputs, ... }:
 
-{
+let
+	system = "x86_64-linux";
+in {
 	imports =
 		[ # Include the results of the hardware scan.
 		./hardware-configuration.nix
@@ -112,6 +114,9 @@
 # List packages installed in system profile. To search, run:
 # $ nix search wget
 	environment.systemPackages = with pkgs; [
+		bun
+		dart-sass
+		fd
 		neo
 		obsidian
 		obs-studio
@@ -160,6 +165,7 @@
 		texliveFull
 		texlab
 		zathura
+		inputs.matugen.packages.${system}.default
 	];
 
 	environment.sessionVariables = {

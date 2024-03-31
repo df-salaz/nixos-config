@@ -3,11 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-		ags.url = "github:Aylur/ags";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+		ags.url = "github:Aylur/ags";
+		matugen.url = "github:InioX/Matugen";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
