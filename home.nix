@@ -53,6 +53,14 @@
 				source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
 			'';
 		};
+		ags = {
+			enable = true;
+			extraPackages = with pkgs; [
+				gtksourceview
+				webkitgtk
+				accountsservice
+			];
+		};
 	};
 
 	gtk = {
