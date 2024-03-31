@@ -13,6 +13,73 @@ in {
 			inputs.home-manager.nixosModules.default
 		];
 
+# Allow unfree packages
+	nixpkgs.config.allowUnfree = true;
+
+# List packages installed in system profile. To search, run:
+# $ nix search wget
+	environment.systemPackages = with pkgs; [
+		libdbusmenu-gtk3
+		upower
+		libnotify
+		gnome.gnome-calculator
+		cinnamon.nemo
+		rofimoji
+		wf-recorder
+		bun
+		dart-sass
+		fd
+		neo
+		obsidian
+		obs-studio
+		zoom-us
+		jdk8
+		jdt-language-server
+		lua-language-server
+		nil
+		rust-analyzer
+		intel-compute-runtime
+		intel-media-driver
+		gnome.nautilus
+		gradience
+		btop
+		neofetch
+		firefox
+		chromium
+		git
+		gh
+		neovide
+		foot
+		waybar
+		dunst
+		wofi
+		brightnessctl
+		swww
+		fzf
+		hyprpicker
+		slurp
+		sway-contrib.grimshot
+		wl-clipboard
+		swappy
+		easyeffects
+		pavucontrol
+		qogir-icon-theme
+		gcc
+		eza
+		zoxide
+		udiskie
+		ntfs3g
+		swaylock-effects
+		swayidle
+		killall
+		bat
+		bat-extras.batman
+		texliveFull
+		texlab
+		zathura
+		inputs.matugen.packages.${system}.default
+	];
+
 # Set filesystem options outside of hardware-configuration.nix
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/91f3764f-2fb8-4a89-86b1-cb8b89f7f9ab";
@@ -26,7 +93,7 @@ in {
 
 # Bootloader.
 	boot.kernelPackages = pkgs.linuxPackages_latest;
-		boot.loader.grub.enable = true;
+	boot.loader.grub.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
 	boot.loader.grub = {
 		efiSupport = true;
@@ -107,66 +174,6 @@ in {
 			"koye" = import ./home.nix;
 		};
 	};
-
-# Allow unfree packages
-	nixpkgs.config.allowUnfree = true;
-
-# List packages installed in system profile. To search, run:
-# $ nix search wget
-	environment.systemPackages = with pkgs; [
-		bun
-		dart-sass
-		fd
-		neo
-		obsidian
-		obs-studio
-		zoom-us
-		jdk8
-		jdt-language-server
-		lua-language-server
-		nil
-		rust-analyzer
-		intel-compute-runtime
-		intel-media-driver
-		gnome.nautilus
-		gradience
-		btop
-		neofetch
-		firefox
-		chromium
-		git
-		gh
-		neovide
-		foot
-		waybar
-		dunst
-		wofi
-		brightnessctl
-		swww
-		fzf
-		hyprpicker
-		slurp
-		sway-contrib.grimshot
-		wl-clipboard
-		swappy
-		easyeffects
-		pavucontrol
-		qogir-icon-theme
-		gcc
-		eza
-		zoxide
-		udiskie
-		ntfs3g
-		swaylock-effects
-		swayidle
-		killall
-		bat
-		bat-extras.batman
-		texliveFull
-		texlab
-		zathura
-		inputs.matugen.packages.${system}.default
-	];
 
 	environment.sessionVariables = {
 # SDL_VIDEODRIVER = "x11"; # tf2
