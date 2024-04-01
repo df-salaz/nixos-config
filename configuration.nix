@@ -229,10 +229,10 @@ in {
 				};
 			};
 		};
-		hyprland = {
-			enable = true;
-		};
+		hyprland.enable = true;
+		virt-manager.enable = true;
 	};
+	virtualisation.libvirtd.enable = true;
 
 	zramSwap = {
 		enable = true;
