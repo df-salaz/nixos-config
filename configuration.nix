@@ -20,6 +20,8 @@ in {
 # $ nix search wget
 	environment.systemPackages = with pkgs; [
 		catppuccin-sddm-corners
+		libsForQt5.qt5.qtgraphicaleffects
+		libsForQt5.qt5.qtquickcontrols2
 		krita
 		prismlauncher
 		blender
