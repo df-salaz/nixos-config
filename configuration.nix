@@ -19,6 +19,7 @@ in {
 # List packages installed in system profile. To search, run:
 # $ nix search wget
 	environment.systemPackages = with pkgs; [
+		catppuccin-sddm-corners
 		krita
 		prismlauncher
 		blender
@@ -127,8 +128,13 @@ in {
 # Enable the X11 windowing system.
 	services.xserver.enable = true;
 
-# Enable GDM, for now.
-	services.xserver.displayManager.gdm.enable = true;
+# Enable login manager
+	services.xserver.displayManager.sddm = {
+		enable = true;
+		wayland.enable = true;
+		autoNumlock = true;
+		theme = "catppuccin-sddm-corners";
+	};
 # services.xserver.desktopManager.gnome.enable = true;
 	xdg.portal = {
 		enable = true;
@@ -193,6 +199,12 @@ in {
 		(nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 	];
 	fonts.fontDir.enable = true;
+	fonts.enableDefaultPackages = true; 
+	fonts.fontconfig = {
+		defaultFonts = {
+			monospace = [ "JetBrains Mono Nerd Font" ];
+		};
+	};
 
 	qt.style = "adwaita";
 	qt.platformTheme = "gnome";
