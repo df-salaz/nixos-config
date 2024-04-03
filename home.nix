@@ -100,7 +100,6 @@
 			"$ss-wait" = "wl-copy < $(grimshot --notify --wait 5 save area $ss-save)";
 			"$ss-screen" = "wl-copy < $(grimshot --notify save screen $ss-save)";
 			exec-once = [
-				"$lock"
 				"swayidle"
 				"wl-paste --watch cliphist store"
 				"~/.config/hypr"
