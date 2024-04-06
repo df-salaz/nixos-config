@@ -19,6 +19,7 @@ in {
 # List packages installed in system profile. To search, run:
 # $ nix search wget
 	environment.systemPackages = with pkgs; [
+		mathematica
 		catppuccin-sddm-corners
 		libsForQt5.qt5.qtgraphicaleffects
 		libsForQt5.qt5.qtquickcontrols2
@@ -133,7 +134,7 @@ in {
 # Enable login manager
 	services.xserver.displayManager.sddm = {
 		enable = true;
-		wayland.enable = true;
+#		wayland.enable = true;
 		autoNumlock = true;
 		theme = "catppuccin-sddm-corners";
 	};
