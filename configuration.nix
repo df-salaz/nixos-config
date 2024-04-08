@@ -246,6 +246,10 @@ in {
 		};
 		hyprland.enable = true;
 		virt-manager.enable = true;
+		tmux = {
+			enable = true;
+			shortcut = "b";
+		};
 	};
 	virtualisation.libvirtd.enable = true;
 
