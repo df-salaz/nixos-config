@@ -266,6 +266,11 @@ in {
 	services.udisks2.enable = true;
 	security.polkit.enable = true;
 
+	programs.nix-ld.enable = true;
+	programs.nix-ld.libraries = with pkgs; [
+		stdenv.cc.cc
+	];
+
 	systemd = {
 		user.services.polkit-gnome-authentication-agent-1 = {
 			description = "polkit-gnome-authentication-agent-1";
