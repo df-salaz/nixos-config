@@ -217,7 +217,6 @@ in {
 	services.upower.enable = true;
 	services.dbus.implementation = "broker";
 	services.udisks2.enable = true;
-	services.envfs.enable = true;
 
 	security.polkit.enable = true;
 
