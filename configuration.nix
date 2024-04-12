@@ -87,7 +87,7 @@ in {
 # Enable login manager
 	services.displayManager.sddm = {
 		enable = true;
-#		wayland.enable = true;
+		wayland.enable = true;
 		autoNumlock = true;
 		theme = "catppuccin-sddm-corners";
 	};
