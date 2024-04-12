@@ -15,9 +15,7 @@ in {
 
 # Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
-
-# List packages installed in system profile. To search, run:
-# $ nix search wget
+	environment.defaultPackages = [];
 	environment.systemPackages = with pkgs; [
 		catppuccin-sddm-corners
 		libsForQt5.qt5.qtgraphicaleffects
