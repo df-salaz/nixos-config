@@ -36,6 +36,45 @@ in {
 		texliveFull
 		texlab
 	];
+	programs = {
+		zsh = {
+			enable = true;
+			shellAliases = {
+				ls = "eza --color=auto";
+				grep = "grep --color=auto";
+				ip = "ip -color=auto";
+				ll = "ls -l";
+				la = "ll -a";
+				c = "clear";
+				man = "batman";
+			};
+			syntaxHighlighting.enable = true;
+			enableBashCompletion = true;
+		};
+		neovim = {
+			enable = true;
+			defaultEditor = true;
+			vimAlias = true;
+			viAlias = true;
+		};
+		steam = {
+			enable = true;
+			package = pkgs.steam.override {
+				extraEnv = {
+					SDL_VIDEODRIVER = "x11";
+				};
+			};
+		};
+		hyprland.enable = true;
+		sway.enable = true;
+		virt-manager.enable = true;
+		tmux = {
+			enable = true;
+			shortcut = "b";
+		};
+		nano.enable = false;
+	};
+	virtualisation.libvirtd.enable = true;
 
 # Set filesystem options outside of hardware-configuration.nix
   fileSystems."/" =
@@ -160,48 +199,6 @@ in {
 	qt.style = "adwaita";
 	qt.platformTheme = "gnome";
 
-# Swaylock is special.
-	security.pam.services.swaylock = {};
-
-	programs = {
-		zsh = {
-			enable = true;
-			shellAliases = {
-				ls = "eza --color=auto";
-				grep = "grep --color=auto";
-				ip = "ip -color=auto";
-				ll = "ls -l";
-				la = "ll -a";
-				c = "clear";
-				man = "batman";
-			};
-			syntaxHighlighting.enable = true;
-			enableBashCompletion = true;
-		};
-		neovim = {
-			enable = true;
-			defaultEditor = true;
-			vimAlias = true;
-			viAlias = true;
-		};
-		steam = {
-			enable = true;
-			package = pkgs.steam.override {
-				extraEnv = {
-					SDL_VIDEODRIVER = "x11";
-				};
-			};
-		};
-		hyprland.enable = true;
-		sway.enable = true;
-		virt-manager.enable = true;
-		tmux = {
-			enable = true;
-			shortcut = "b";
-		};
-	};
-	virtualisation.libvirtd.enable = true;
-
 	zramSwap = {
 		enable = true;
 		memoryPercent = 150;
@@ -215,6 +212,7 @@ in {
 	services.udisks2.enable = true;
 
 	security.polkit.enable = true;
+	security.pam.services.swaylock = {};
 
 	programs.nix-ld.enable = true;
 	programs.nix-ld.libraries = with pkgs; [
