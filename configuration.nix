@@ -244,6 +244,7 @@ in {
 			};
 		};
 		hyprland.enable = true;
+		sway.enable = true;
 		virt-manager.enable = true;
 		tmux = {
 			enable = true;
