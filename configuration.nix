@@ -81,10 +81,11 @@ in {
 	};
 
 # Enable the X11 windowing system.
-	services.xserver.enable = true;
+#	services.xserver.enable = true;
+#	services.xserver.excludePackages = [ pkgs.xterm ];
 
 # Enable login manager
-	services.xserver.displayManager.sddm = {
+	services.displayManager.sddm = {
 		enable = true;
 #		wayland.enable = true;
 		autoNumlock = true;
@@ -117,9 +118,6 @@ in {
 		powerOnBoot = false;
 		settings.General.Experimental = true;
 	};
-
-# Enable touchpad support (enabled default in most desktopManager).
-	services.xserver.libinput.enable = true;
 
 # Define a user account. Don't forget to set a password with ‘passwd’.
 	users = {
