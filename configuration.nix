@@ -37,7 +37,6 @@ in {
 		killall
 		texliveFull
 		texlab
-		envfs
 	];
 
 # Set filesystem options outside of hardware-configuration.nix
@@ -218,6 +217,8 @@ in {
 	services.upower.enable = true;
 	services.dbus.implementation = "broker";
 	services.udisks2.enable = true;
+	services.envfs.enable = true;
+
 	security.polkit.enable = true;
 
 	programs.nix-ld.enable = true;
