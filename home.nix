@@ -1,7 +1,6 @@
 { config, inputs, pkgs, ... }:
 
 {
-	imports = [ inputs.ags.homeManagerModules.default ];
 	home.username = "koye";
 	home.homeDirectory = "/home/koye";
 
@@ -40,7 +39,6 @@
 		zoom-us
 		gnome.nautilus
 		gradience
-		btop
 		neofetch
 		firefox
 		chromium
@@ -57,9 +55,7 @@
 		udiskie
 		swaylock-effects
 		swayidle
-		bat
 		bat-extras.batman
-		zathura
 	# AGS dependencies:
 		libdbusmenu-gtk3
 		libnotify
@@ -68,16 +64,34 @@
 		dart-sass
 		brightnessctl
 		swww
-		inputs.matugen.packages.${system}.default
+		#inputs.matugen.packages.${system}.default
 	# Optional AGS dependencies:
-		fzf
 		hyprpicker
 		slurp
 		wf-recorder
 		wl-clipboard
 	];
 
+	catppuccin.flavour = "mocha";
+	xdg.enable = true;
+
 	programs = {
+		zathura = {
+			enable = true;
+			catppuccin.enable = true;
+		};
+		bat = {
+			enable = true;
+			catppuccin.enable = true;
+		};
+		btop = {
+			enable = true;
+			catppuccin.enable = true;
+		};
+		fzf = {
+			enable = true;
+			catppuccin.enable = true;
+		};
 		emacs = {
 			enable = true;
 		};
@@ -126,10 +140,7 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 
 	gtk = {
 		enable = true;
-		theme = {
-			name = "adw-gtk3";
-			package = pkgs.adw-gtk3;
-		};
+		catppuccin.enable = true;
 		iconTheme = {
 			name = "Papirus";
 			package = pkgs.papirus-icon-theme;
@@ -139,6 +150,7 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 	# Hyprland
 	wayland.windowManager.hyprland = {
 		enable = true;
+		catppuccin.enable = true;
 		settings = {
 			monitor = "eDP-1, 1920x1080@60, 0x0, 1";
 			"$terminal" = "foot";

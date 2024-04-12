@@ -7,13 +7,12 @@
 let
 	system = "x86_64-linux";
 in {
-	imports =
-		[ # Include the results of the hardware scan.
+	imports = [
 		./hardware-configuration.nix
-			inputs.home-manager.nixosModules.default
-		];
+	#	inputs.home-manager.nixosModules.default
+	];
 
-# Allow unfree packages
+	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 	environment.defaultPackages = [];
 	environment.systemPackages = with pkgs; [
@@ -167,15 +166,15 @@ in {
 		defaultUserShell = pkgs.zsh; # sets the root user's shell to zsh
 	};
 
-	home-manager = {
-		extraSpecialArgs = { inherit inputs; };
-		users = {
-			"koye" = import ./home.nix;
-		};
-	};
+	#home-manager = {
+	#	extraSpecialArgs = { inherit inputs; };
+	#	users = {
+	#		"koye" = import ./home.nix;
+	#	};
+	#};
 
 	environment.sessionVariables = {
-# SDL_VIDEODRIVER = "x11"; # tf2
+		# SDL_VIDEODRIVER = "x11"; # tf2
 	};
 
 # Add fonts.
