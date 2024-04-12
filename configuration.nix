@@ -22,11 +22,6 @@ in {
 		catppuccin-sddm-corners
 		libsForQt5.qt5.qtgraphicaleffects
 		libsForQt5.qt5.qtquickcontrols2
-		libdbusmenu-gtk3
-		libnotify
-		bun
-		dart-sass
-		fd
 		neo
 		jdk8
 		jdt-language-server
@@ -37,13 +32,12 @@ in {
 		intel-media-driver
 		git
 		gh
-		fzf
 		gcc
 		ntfs3g
 		killall
 		texliveFull
 		texlab
-		inputs.matugen.packages.${system}.default
+		envfs
 	];
 
 # Set filesystem options outside of hardware-configuration.nix
