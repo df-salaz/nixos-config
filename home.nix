@@ -24,6 +24,7 @@
 	nixpkgs.config.allowUnfree = true;
 	home.packages = with pkgs; [
 		git
+		obsidian
 		ripgrep
 		pulseaudio # for pactl
 		playerctl
@@ -35,7 +36,6 @@
 		gnome.gnome-calculator
 		cinnamon.nemo
 		rofimoji
-		wf-recorder
 		obs-studio
 		zoom-us
 		gnome.nautilus
@@ -49,12 +49,7 @@
 		waybar
 		dunst
 		wofi
-		swww
-		hyprpicker
-		slurp
 		sway-contrib.grimshot
-		wl-clipboard
-		swappy
 		easyeffects
 		pavucontrol
 		eza
@@ -65,7 +60,21 @@
 		bat
 		bat-extras.batman
 		zathura
+	# AGS dependencies:
+		libdbusmenu-gtk3
+		libnotify
+		bun
+		fd
+		dart-sass
 		brightnessctl
+		swww
+		inputs.matugen.packages.${system}.default
+	# Optional AGS dependencies:
+		fzf
+		hyprpicker
+		slurp
+		wf-recorder
+		wl-clipboard
 	];
 
 	programs = {
