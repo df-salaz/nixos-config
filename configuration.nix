@@ -19,26 +19,15 @@ in {
 # List packages installed in system profile. To search, run:
 # $ nix search wget
 	environment.systemPackages = with pkgs; [
-		mathematica
 		catppuccin-sddm-corners
 		libsForQt5.qt5.qtgraphicaleffects
 		libsForQt5.qt5.qtquickcontrols2
-		krita
-		prismlauncher
-		blender
-		cava
 		libdbusmenu-gtk3
 		libnotify
-		gnome.gnome-calculator
-		cinnamon.nemo
-		rofimoji
-		wf-recorder
 		bun
 		dart-sass
 		fd
 		neo
-		obs-studio
-		zoom-us
 		jdk8
 		jdt-language-server
 		lua-language-server
@@ -46,43 +35,14 @@ in {
 		rust-analyzer
 		intel-compute-runtime
 		intel-media-driver
-		gnome.nautilus
-		gradience
-		btop
-		neofetch
-		firefox
-		chromium
 		git
 		gh
-		neovide
-		foot
-		waybar
-		dunst
-		wofi
-		brightnessctl
-		swww
 		fzf
-		hyprpicker
-		slurp
-		sway-contrib.grimshot
-		wl-clipboard
-		swappy
-		easyeffects
-		pavucontrol
-		qogir-icon-theme
 		gcc
-		eza
-		zoxide
-		udiskie
 		ntfs3g
-		swaylock-effects
-		swayidle
 		killall
-		bat
-		bat-extras.batman
 		texliveFull
 		texlab
-		zathura
 		inputs.matugen.packages.${system}.default
 	];
 

@@ -26,6 +26,44 @@
 		ripgrep
 		pulseaudio # for pactl
 		playerctl
+		mathematica
+		krita
+		blender
+		prismlauncher
+		cava
+		gnome.gnome-calculator
+		cinnamon.nemo
+		rofimoji
+		wf-recorder
+		obs-studio
+		zoom-us
+		gnome.nautilus
+		gradience
+		btop
+		neofetch
+		firefox
+		chromium
+		neovide
+		foot
+		waybar
+		dunst
+		wofi
+		swww
+		hyprpicker
+		slurp
+		sway-contrib.grimshot
+		wl-clipboard
+		swappy
+		easyeffects
+		pavucontrol
+		eza
+		zoxide
+		udiskie
+		swaylock-effects
+		swayidle
+		bat
+		bat-extras.batman
+		zathura
 	];
 
 	programs = {
