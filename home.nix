@@ -24,6 +24,8 @@
 	home.packages = with pkgs; [
 		git
 		ripgrep
+		pulseaudio # for pactl
+		playerctl
 	];
 
 	programs = {
@@ -130,7 +132,7 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 				allow_tearing = false;
 			};
 			animations = {
-				first_launch_animation = true;
+				first_launch_animation = false;
 				bezier = "myBezier, 0.16, 1, 0.3, 1";
 				animation = [
 					"windows, 1, 3, myBezier"
