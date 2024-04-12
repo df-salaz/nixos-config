@@ -21,11 +21,16 @@
 		size = 16;
 	};
 
-#	home.packages = with pkgs; [
-#		hello
-#	];
+	home.packages = with pkgs; [
+		git
+		emacs
+		ripgrep
+	];
 
 	programs = {
+		emacs = {
+			enable = true;
+		};
 		zsh = {
 			enable = true;
 			shellAliases = {
