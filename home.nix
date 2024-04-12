@@ -57,9 +57,10 @@
 				source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 			'';
 			initExtra = ''
-				ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion history)
-				[[ ! -f ~/.dotfiles/p10k.zsh ]] || source ~/.dotfiles/p10k.zsh
-				source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion history)
+[[ ! -f ~/.dotfiles/p10k.zsh ]] || source ~/.dotfiles/p10k.zsh
+source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+PATH="$HOME/.emacs.d/bin:$PATH"
 			'';
 		};
 		ags = {
