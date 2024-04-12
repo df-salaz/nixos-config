@@ -21,6 +21,7 @@
 		size = 16;
 	};
 
+	nixpkgs.config.allowUnfree = true;
 	home.packages = with pkgs; [
 		git
 		ripgrep
