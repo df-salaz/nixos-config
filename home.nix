@@ -65,6 +65,7 @@
 		bat
 		bat-extras.batman
 		zathura
+		brightnessctl
 	];
 
 	programs = {
