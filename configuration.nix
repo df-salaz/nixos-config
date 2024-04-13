@@ -19,7 +19,6 @@ in {
 		catppuccin-sddm-corners
 		libsForQt5.qt5.qtgraphicaleffects
 		libsForQt5.qt5.qtquickcontrols2
-		neo
 		jdk8
 		jdt-language-server
 		lua-language-server
@@ -39,13 +38,11 @@ in {
 		zsh = {
 			enable = true;
 			shellAliases = {
-				ls = "eza --color=auto";
 				grep = "grep --color=auto";
 				ip = "ip -color=auto";
 				ll = "ls -l";
 				la = "ll -a";
 				c = "clear";
-				man = "batman";
 			};
 			syntaxHighlighting.enable = true;
 			enableBashCompletion = true;

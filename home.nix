@@ -5,8 +5,8 @@
 	home.homeDirectory = "/home/koye";
 
 	home.file = {
-#		".config/hypr/hyprland.conf".source = config/hypr/hyprland.conf;
-#		Causing issues -- will return to this
+	#	".config/hypr/hyprland.conf".source = config/hypr/hyprland.conf;
+	#	Causing issues -- will return to this
 	};
 
 	home.sessionVariables = {
@@ -22,23 +22,21 @@
 
 	nixpkgs.config.allowUnfree = true;
 	home.packages = with pkgs; [
-		git
+		vlc
+		dolphin-emu
+		neo
 		obsidian
-		ripgrep
-		pulseaudio # for pactl
+		pulseaudio # pactl is not accessible otherwise
 		playerctl
 		mathematica
 		krita
 		blender
 		prismlauncher
-		cava
 		gnome.gnome-calculator
 		cinnamon.nemo
 		rofimoji
-		obs-studio
 		zoom-us
 		gnome.nautilus
-		gradience
 		neofetch
 		firefox
 		chromium
@@ -47,13 +45,9 @@
 		dunst
 		wofi
 		sway-contrib.grimshot
-		easyeffects
 		pavucontrol
-		zoxide
-		udiskie
 		swaylock-effects
 		swayidle
-		bat-extras.batman
 	# AGS dependencies:
 		libdbusmenu-gtk3
 		libnotify
@@ -75,6 +69,36 @@
 	xdg.enable = true;
 
 	programs = {
+		ripgrep.enable = true;
+		obs-studio.enable = true;
+		zoxide = {
+			enable = true;
+			enableZshIntegration = true;
+		};
+		cava = {
+			enable = true;
+			settings = {
+				color = {
+					gradient = 1;
+					gradient_count = 8;
+					gradient_color_1 = "'#94e2d5'";
+					gradient_color_2 = "'#89dceb'";
+					gradient_color_3 = "'#74c7ec'";
+					gradient_color_4 = "'#89b4fa'";
+					gradient_color_5 = "'#cba6f7'";
+					gradient_color_6 = "'#f5c2e7'";
+					gradient_color_7 = "'#eba0ac'";
+					gradient_color_8 = "'#f38ba8'";
+				};
+				input.method = "pipewire";
+				smoothing.noise_reduction = 15;
+			};
+		};
+		git = {
+			enable = true;
+			userEmail = "df.salaz@gmail.com";
+			userName = "David";
+		};
 		eza = {
 			enable = true;
 			enableZshIntegration = true;
@@ -123,6 +147,7 @@
 		bat = {
 			enable = true;
 			catppuccin.enable = true;
+			extraPackages = with pkgs.bat-extras; [ batman ];
 		};
 		btop = {
 			enable = true;
@@ -148,7 +173,6 @@
 				man = "batman";
 				jrun = "mvn compile && mvn exec:java";
 				jj = "javac *.java && java Main";
-# Nix likes to touch the .git directory as root :)
 				nix-chown = "sudo chown -R koye ~/.nixos-config";
 				nixr = "sudo nixos-rebuild switch --flake ~/.nixos-config && nix-chown";
 				nixb = "sudo nixos-rebuild boot --flake ~/.nixos-config && nix-chown";
@@ -177,6 +201,12 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 		};
 	};
 
+	services = {
+		easyeffects.enable = true;
+		cliphist.enable = true;
+		udiskie.enable = true;
+	};
+
 	gtk = {
 		enable = true;
 		catppuccin.enable = true;
@@ -185,6 +215,10 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 			name = "Papirus";
 			package = pkgs.papirus-icon-theme;
 		};
+	};
+	qt = {
+		enable = true;
+		platformTheme = "gtk3";
 	};
 
 	# Hyprland
@@ -212,8 +246,6 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 				"wl-paste --watch cliphist store"
 				"~/.config/hypr"
 				"ags"
-				"easyeffects --gapplication-service"
-				"udiskie"
 			];
 			input = {
 				kb_layout = "us";
