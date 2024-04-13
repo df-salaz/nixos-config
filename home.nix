@@ -70,6 +70,7 @@
 		wl-clipboard
 	];
 
+	catppuccin.accent = "mauve";
 	catppuccin.flavour = "mocha";
 	xdg.enable = true;
 
@@ -179,6 +180,7 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 	gtk = {
 		enable = true;
 		catppuccin.enable = true;
+		catppuccin.accent = "mauve";
 		iconTheme = {
 			name = "Papirus";
 			package = pkgs.papirus-icon-theme;
