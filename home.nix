@@ -142,6 +142,14 @@
 				};
 			};
 		};
+		kitty = {
+			enable = true;
+			catppuccin.enable = true;
+			font.package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+			font.name = "JetBrains Mono Nerd Font";
+			font.size = 12;
+			shellIntegration.enableZshIntegration = true;
+		};
 		zathura = {
 			enable = true;
 			catppuccin.enable = true;
