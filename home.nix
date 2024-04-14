@@ -46,6 +46,20 @@
 		pavucontrol
 		swaylock-effects
 		swayidle
+	# AGS dependencies:
+		libdbusmenu-gtk3
+		libnotify
+		bun
+		fd
+		dart-sass
+		brightnessctl
+		swww
+		#inputs.matugen.packages.${system}.default
+	# Optional AGS dependencies:
+		hyprpicker
+		slurp
+		wf-recorder
+		wl-clipboard
 	];
 
 	catppuccin.accent = "mauve";
@@ -184,18 +198,6 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 				gtksourceview
 				webkitgtk
 				accountsservice
-				libdbusmenu-gtk3
-				libnotify
-				bun
-				fd
-				dart-sass
-				swww
-				brightnessctl
-				#inputs.matugen.packages.${system}.default
-				hyprpicker
-				slurp
-				wf-recorder
-				wl-clipboard
 			];
 		};
 	};
