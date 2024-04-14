@@ -25,9 +25,8 @@
 		vlc
 		dolphin-emu
 		neo
+		neovide
 		obsidian
-		pulseaudio # pactl is not accessible otherwise
-		playerctl
 		mathematica
 		krita
 		blender
@@ -40,7 +39,6 @@
 		neofetch
 		firefox
 		chromium
-		neovide
 		waybar
 		dunst
 		wofi
@@ -48,20 +46,6 @@
 		pavucontrol
 		swaylock-effects
 		swayidle
-	# AGS dependencies:
-		libdbusmenu-gtk3
-		libnotify
-		bun
-		fd
-		dart-sass
-		brightnessctl
-		swww
-		#inputs.matugen.packages.${system}.default
-	# Optional AGS dependencies:
-		hyprpicker
-		slurp
-		wf-recorder
-		wl-clipboard
 	];
 
 	catppuccin.accent = "mauve";
@@ -74,6 +58,9 @@
 		zoxide = {
 			enable = true;
 			enableZshIntegration = true;
+			options = [
+				"--cmd cd"
+			];
 		};
 		cava = {
 			enable = true;
@@ -168,10 +155,10 @@
 				ll = "ls -l";
 				la = "ll -a";
 				c = "clear";
-				vim = "neovide --no-fork &> /dev/null";
-				svim = "sudo -E neovide --no-fork &> /dev/null";
-				man = "batman";
-				jrun = "mvn compile && mvn exec:java";
+				vim = "${pkgs.neovide}/bin/neovide --no-fork &> /dev/null";
+				svim = "sudo -E ${pkgs.neovide} --no-fork &> /dev/null";
+				man = "${pkgs.bat-extras.batman}/bin/batman";
+				jrun = "${pkgs.maven}/bin/mvn compile && mvn exec:java";
 				jj = "javac *.java && java Main";
 				nix-chown = "sudo chown -R koye ~/.nixos-config";
 				nixr = "sudo nixos-rebuild switch --flake ~/.nixos-config && nix-chown";
@@ -197,6 +184,18 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 				gtksourceview
 				webkitgtk
 				accountsservice
+				libdbusmenu-gtk3
+				libnotify
+				bun
+				fd
+				dart-sass
+				swww
+				brightnessctl
+				#inputs.matugen.packages.${system}.default
+				hyprpicker
+				slurp
+				wf-recorder
+				wl-clipboard
 			];
 		};
 	};
@@ -227,24 +226,23 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 		catppuccin.enable = true;
 		settings = {
 			monitor = "eDP-1, 1920x1080@60, 0x0, 1";
-			"$terminal" = "foot";
-			"$lock" = "swaylock";
+			"$terminal" = "${pkgs.foot}/bin/foot";
+			"$lock" = "${pkgs.swaylock-effects}/bin/swaylock";
 			"$mainMod" = "SUPER";
-			"$calculator" = "gnome-calculator";
+			"$calculator" = "${pkgs.gnome.gnome-calculator}/bin/gnome-calculator";
 			"$power" = "ags -t powermenu";
-			"$emoji" = "rofimoji --selector wofi";
-			"$clipboard" = "wtype -- $(cliphist list | wofi -S dmenu -P Paste | cliphist decode)";
-			"$runner" = "wofi -b -i -S run | xargs hyprctl dispatch exec --";
+			"$emoji" = "${pkgs.rofimoji}/bin/rofimoji --selector wofi";
+			"$clipboard" = "${pkgs.wtype}/bin/wtype -- $(${pkgs.cliphist}/bin/cliphist list | ${pkgs.wofi}/bin/wofi -S dmenu -P Paste | ${pkgs.cliphist}/bin/cliphist decode)";
+			"$runner" = "${pkgs.wofi}/bin/wofi -b -i -S run | xargs hyprctl dispatch exec --";
 			"$menu" = "ags -t applauncher";
 			"$screenshots" = "/home/koye/Pictures/Screenshots";
 			"$ss-save" = "$screenshots/Screenshot-$(date '+%a-%b-%d-%T-%Z-%Y').png";
-			"$ss" = "wl-copy < $(grimshot --notify save area $ss-save)";
-			"$ss-wait" = "wl-copy < $(grimshot --notify --wait 5 save area $ss-save)";
-			"$ss-screen" = "wl-copy < $(grimshot --notify save screen $ss-save)";
+			"$ss" = "${pkgs.wl-clipboard}/bin/wl-copy < $(grimshot --notify save area $ss-save)";
+			"$ss-wait" = "${pkgs.wl-clipboard}/bin/wl-copy < $(grimshot --notify --wait 5 save area $ss-save)";
+			"$ss-screen" = "${pkgs.wl-clipboard}/bin/wl-copy < $(grimshot --notify save screen $ss-save)";
 			exec-once = [
-				"swayidle"
-				"wl-paste --watch cliphist store"
-				"~/.config/hypr"
+				"${pkgs.swayidle}/bin/swayidle"
+				"${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store"
 				"ags"
 			];
 			input = {
@@ -328,14 +326,14 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 				"$mainMod SHIFT, C, exec, hyprctl reload; ags -q; ags"
 				"$mainMod SHIFT, S, exec, $ss"
 				"$mainMod SHIFT, D, exec, $ss-wait"
-				",XF86MonBrightnessDown, exec, brightnessctl set 5%- -n 1920"
-				",XF86MonBrightnessUp, exec, brightnessctl set +5%"
-				",XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
-				",XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
-				",XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
-				",XF86AudioPrev, exec, playerctl previous"
-				",XF86AudioPlay, exec, playerctl play-pause"
-				",XF86AudioNext, exec, playerctl next"
+				",XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%- -n 1920"
+				",XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +5%"
+				",XF86AudioMute, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle"
+				",XF86AudioLowerVolume, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%"
+				",XF86AudioRaiseVolume, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%"
+				",XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
+				",XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+				",XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
 				"$mainMod, H, movefocus, l"
 				"$mainMod, L, movefocus, r"
 				"$mainMod, K, movefocus, u"
