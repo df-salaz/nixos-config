@@ -142,14 +142,6 @@
 				};
 			};
 		};
-		kitty = {
-			enable = true;
-			catppuccin.enable = true;
-			font.package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
-			font.name = "JetBrains Mono Nerd Font";
-			font.size = 12;
-			shellIntegration.enableZshIntegration = true;
-		};
 		zathura = {
 			enable = true;
 			catppuccin.enable = true;
@@ -237,7 +229,7 @@
 		catppuccin.enable = true;
 		settings = {
 			monitor = "eDP-1, 1920x1080@60, 0x0, 1";
-			"$terminal" = "${pkgs.kitty}/bin/kitty";
+			"$terminal" = "${pkgs.foot}/bin/foot";
 			"$lock" = "${pkgs.swaylock-effects}/bin/swaylock";
 			"$mainMod" = "SUPER";
 			"$calculator" = "${pkgs.gnome.gnome-calculator}/bin/gnome-calculator";
