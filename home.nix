@@ -237,7 +237,7 @@
 		catppuccin.enable = true;
 		settings = {
 			monitor = "eDP-1, 1920x1080@60, 0x0, 1";
-			"$terminal" = "${pkgs.foot}/bin/foot";
+			"$terminal" = "${pkgs.kitty}/bin/kitty";
 			"$lock" = "${pkgs.swaylock-effects}/bin/swaylock";
 			"$mainMod" = "SUPER";
 			"$calculator" = "${pkgs.gnome.gnome-calculator}/bin/gnome-calculator";
