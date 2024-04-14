@@ -111,7 +111,7 @@
 			settings = {
 				main = {
 					font = "JetBrainsMono Nerd Font:size=12";
-					initial-window-size-chars = "80x24";
+					initial-window-size-chars = "84x24";
 				};
 				mouse = {
 					hide-when-typing = "yes";
