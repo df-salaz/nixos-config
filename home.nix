@@ -111,6 +111,7 @@
 			settings = {
 				main = {
 					font = "JetBrainsMono Nerd Font:size=12";
+					initial-window-size-chars = "80x24";
 				};
 				mouse = {
 					hide-when-typing = "yes";
@@ -184,20 +185,20 @@
 			autocd = true;
 			initExtraFirst = ''
 				source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
-			'';
+				'';
 			initExtra = ''
-ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion history)
-[[ ! -f ~/.dotfiles/p10k.zsh ]] || source ~/.dotfiles/p10k.zsh
-source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-PATH="$HOME/.emacs.d/bin:$PATH"
-			'';
+				ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion history)
+				[[ ! -f ~/.dotfiles/p10k.zsh ]] || source ~/.dotfiles/p10k.zsh
+				source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+					PATH="$HOME/.emacs.d/bin:$PATH"
+					'';
 		};
 		ags = {
 			enable = true;
 			extraPackages = with pkgs; [
 				gtksourceview
-				webkitgtk
-				accountsservice
+					webkitgtk
+					accountsservice
 			];
 		};
 	};
@@ -222,7 +223,7 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 		platformTheme = "gtk3";
 	};
 
-	# Hyprland
+# Hyprland
 	wayland.windowManager.hyprland = {
 		enable = true;
 		catppuccin.enable = true;
@@ -244,8 +245,8 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 			"$ss-screen" = "${pkgs.wl-clipboard}/bin/wl-copy < $(grimshot --notify save screen $ss-save)";
 			exec-once = [
 				"${pkgs.swayidle}/bin/swayidle"
-				"${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store"
-				"ags"
+					"${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store"
+					"ags"
 			];
 			input = {
 				kb_layout = "us";
@@ -269,11 +270,11 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 				bezier = "myBezier, 0.16, 1, 0.3, 1";
 				animation = [
 					"windows, 1, 3, myBezier"
-					"windowsOut, 1, 7, myBezier, popin 80%"
-					"border, 1, 2, default"
-					"borderangle, 1, 8, default"
-					"fade, 1, 3, myBezier"
-					"workspaces, 1, 2, myBezier"
+						"windowsOut, 1, 7, myBezier, popin 80%"
+						"border, 1, 2, default"
+						"borderangle, 1, 8, default"
+						"fade, 1, 3, myBezier"
+						"workspaces, 1, 2, myBezier"
 				];
 			};
 			dwindle = {
@@ -303,67 +304,67 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 			};
 			windowrule = [
 				"noblur,^(?!(foot|neovide|swayimg)) # Only blur the terminal and Neovim"
-				"windowdance,title:^(Rhythm Doctor)$"
-				"forceinput,title:^(Rhythm Doctor)$"
+					"windowdance,title:^(Rhythm Doctor)$"
+					"forceinput,title:^(Rhythm Doctor)$"
 			];
 			windowrulev2 = [
 				"float,class:^(org.gnome.Calculator)$"
-				"suppressevent maximize, class:.*"
-				"immediate, class:.*"
+					"suppressevent maximize, class:.*"
+					"immediate, class:.*"
 			];
 			bind = [
 				"$mainMod, tab, exec, ags -t overview"
-				"$mainMod, return, exec, $terminal"
-				"$mainMod, C, killactive,"
-				"$mainMod, Q, exec, $calculator"
-				"$mainMod, P, pin,"
-				"$mainMod, F, fullscreen,"
-				"$mainMod, G, fakefullscreen,"
-				"$mainMod, M, exec, $lock"
-				"$mainMod, E, exec, $power"
-				"$mainMod, V, togglefloating, "
-				"$mainMod, R, exec, $menu"
-				"$mainMod, F2, exec, $runner"
-				"$mainMod, comma, exec, $emoji"
-				"$mainMod SHIFT, C, exec, hyprctl reload; ags -q; ags"
-				"$mainMod SHIFT, S, exec, $ss"
-				"$mainMod SHIFT, D, exec, $ss-wait"
-				",XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%- -n 1920"
-				",XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +5%"
-				",XF86AudioMute, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle"
-				",XF86AudioLowerVolume, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%"
-				",XF86AudioRaiseVolume, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%"
-				",XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
-				",XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
-				",XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
-				"$mainMod, H, movefocus, l"
-				"$mainMod, L, movefocus, r"
-				"$mainMod, K, movefocus, u"
-				"$mainMod, J, movefocus, d"
-				"$mainMod, minus, togglespecialworkspace, scratchpad"
-				"$mainMod SHIFT, minus, movetoworkspace, special:scratchpad"
-				"$mainMod, mouse_up, workspace, e+1"
-				"$mainMod, mouse_down, workspace, e-1"
-				"$mainMod, right, workspace, e+1"
-				"$mainMod, left, workspace, e-1"
-			] ++ (
-				builtins.concatLists (builtins.genList (
-					x: let
-						ws = let
-						c = (x + 1) / 10;
-						in
-						builtins.toString (x + 1 - (c * 10));
-					in [
-						"$mainMod, ${ws}, workspace, ${toString (x + 1)}"
-						"$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-					]
-				)10)
-			);
+					"$mainMod, return, exec, $terminal"
+					"$mainMod, C, killactive,"
+					"$mainMod, Q, exec, $calculator"
+					"$mainMod, P, pin,"
+					"$mainMod, F, fullscreen,"
+					"$mainMod, G, fakefullscreen,"
+					"$mainMod, M, exec, $lock"
+					"$mainMod, E, exec, $power"
+					"$mainMod, V, togglefloating, "
+					"$mainMod, R, exec, $menu"
+					"$mainMod, F2, exec, $runner"
+					"$mainMod, comma, exec, $emoji"
+					"$mainMod SHIFT, C, exec, hyprctl reload; ags -q; ags"
+					"$mainMod SHIFT, S, exec, $ss"
+					"$mainMod SHIFT, D, exec, $ss-wait"
+					",XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%- -n 1920"
+					",XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +5%"
+					",XF86AudioMute, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle"
+					",XF86AudioLowerVolume, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%"
+					",XF86AudioRaiseVolume, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%"
+					",XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
+					",XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+					",XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+					"$mainMod, H, movefocus, l"
+					"$mainMod, L, movefocus, r"
+					"$mainMod, K, movefocus, u"
+					"$mainMod, J, movefocus, d"
+					"$mainMod, minus, togglespecialworkspace, scratchpad"
+					"$mainMod SHIFT, minus, movetoworkspace, special:scratchpad"
+					"$mainMod, mouse_up, workspace, e+1"
+					"$mainMod, mouse_down, workspace, e-1"
+					"$mainMod, right, workspace, e+1"
+					"$mainMod, left, workspace, e-1"
+					] ++ (
+							builtins.concatLists (builtins.genList (
+									x: let
+									ws = let
+									c = (x + 1) / 10;
+									in
+									builtins.toString (x + 1 - (c * 10));
+									in [
+									"$mainMod, ${ws}, workspace, ${toString (x + 1)}"
+									"$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+									]
+									)10)
+						 );
 			bindm = [
 				"$mainMod, mouse:272, movewindow"
-				"$mainMod, mouse:273, resizewindow"
+					"$mainMod, mouse:273, resizewindow"
 			];
-			workspace = "special:scratchpad, on-created-empty:[float] foot -L sh -c 'neofetch && zsh'";
+			workspace = "special:scratchpad, on-created-empty:[float] ${pkgs.foot}/bin/foot -L sh -c '${pkgs.neofetch}/bin/neofetch && ${pkgs.zsh}/bin/zsh'";
 		};
 	};
 	
