@@ -12,7 +12,7 @@ in {
 	#	inputs.home-manager.nixosModules.default
 	];
 
-	catppuccin.flavor = "mocha";
+	catppuccin.flavour = "mocha";
 	console.catppuccin.enable = true;
 
 	# Allow unfree packages
