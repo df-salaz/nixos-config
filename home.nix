@@ -207,6 +207,7 @@
 		easyeffects.enable = true;
 		cliphist.enable = true;
 		udiskie.enable = true;
+		udiskie.tray = "never";
 	};
 
 	gtk = {

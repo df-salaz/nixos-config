@@ -12,6 +12,9 @@ in {
 	#	inputs.home-manager.nixosModules.default
 	];
 
+	catppuccin.flavor = "mocha";
+	console.catppuccin.enable = true;
+
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 	environment.defaultPackages = [];
