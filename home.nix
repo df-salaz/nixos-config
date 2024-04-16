@@ -23,6 +23,7 @@
 	nixpkgs.config.allowUnfree = true;
 	home.packages = with pkgs; [
 		vlc
+		discord
 		dolphin-emu
 		neo
 		neovide
