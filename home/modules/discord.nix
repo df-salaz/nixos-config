@@ -1,4 +1,4 @@
-{ inputs, pkgs, config ... }:
+{ inputs, pkgs, config, ... }:
 {
 	home.packages = with pkgs; [
 		pkgs.betterdiscordctl
