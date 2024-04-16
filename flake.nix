@@ -3,9 +3,18 @@
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-		ags.url = "github:Aylur/ags";
-		matugen.url = "github:InioX/Matugen";
-		catppuccin.url = "github:catppuccin/nix";
+		ags = {
+			url = "github:Aylur/ags";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+		matugen = {
+			url = "github:InioX/Matugen";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+		catppuccin = {
+			url = "github:catppuccin/nix";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 		home-manager = {
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
