@@ -41,11 +41,6 @@
 	programs = {
 		ripgrep.enable = true;
 		obs-studio.enable = true;
-		git = {
-			enable = true;
-			userEmail = "df.salaz@gmail.com";
-			userName = "David";
-		};
 		zathura = {
 			enable = true;
 			catppuccin.enable = true;

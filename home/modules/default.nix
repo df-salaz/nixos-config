@@ -5,5 +5,6 @@
 		./gtk.nix
 		./shell.nix
 		./cava.nix
+		./git.nix
 	];
 }
