@@ -21,7 +21,7 @@
 			inherit system;
 			specialArgs = {inherit inputs;};
 			modules = [
-				./system/system.nix
+				./system/configuration.nix
 				catppuccin.nixosModules.catppuccin
 				home-manager.nixosModules.home-manager
 				{
