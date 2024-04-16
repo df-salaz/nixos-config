@@ -5,7 +5,7 @@
 		discord
 	];
 	home.file = {
-		".config/BetterDiscord/data/stable/custom.css" =
+		".config/BetterDiscord/data/stable/custom.css".text =
 			''@import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css");'';
 	};
 }
