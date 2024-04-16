@@ -3,16 +3,13 @@
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+		catppuccin.url = "github:catppuccin/nix";
 		ags = {
 			url = "github:Aylur/ags";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		matugen = {
 			url = "github:InioX/Matugen";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-		catppuccin = {
-			url = "github:catppuccin/nix";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		home-manager = {
