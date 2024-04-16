@@ -21,7 +21,7 @@
 			inherit system;
 			specialArgs = {inherit inputs;};
 			modules = [
-				./configuration.nix
+				./system/system.nix
 				catppuccin.nixosModules.catppuccin
 				home-manager.nixosModules.home-manager
 				{
@@ -29,7 +29,7 @@
 					home-manager.useUserPackages = true;
 					home-manager.users.koye = {
 						imports = [
-							./home.nix
+							./home/home.nix
 							ags.homeManagerModules.default						
 							catppuccin.homeManagerModules.catppuccin
 						];

@@ -1,13 +1,12 @@
 { config, inputs, pkgs, ... }:
 
 {
+	imports = [
+		./user
+	];
+
 	home.username = "koye";
 	home.homeDirectory = "/home/koye";
-
-	home.file = {
-	#	".config/hypr/hyprland.conf".source = config/hypr/hyprland.conf;
-	#	Causing issues -- will return to this
-	};
 
 	home.sessionVariables = {
 		EDITOR = "nvim";
@@ -23,7 +22,6 @@
 	nixpkgs.config.allowUnfree = true;
 	home.packages = with pkgs; [
 		vlc
-		discord
 		dolphin-emu
 		neo
 		neovide
@@ -68,6 +66,7 @@
 	xdg.enable = true;
 
 	programs = {
+		discocss.enable = true;
 		ripgrep.enable = true;
 		obs-studio.enable = true;
 		zoxide = {
@@ -219,6 +218,8 @@
 			name = "Papirus";
 			package = pkgs.papirus-icon-theme;
 		};
+		gtk3.extraConfig.Settings = ''gtk-application-prefer-dark-theme = 1;'';
+		gtk4.extraConfig.Settings = ''gtk-application-prefer-dark-theme = 1;'';
 	};
 	qt = {
 		enable = true;
