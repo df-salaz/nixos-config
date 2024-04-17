@@ -4,7 +4,10 @@
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 		catppuccin.url = "github:catppuccin/nix";
-		nur.url = "github:nix-community/NUR";
+		nur = {
+			url = "github:nix-community/NUR";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 		ags = {
 			url = "github:Aylur/ags";
 			inputs.nixpkgs.follows = "nixpkgs";
