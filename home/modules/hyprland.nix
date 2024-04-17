@@ -198,7 +198,8 @@
 			inside-ver-color = "000000aa";
 			inside-clear-color = "000000aa";
 			text-wrong = "Incorrect";
-			text-ver = "text-color=ffffff";
+			text-ver = "";
+			text-color = "ffffff";
 			text-wrong-color = "ffffff";
 			text-clear-color = "ffffff";
 			bs-hl-color = "he06c75";
