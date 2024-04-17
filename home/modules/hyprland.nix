@@ -169,14 +169,7 @@
 			accountsservice
 		];
 	};
-	programs.swayidle = {
-		enable = true;
-		events = [{
-			event = "before-sleep";
-			command = "${pkgs.swaylock-effects}/bin/swaylock";
-		}];
-	};
-	services.swaylock = {
+	programs.swaylock = {
 		enable = true;
 		package = pkgs.swaylock-effects;
 		settings = {
@@ -211,5 +204,12 @@
 			bs-hl-color = "he06c75";
 			image = "~/Pictures/starship.png";
 		};
+	};
+	services.swayidle = {
+		enable = true;
+		events = [{
+			event = "before-sleep";
+			command = "${pkgs.swaylock-effects}/bin/swaylock";
+		}];
 	};
 }
