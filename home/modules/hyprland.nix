@@ -38,7 +38,6 @@
 			"$ss-wait" = "${pkgs.wl-clipboard}/bin/wl-copy < $(${pkgs.sway-contrib.grimshot}/bin/grimshot --notify --wait 5 save area $ss-save)";
 			"$ss-screen" = "${pkgs.wl-clipboard}/bin/wl-copy < $(${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save screen $ss-save)";
 			exec-once = [
-				"${pkgs.swayidle}/bin/swayidle"
 				"${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store"
 				"ags"
 			];
@@ -169,5 +168,48 @@
 			webkitgtk
 			accountsservice
 		];
+	};
+	programs.swayidle = {
+		enable = true;
+		events = [{
+			event = "before-sleep";
+			command = "${pkgs.swaylock-effects}/bin/swaylock";
+		}];
+	};
+	programs.swaylock = {
+		enable = true;
+		package = pkgs.swaylock-effects;
+		settings = {
+			indicator-idle-visible = true;
+			clock = true;
+			hide-keyboard-layout = true;
+			disable-caps-lock-text = true;
+			font = "JetBrainsMonoNerdFontMono";
+			timestr = "%I:%M %p";
+			effect-blur = "14x5";
+			effect-vignette = "0.7:0";
+			indicator-radius = "400";
+			indicator-thickness = "20";
+			key-hl-color = "ffffff";
+			separator-color = "00000000";
+			ring-color = "61afef";
+			ring-ver-color = "98c379";
+			ring-wrong-color = "e06c75";
+			ring-clear-color = "98c379";
+			line-color = "00000000";
+			line-wrong-color = "00000000";
+			line-ver-color = "00000000";
+			line-clear-color = "00000000";
+			inside-color = "000000aa";
+			inside-wrong-color = "000000aa";
+			inside-ver-color = "000000aa";
+			inside-clear-color = "000000aa";
+			text-wrong = "Incorrect";
+			text-ver = "text-color=ffffff";
+			text-wrong-color = "ffffff";
+			text-clear-color = "ffffff";
+			bs-hl-color = "he06c75";
+			image = "~/Pictures/starship.png";
+		};
 	};
 }
