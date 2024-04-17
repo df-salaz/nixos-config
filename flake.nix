@@ -4,6 +4,7 @@
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 		catppuccin.url = "github:catppuccin/nix";
+		nur.url = "github:nix-community/NUR";
 		ags = {
 			url = "github:Aylur/ags";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -18,15 +19,16 @@
 		};
 	};
 
-	outputs = { self, nixpkgs, catppuccin, ags, home-manager, ... }@inputs:
+	outputs = { self, nixpkgs, catppuccin, nur, ags, home-manager, ... } 
+	@inputs:
 	let
 		system = "x86_64-linux";
-		pkgs = import nixpkgs {inherit system;};
 	in {
 		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 			inherit system;
 			specialArgs = {inherit inputs;};
 			modules = [
+				{nixpkgs.overlays = [ nur.overlay ]; }
 				./system/configuration.nix
 				catppuccin.nixosModules.catppuccin
 				home-manager.nixosModules.home-manager
