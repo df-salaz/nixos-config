@@ -176,7 +176,7 @@
 			command = "${pkgs.swaylock-effects}/bin/swaylock";
 		}];
 	};
-	programs.swaylock = {
+	services.swaylock = {
 		enable = true;
 		package = pkgs.swaylock-effects;
 		settings = {
