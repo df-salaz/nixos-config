@@ -1,4 +1,4 @@
-{config, inputs, pkgs, ... }:
+{config, inputs, spicetify-nix, pkgs, ... }:
 
 {
 	catppuccin.accent = "mauve";

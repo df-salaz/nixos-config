@@ -24,6 +24,7 @@
 	home-manager, ... } @inputs:
 	let
 		system = "x86_64-linux";
+		
 	in {
 		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 			inherit system;
@@ -34,6 +35,7 @@
 				catppuccin.nixosModules.catppuccin
 				home-manager.nixosModules.home-manager
 				{
+					home-manager.extraSpecialArgs = inputs;
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
 					home-manager.users.koye = {
@@ -41,6 +43,7 @@
 							./home/home.nix
 							ags.homeManagerModules.default						
 							catppuccin.homeManagerModules.catppuccin
+							spicetify-nix.homeManagerModule
 						];
 					};
 				}
