@@ -1,11 +1,7 @@
-{ inputs, pkgs, config, ... }:
+{ inputs, pkgs, lib, userSettings, config, ... }:
 {
-	home.packages = with pkgs; [
-		pkgs.betterdiscordctl
+	home.packages = with pkgs; lib.optionals (userSettings.discord.enable) [
+		betterdiscordctl
 		discord
 	];
-	home.file = {
-		".config/BetterDiscord/data/stable/custom.css".text =
-			''@import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css");'';
-	};
 }

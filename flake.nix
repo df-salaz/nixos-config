@@ -22,16 +22,35 @@
 	outputs = { self, nixpkgs, catppuccin, nur, ags, home-manager, ... } 
 	@inputs:
 	let
+		# Switches and Settings #
+		# --------------------- #
+
 		# --- System Settings --- #
 		systemSettings = {
+			# Hardware #
 			hostname = "nixos";
 			system = "x86_64-linux";
+
+			# Theming #
+			# Options:
+			# - catppuccin
+			colorScheme = "catppuccin";
 		};
 
 		# --- User Settings --- #
 		userSettings = {
+			# Personal #
 			username = "koye";
+			name = "David";
+			email = "df.salaz@gmail.com";
+
+			# Theming #
+			# Options:
+			# - catppuccin
 			colorScheme = "catppuccin";
+
+			# Programs #
+			discord.enable = true;
 		};
 	in {
 		nixosConfigurations.${systemSettings.hostname} = 

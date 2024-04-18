@@ -12,14 +12,10 @@ in {
 		./modules
 	];
 
-	catppuccin.flavour = "mocha";
-	console.catppuccin.enable = true;
-
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 	environment.defaultPackages = [];
 	environment.systemPackages = with pkgs; [
-		catppuccin-sddm-corners
 		libsForQt5.qt5.qtgraphicaleffects
 		libsForQt5.qt5.qtquickcontrols2
 		jdk8
@@ -89,7 +85,6 @@ in {
 # Bootloader.
 	boot.kernelPackages = pkgs.linuxPackages_latest;
 	boot.loader.grub.enable = true;
-	boot.loader.grub.catppuccin.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
 	boot.loader.grub = {
 		efiSupport = true;
@@ -129,7 +124,6 @@ in {
 		enable = true;
 		wayland.enable = true;
 		autoNumlock = true;
-		theme = "catppuccin-sddm-corners";
 	};
 # services.xserver.desktopManager.gnome.enable = true;
 	xdg.portal = {

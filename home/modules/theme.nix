@@ -11,6 +11,10 @@ in
 			accent = "mauve";
 		};
 	};
+	home.file = lib.mkIf (userSettings.discord.enable && catppuccin) {
+		".config/BetterDiscord/data/stable/custom.css".text =
+			''@import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css");'';
+	};
 	programs = {
 		cava.settings.color = lib.mkIf catppuccin {
 			gradient = 1;
