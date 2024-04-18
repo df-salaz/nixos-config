@@ -22,11 +22,13 @@
 	outputs = { self, nixpkgs, catppuccin, nur, ags, home-manager, ... } 
 	@inputs:
 	let
-		system = "x86_64-linux";
-		
+		options = {
+			username = "koye";
+			hostname = "nixos";
+		};
 	in {
-		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-			inherit system;
+		nixosConfigurations.${options.hostname} = nixpkgs.lib.nixosSystem {
+			system = "x86_64-linux";
 			specialArgs = {inherit inputs;};
 			modules = [
 				{nixpkgs.overlays = [ nur.overlay ]; }
@@ -34,18 +36,21 @@
 				catppuccin.nixosModules.catppuccin
 				home-manager.nixosModules.home-manager
 				{
-					home-manager.extraSpecialArgs = inputs;
+					home-manager.extraSpecialArgs = {inherit inputs;};
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
-					home-manager.users.koye = {
-						imports = [
-							./home/home.nix
-							ags.homeManagerModules.default						
-							catppuccin.homeManagerModules.catppuccin
-						];
+					home-manager.users = {
+						${options.username} = {
+							imports = [
+								./home/home.nix
+								ags.homeManagerModules.default						
+								catppuccin.homeManagerModules.catppuccin
+							];
+						};
 					};
 				}
 			];
 		};
+
 	};
 }
