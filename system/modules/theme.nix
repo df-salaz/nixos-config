@@ -4,7 +4,7 @@ let
 	catppuccin = systemSettings.colorScheme == "catppuccin";
 in
 {
-	catppuccin.flavour = lib.mkIf catppuccin "mocha";
+	catppuccin.flavour = lib.mkIf (catppuccin) systemSettings.catppuccin.flavor;
 	console.catppuccin.enable = lib.mkIf catppuccin true;
 	boot.loader.grub.catppuccin.enable = lib.mkIf catppuccin true;
 	services.displayManager.sddm.theme = lib.mkIf catppuccin 

@@ -7,15 +7,20 @@ in
 	gtk.iconTheme = lib.mkIf catppuccin {
 		name = "Papirus";
 		package = pkgs.catppuccin-papirus-folders.override {
-			flavor = "mocha";
-			accent = "mauve";
+			flavor = userSettings.catppuccin.flavor;
+			accent = userSettings.catppuccin.accent;
 		};
 	};
-	home.file = lib.mkIf (userSettings.discord.enable && catppuccin) {
+	home.file = {
 		".config/BetterDiscord/data/stable/custom.css".text =
-			''@import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css");'';
+			lib.mkIf (userSettings.discord.enable && catppuccin)
+				''@import url("https://catppuccin.github.io/discord/dist/catppuccin-${userSettings.catppuccin.flavor}-${userSettings.catppuccin.accent}.theme.css");'';
 	};
 	programs = {
+		bat.catppuccin.enable = lib.mkIf catppuccin true;
+		btop.catppuccin.enable = lib.mkIf catppuccin true;
+		fzf.catppuccin.enable = lib.mkIf catppuccin true;
+		zsh.initExtraFirst = ''source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh'';
 		cava.settings.color = lib.mkIf catppuccin {
 			gradient = 1;
 			gradient_count = 8;
@@ -29,4 +34,5 @@ in
 			gradient_color_8 = "'#f38ba8'";
 		};
 	};
+	wayland.windowManager.hyprland.catppuccin.enable = lib.mkIf catppuccin true;
 }

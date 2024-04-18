@@ -35,6 +35,7 @@
 			# Options:
 			# - catppuccin
 			colorScheme = "catppuccin";
+			catppuccin.flavor = "mocha";
 		};
 
 		# --- User Settings --- #
@@ -48,6 +49,8 @@
 			# Options:
 			# - catppuccin
 			colorScheme = "catppuccin";
+			catppuccin.flavor = "mocha";
+			catppuccin.accent = "mauve";
 
 			# Programs #
 			discord.enable = true;
