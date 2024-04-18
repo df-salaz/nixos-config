@@ -6,7 +6,7 @@
 		accent = "lavender";
 	};
 	programs = {
-		cava.color = {
+		cava.settings.color = {
 			gradient = 1;
 			gradient_count = 8;
 			gradient_color_1 = "'#94e2d5'";
