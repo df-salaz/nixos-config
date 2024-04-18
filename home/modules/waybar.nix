@@ -56,6 +56,6 @@
 				};
 			};
 		};
-		style = ../config/woaybar/style.css;
+		style = ../config/waybar/style.css;
 	};
 }

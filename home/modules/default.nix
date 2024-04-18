@@ -4,6 +4,7 @@
 		./shell.nix
 		./hyprland.nix
 		./wofi.nix
+		./waybar.nix
 	# Programs
 		./git.nix
 		./cava.nix

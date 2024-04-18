@@ -9,6 +9,8 @@
 			width = 800;
 			height = 800;
 		};
-		style = ../config/wofi/style.css;
+	};
+	home.file = {
+		".config/wofi/style.css".source = ../config/wofi/style.css;
 	};
 }
