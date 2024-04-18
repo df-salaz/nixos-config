@@ -1,4 +1,4 @@
-{config, inputs, options, pkgs, ... }:
+{config, inputs, options, userSettings, pkgs, ... }:
 
 {
 	catppuccin.accent = "mauve";
@@ -9,8 +9,8 @@
 		./modules
 	];
 
-	home.username = "${options.username}";
-	home.homeDirectory = "/home/${options.username}";
+	home.username = userSettings.username;
+	home.homeDirectory = "/home/"+userSettings.username;
 
 	home.sessionVariables = {
 		EDITOR = "nvim";

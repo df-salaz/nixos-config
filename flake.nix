@@ -22,12 +22,14 @@
 	outputs = { self, nixpkgs, catppuccin, nur, ags, home-manager, ... } 
 	@inputs:
 	let
-		options = {
-			username = "koye";
+		systemConfig = {
 			hostname = "nixos";
 		};
+		userSettings = {
+			username = "koye";
+		};
 	in {
-		nixosConfigurations.${options.hostname} = nixpkgs.lib.nixosSystem {
+		nixosConfigurations.${systemConfig.hostname} = nixpkgs.lib.nixosSystem{
 			system = "x86_64-linux";
 			specialArgs = {inherit inputs;};
 			modules = [
@@ -40,7 +42,7 @@
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
 					home-manager.users = {
-						${options.username} = {
+						${userSettings.username} = {
 							imports = [
 								./home/home.nix
 								ags.homeManagerModules.default						
