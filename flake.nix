@@ -58,6 +58,7 @@
 							imports = [
 								./home/home.nix
 								ags.homeManagerModules.default						
+								catppuccin.homeManagerModules.catppuccin
 							];
 						};
 					};

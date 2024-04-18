@@ -1,14 +1,10 @@
-{ pkgs, userSettings, lib, catppuccin, ... }:
+{ pkgs, userSettings, lib, ... }:
 
 let
-	catEnabled = userSettings.colorScheme == "catppuccin";
+	catppuccin = userSettings.colorScheme == "catppuccin";
 in
 {
-	imports = lib.mkIf catEnabled [ 
-		catppuccin.homeManagerModules.catppuccin
-	];
-
-	gtk.iconTheme = lib.mkIf catEnabled {
+	gtk.iconTheme = lib.mkIf catppuccin {
 		name = "Papirus";
 		package = pkgs.catppuccin-papirus-folders.override {
 			flavor = "mocha";
@@ -16,7 +12,7 @@ in
 		};
 	};
 	programs = {
-		cava.settings.color = lib.mkIf catEnabled {
+		cava.settings.color = lib.mkIf catppuccin {
 			gradient = 1;
 			gradient_count = 8;
 			gradient_color_1 = "'#94e2d5'";
