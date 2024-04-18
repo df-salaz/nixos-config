@@ -3,6 +3,7 @@
 	# System
 		./shell.nix
 		./hyprland.nix
+		./wofi.nix
 	# Programs
 		./git.nix
 		./cava.nix

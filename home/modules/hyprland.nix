@@ -2,7 +2,6 @@
 {
 	home.packages = with pkgs; [
 		pavucontrol
-		wofi
 	# AGS dependencies:
 		libdbusmenu-gtk3
 		libnotify
