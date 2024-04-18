@@ -6,7 +6,6 @@
 	# AGS dependencies:
 		libdbusmenu-gtk3
 		libnotify
-		bun
 		fd
 		dart-sass
 		brightnessctl
@@ -160,7 +159,8 @@
 			workspace = "special:scratchpad, on-created-empty:[float] ${pkgs.foot}/bin/foot -L sh -c '${pkgs.neofetch}/bin/neofetch && ${pkgs.zsh}/bin/zsh'";
 		};
 	};
-	
+
+	programs.bun.enable = true;
 	programs.ags = {
 		enable = true;
 		extraPackages = with pkgs; [
@@ -210,6 +210,9 @@
 		enable = true;
 		events = [{
 			event = "before-sleep";
+			command = "${pkgs.swaylock-effects}/bin/swaylock";
+		}{
+			event = "lock";
 			command = "${pkgs.swaylock-effects}/bin/swaylock";
 		}];
 	};
