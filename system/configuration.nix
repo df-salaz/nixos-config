@@ -9,7 +9,7 @@ let
 in {
 	imports = [
 		./hardware-configuration.nix
-	#	inputs.home-manager.nixosModules.default
+		./modules
 	];
 
 	catppuccin.flavour = "mocha";
