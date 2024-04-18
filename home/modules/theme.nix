@@ -11,7 +11,7 @@ in
 		iconTheme = lib.mkIf catppuccin {
 			name = "Papirus";
 			package = pkgs.catppuccin-papirus-folders.override {
-				flavor = userSettings.catppuccin.flavour;
+				flavor = userSettings.catppuccin.flavor;
 				accent = userSettings.catppuccin.accent;
 			};
 		};
