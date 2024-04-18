@@ -10,6 +10,6 @@
 		./spotify.nix
 	# Customization
 		./gtk.nix
-		./catppuccin.nix
+		./theme.nix
 	];
 }

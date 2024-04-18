@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 
 {
 	home.pointerCursor = {
@@ -12,7 +12,7 @@
 		enable = true;
 		catppuccin.enable = true;
 		catppuccin.accent = "mauve";
-		iconTheme = {
+		iconTheme = lib.mkDefault {
 			name = "Papirus";
 			package = pkgs.papirus-icon-theme;
 		};
