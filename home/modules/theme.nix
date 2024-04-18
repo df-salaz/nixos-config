@@ -4,12 +4,19 @@ let
 	catppuccin = userSettings.colorScheme == "catppuccin";
 in
 {
-	gtk.iconTheme = lib.mkIf catppuccin {
-		name = "Papirus";
-		package = pkgs.catppuccin-papirus-folders.override {
-			flavor = userSettings.catppuccin.flavor;
-			accent = userSettings.catppuccin.accent;
+	catppuccin.flavour = userSettings.catppuccin.flavor;
+	catppuccin.accent = userSettings.catppuccin.accent;
+	gtk = {
+		catppuccin.enable = lib.mkIf catppuccin true;
+		iconTheme = lib.mkIf catppuccin {
+			name = "Papirus";
+			package = pkgs.catppuccin-papirus-folders.override {
+				flavor = userSettings.catppuccin.flavour;
+				accent = userSettings.catppuccin.accent;
+			};
 		};
+		gtk3.extraConfig.Settings = lib.mkIf userSettings.darkTheme ''gtk-application-prefer-dark-theme = 1;'';
+		gtk4.extraConfig.Settings = lib.mkIf userSettings.darkTheme ''gtk-application-prefer-dark-theme = 1;'';
 	};
 	home.file = {
 		".config/BetterDiscord/data/stable/custom.css".text =
@@ -20,7 +27,7 @@ in
 		bat.catppuccin.enable = lib.mkIf catppuccin true;
 		btop.catppuccin.enable = lib.mkIf catppuccin true;
 		fzf.catppuccin.enable = lib.mkIf catppuccin true;
-		zsh.initExtraFirst = ''source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh'';
+		zathura.catppuccin.enable = true;
 		cava.settings.color = lib.mkIf catppuccin {
 			gradient = 1;
 			gradient_count = 8;

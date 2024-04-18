@@ -1,8 +1,6 @@
 {config, inputs, options, userSettings, pkgs, ... }:
 
 {
-	catppuccin.accent = "mauve";
-	catppuccin.flavour = "mocha";
 	xdg.enable = true;
 
 	imports = [
@@ -41,13 +39,8 @@
 	programs = {
 		ripgrep.enable = true;
 		obs-studio.enable = true;
-		zathura = {
-			enable = true;
-			catppuccin.enable = true;
-		};
-		emacs = {
-			enable = true;
-		};
+		zathura.enable = true;
+		emacs.enable = true;
 	};
 
 	services = {

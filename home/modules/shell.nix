@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, inputs, userSettings, pkgs, ... }:
 
 {
 	programs = {
@@ -7,7 +7,7 @@
 			server.enable = false;
 			settings = {
 				main = {
-					font = "JetBrainsMono Nerd Font:size=12";
+					font = "${userSettings.font}:size=12";
 					initial-window-size-chars = "90x24";
 				};
 				mouse = {

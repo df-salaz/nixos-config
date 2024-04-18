@@ -52,6 +52,9 @@
 			catppuccin.flavor = "mocha";
 			catppuccin.accent = "mauve";
 
+			darkTheme = true;
+			font = "JetBrainsMono Nerd Font";
+
 			# Programs #
 			discord.enable = true;
 		};
