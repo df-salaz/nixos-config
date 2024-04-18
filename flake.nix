@@ -19,13 +19,11 @@
 		};
 	};
 
-	outputs = { self, nixpkgs, catppuccin, nur, ags, home-manager, ... } 
-	@inputs:
+	outputs = { self, nixpkgs, catppuccin, nur, ags, home-manager, ... } @inputs:
 	let
-		# Switches and Settings #
-		# --------------------- #
-
+		#  Switches and Settings  #
 		# --- System Settings --- #
+		# ----------------------- #
 		systemSettings = {
 			# Hardware #
 			hostname = "nixos";
@@ -36,9 +34,13 @@
 			# - catppuccin
 			colorScheme = "catppuccin";
 			catppuccin.flavor = "mocha";
+
+			# Keep this repository in this folder
+			flake = "/home/${userSettings.username}/.nixos";
 		};
 
 		# --- User Settings --- #
+		# --------------------- #
 		userSettings = {
 			# Personal #
 			username = "koye";
@@ -90,6 +92,5 @@
 				}
 			];
 		};
-
 	};
 }
