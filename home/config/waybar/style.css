@@ -74,6 +74,7 @@ button:hover {
 	color: @text;
 }
 
+#power-profiles-daemon,
 #clock,
 #battery,
 #cpu,
@@ -91,7 +92,7 @@ button:hover {
 #scratchpad,
 #mpd {
     padding: 0 8px;
-    color: @crust;
+    color: @text;
     border-radius: 6px;
     margin: 4px 2px;
 	font-weight: bold;
@@ -220,6 +221,19 @@ label:focus {
 
 #custom-media.custom-vlc {
     background-color: #ffa000;
+}
+
+#power-profiles-daemon.performance {
+	background-color: @crust;
+	color: @red;
+}
+#power-profiles-daemon.balanced {
+	background-color: @crust;
+	color: @yellow;
+}
+#power-profiles-daemon.power-saver {
+	background-color: @crust;
+	color: @green;
 }
 
 #temperature {
