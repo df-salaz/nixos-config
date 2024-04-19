@@ -5,10 +5,6 @@
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 		catppuccin.url = "github:catppuccin/nix";
 		nur.url = "github:nix-community/NUR";
-		ags = {
-			url = "github:Aylur/ags";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
 		matugen = {
 			url = "github:InioX/Matugen";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +15,7 @@
 		};
 	};
 
-	outputs = { self, nixpkgs, catppuccin, nur, ags, home-manager, ... } @inputs:
+	outputs = { self, nixpkgs, catppuccin, nur, home-manager, ... } @inputs:
 	let
 		#  Switches and Settings  #
 		# --- System Settings --- #
@@ -85,7 +81,6 @@
 						${userSettings.username} = {
 							imports = [
 								./home/home.nix
-								ags.homeManagerModules.default						
 								catppuccin.homeManagerModules.catppuccin
 							];
 						};

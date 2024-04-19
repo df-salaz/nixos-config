@@ -2,17 +2,8 @@
 {
 	home.packages = with pkgs; [
 		pavucontrol
-	# AGS dependencies:
-		libdbusmenu-gtk3
-		libnotify
-		fd
-		dart-sass
 		brightnessctl
-		#inputs.matugen.packages.${system}.default
-	# Optional AGS dependencies:
 		hyprpicker
-		slurp
-		wf-recorder
 		wl-clipboard
 	];
 	wayland.windowManager.hyprland = {
@@ -23,11 +14,12 @@
 			"$lock" = "${pkgs.swaylock-effects}/bin/swaylock";
 			"$mainMod" = "SUPER";
 			"$calculator" = "${pkgs.gnome.gnome-calculator}/bin/gnome-calculator";
-			"$power" = "#ags -t powermenu";
+	# TODO: Power menu
+			"$power" = "";
 			"$emoji" = "${pkgs.rofimoji}/bin/rofimoji --selector wofi";
 			"$clipboard" = "${pkgs.wtype}/bin/wtype -- $(${pkgs.cliphist}/bin/cliphist list | ${pkgs.wofi}/bin/wofi -S dmenu -P Paste | ${pkgs.cliphist}/bin/cliphist decode)";
 			"$runner" = "${pkgs.wofi}/bin/wofi -b -i -S run | xargs hyprctl dispatch exec --";
-			"$menu" = "${pkgs.wofi}/bin/wofi --show drun #ags -t applauncher";
+			"$menu" = "${pkgs.wofi}/bin/wofi --show drun";
 			"$screenshots" = "/home/koye/Pictures/Screenshots";
 			"$ss-save" = "$screenshots/Screenshot-$(date '+%a-%b-%d-%T-%Z-%Y').png";
 			"$ss" = "${pkgs.wl-clipboard}/bin/wl-copy < $(${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save area $ss-save)";
@@ -161,15 +153,6 @@
 	};
 
 	programs.bun.enable = true;
-	programs.ags = {
-		enable = true;
-		configDir = ../config/ags;
-		extraPackages = with pkgs; [
-			gtksourceview
-			webkitgtk
-			accountsservice
-		];
-	};
 	programs.swaylock = {
 		enable = true;
 		package = pkgs.swaylock-effects;
