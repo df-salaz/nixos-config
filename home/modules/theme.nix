@@ -55,7 +55,7 @@ in
 	services = {
 		dunst = {
 			catppuccin.enable = true;
-			dunst.settings = {
+			settings = {
 				global = {
 					corner_radius = 5;
 				};
