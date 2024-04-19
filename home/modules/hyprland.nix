@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userSettings, ... }:
 {
 	home.packages = with pkgs; [
 		pavucontrol
@@ -24,11 +24,11 @@
 			"$lock" = "${pkgs.swaylock-effects}/bin/swaylock";
 			"$mainMod" = "SUPER";
 			"$calculator" = "${pkgs.gnome.gnome-calculator}/bin/gnome-calculator";
-			"$power" = "ags -t powermenu";
+			"$power" = "#ags -t powermenu";
 			"$emoji" = "${pkgs.rofimoji}/bin/rofimoji --selector wofi";
 			"$clipboard" = "${pkgs.wtype}/bin/wtype -- $(${pkgs.cliphist}/bin/cliphist list | ${pkgs.wofi}/bin/wofi -S dmenu -P Paste | ${pkgs.cliphist}/bin/cliphist decode)";
 			"$runner" = "${pkgs.wofi}/bin/wofi -b -i -S run | xargs hyprctl dispatch exec --";
-			"$menu" = "ags -t applauncher";
+			"$menu" = "${pkgs.wofi}/bin/wofi --show drun #ags -t applauncher";
 			"$screenshots" = "/home/koye/Pictures/Screenshots";
 			"$ss-save" = "$screenshots/Screenshot-$(date '+%a-%b-%d-%T-%Z-%Y').png";
 			"$ss" = "${pkgs.wl-clipboard}/bin/wl-copy < $(${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save area $ss-save)";
@@ -36,7 +36,8 @@
 			"$ss-screen" = "${pkgs.wl-clipboard}/bin/wl-copy < $(${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save screen $ss-save)";
 			exec-once = [
 				"${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store"
-				"ags"
+				"${pkgs.waybar}/bin/waybar"
+				"${pkgs.swww}/bin/swww-daemon && ${pkgs.swww}/bin/swww img ${userSettings.wallpaper}"
 			];
 			input = {
 				kb_layout = "us";
@@ -69,6 +70,9 @@
 			};
 			dwindle = {
 				no_gaps_when_only = true;
+			};
+			decoration = {
+				drop_shadow = false;
 			};
 			gestures = {
 				workspace_swipe = true;
@@ -103,53 +107,52 @@
 				"immediate, class:.*"
 			];
 			bind = [
-				"$mainMod, tab, exec, ags -t overview"
-					"$mainMod, return, exec, $terminal"
-					"$mainMod, C, killactive,"
-					"$mainMod, Q, exec, $calculator"
-					"$mainMod, P, pin,"
-					"$mainMod, F, fullscreen,"
-					"$mainMod, G, fakefullscreen,"
-					"$mainMod, M, exec, $lock"
-					"$mainMod, E, exec, $power"
-					"$mainMod, V, togglefloating, "
-					"$mainMod, R, exec, $menu"
-					"$mainMod, F2, exec, $runner"
-					"$mainMod, comma, exec, $emoji"
-					"$mainMod SHIFT, C, exec, hyprctl reload; ags -q; ags"
-					"$mainMod SHIFT, S, exec, $ss"
-					"$mainMod SHIFT, D, exec, $ss-wait"
-					",XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%- -n 1920"
-					",XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +5%"
-					",XF86AudioMute, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle"
-					",XF86AudioLowerVolume, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%"
-					",XF86AudioRaiseVolume, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%"
-					",XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
-					",XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
-					",XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
-					"$mainMod, H, movefocus, l"
-					"$mainMod, L, movefocus, r"
-					"$mainMod, K, movefocus, u"
-					"$mainMod, J, movefocus, d"
-					"$mainMod, minus, togglespecialworkspace, scratchpad"
-					"$mainMod SHIFT, minus, movetoworkspace, special:scratchpad"
-					"$mainMod, mouse_up, workspace, e+1"
-					"$mainMod, mouse_down, workspace, e-1"
-					"$mainMod, right, workspace, e+1"
-					"$mainMod, left, workspace, e-1"
-					] ++ (
-					builtins.concatLists (builtins.genList (
-							x: let
-							ws = let
-							c = (x + 1) / 10;
-							in
-							builtins.toString (x + 1 - (c * 10));
-							in [
-							"$mainMod, ${ws}, workspace, ${toString (x + 1)}"
-							"$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-							]
-							)10)
-						 );
+				"$mainMod, return, exec, $terminal"
+				"$mainMod, C, killactive,"
+				"$mainMod, Q, exec, $calculator"
+				"$mainMod, P, pin,"
+				"$mainMod, F, fullscreen,"
+				"$mainMod, G, fakefullscreen,"
+				"$mainMod, M, exec, $lock"
+				"$mainMod, E, exec, $power"
+				"$mainMod, V, togglefloating, "
+				"$mainMod, R, exec, $menu"
+				"$mainMod, F2, exec, $runner"
+				"$mainMod, comma, exec, $emoji"
+				"$mainMod SHIFT, C, exec, hyprctl reload"
+				"$mainMod SHIFT, S, exec, $ss"
+				"$mainMod SHIFT, D, exec, $ss-wait"
+				",XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%- -n 1920"
+				",XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +5%"
+				",XF86AudioMute, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle"
+				",XF86AudioLowerVolume, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%"
+				",XF86AudioRaiseVolume, exec, ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%"
+				",XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
+				",XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+				",XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+				"$mainMod, H, movefocus, l"
+				"$mainMod, L, movefocus, r"
+				"$mainMod, K, movefocus, u"
+				"$mainMod, J, movefocus, d"
+				"$mainMod, minus, togglespecialworkspace, scratchpad"
+				"$mainMod SHIFT, minus, movetoworkspace, special:scratchpad"
+				"$mainMod, mouse_up, workspace, e+1"
+				"$mainMod, mouse_down, workspace, e-1"
+				"$mainMod, right, workspace, e+1"
+				"$mainMod, left, workspace, e-1"
+				] ++ (
+				builtins.concatLists (builtins.genList (
+						x: let
+						ws = let
+						c = (x + 1) / 10;
+						in
+						builtins.toString (x + 1 - (c * 10));
+						in [
+						"$mainMod, ${ws}, workspace, ${toString (x + 1)}"
+						"$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+						]
+						)10)
+					 );
 			bindm = [
 				"$mainMod, mouse:272, movewindow"
 				"$mainMod, mouse:273, resizewindow"

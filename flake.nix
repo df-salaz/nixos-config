@@ -55,6 +55,7 @@
 			catppuccin.accent = "mauve";
 
 			darkTheme = true;
+			wallpaper = "Pictures/nix.png";
 			font = "JetBrainsMono Nerd Font";
 
 			# Programs #

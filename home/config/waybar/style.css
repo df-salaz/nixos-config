@@ -1,10 +1,13 @@
-@define-color high #61afef; 
-@define-color alt #98c379;
-@define-color alert #e06c75;
-@define-color term #16181C;
-@define-color text-dark #21252b;
-@define-color text-high #abb2bf;
-@define-color dark #16181C;
+@define-color red #f38ba8;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color mauve #cba6f7;
+@define-color text #cdd6f4;
+@define-color surface #45475a;
+@define-color base #1e1e2e; 
+@define-color crust #11111b;
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
@@ -13,50 +16,14 @@
 }
 
 window#waybar {
-    background-color: @dark;
+    background-color: @crust;
     /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
-    color: @text-high;
+    color: @text;
     transition-property: background-color;
 }
 
 window#waybar.empty #window {
 	background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #000000;
-}
-window#waybar.foot {
-    background-color: @term;
-}
-window#waybar.footclient {
-	background-color: @term;
-}
-window#waybar.neovide {
-	background-color: #181B1F;
-}
-window#waybar.firefox {
-	background-color: #1c1b22;
-}
-window#waybar.discord {
-	background-color: #1e1f22;
-}
-window#waybar.steamwebhelper {
-	background-color: #171d25;
-}
-window#waybar.spotify {
-	background-color: #000000;
-}
-window#waybar.obsidian {
-	background-color: #363636;
-}
-window#waybar.google-chrome {
-	background-color: #231c2f;
-}
-window#waybar.chromium {
-	background-color: #231c2f;
-}
-window#waybar.jetbrains-idea-ce {
-	background-color: @dark;
 }
 
 window {
@@ -82,7 +49,7 @@ button:hover {
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: @text-high;
+    color: @text;
 }
 
 #workspaces button:hover {
@@ -90,20 +57,21 @@ button:hover {
 }
 
 #workspaces button.active {
-    background-color: @high;
+    background-color: @mauve;
     font-weight: 900;
-    color: @text-dark;
+    color: @crust;
     /* box-shadow: inset 0 -3px #ffffff; */
 }
 
 #workspaces button.urgent {
-    background-color: @alert;
+    background-color: @red;
 	font-weight: 900;
-	color: @text-dark;
+	color: @crust;
 }
 
 #mode {
-    background-color: @alt;
+    background-color: @base;
+	color: @text;
 }
 
 #clock,
@@ -123,7 +91,7 @@ button:hover {
 #scratchpad,
 #mpd {
     padding: 0 8px;
-    color: @text-dark;
+    color: @crust;
     border-radius: 6px;
     margin: 4px 2px;
 	font-weight: bold;
@@ -145,7 +113,8 @@ button:hover {
 }
 
 #clock {
-    background-color: @high;
+    background-color: @base;
+	color: @text;
     font-weight: bold;
 }
 
@@ -155,11 +124,18 @@ button:hover {
 }
 
 #battery {
-    background-color: @alt;
+    background-color: @base;
+	color: @green;
 }
 
-#battery.charging, #battery.plugged {
-    background-color: @alt;
+#battery.warning {
+    background-color: @base;
+	color: @yellow;
+}
+
+#battery.charging, #battery.plugged, #battery.full {
+    background-color: @base;
+	color: @green;
 }
 
 @keyframes blink {
@@ -170,8 +146,8 @@ button:hover {
 }
 
 #battery.critical:not(.charging) {
-    background-color: #fe4836;
-    color: #ffffff;
+    background-color: @red;
+    color: @crust;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -197,28 +173,31 @@ label:focus {
 }
 
 #backlight {
-    background-color: @high;
+    background-color: @base;
+	color: @red;
     font-weight: bold;
 }
 
 #network {
     /*background-color: #2980b9;*/
-    background-color: @alt;
+    background-color: @base;
+	color: @lavender;
 }
 
-#network.disconnected {
-    background-color: @alert;
-}
+/* #network.disconnected { */
+/*     background-color: @red; */
+/* } */
 
 #pulseaudio {
-    background-color: @high;
+    background-color: @base;
+	color: @yellow;
     font-weight: bold;
 }
 
-#pulseaudio.muted {
-    background-color: @alert;
-    color: @text-dark;
-}
+/* #pulseaudio.muted { */
+/*     background-color: @red; */
+/*     color: @crust; */
+/* } */
 
 #wireplumber {
     background-color: #fff0f5;
@@ -252,7 +231,8 @@ label:focus {
 }
 
 #tray {
-    background-color: @alt;
+    background-color: @base;
+	color: @text;
 }
 
 #tray > .passive {
@@ -265,11 +245,12 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: @alt;
+    background-color: @base;
+	color: @text;
 }
 
 #idle_inhibitor.activated {
-    background-color: @alert;
+    background-color: @red;
 }
 
 #mpd {
@@ -289,11 +270,11 @@ label:focus {
 }
 
 #language {
-    background: @alt;
-    color: @text-dark;
+    background: @base;
+	color: @text;
 	font-weight: bold;
-    padding: 0 5px;
-    margin: 4 2px;
+    padding: 0px 5px;
+    margin: 4px 2px;
     min-width: 16px;
 	border-radius: 6px;
 }
@@ -316,7 +297,8 @@ label:focus {
 
 #scratchpad {
     /* background: rgba(0, 0, 0, 0.2); */
-    background: @alt;
+    background: @base;
+    color: @crust;
     margin-left: 0px;
 }
 

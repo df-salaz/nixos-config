@@ -41,5 +41,15 @@ in
 			gradient_color_8 = "'#f38ba8'";
 		};
 	};
-	wayland.windowManager.hyprland.catppuccin.enable = lib.mkIf catppuccin true;
+	wayland.windowManager.hyprland = {
+		catppuccin.enable = lib.mkIf catppuccin true;
+		settings = {
+			general = {
+				"col.inactive_border" = "$base";
+				"col.active_border" = "\$${userSettings.catppuccin.accent}";
+				border_size = 2;
+			};
+			decoration.rounding = 5;
+		};
+	};
 }
