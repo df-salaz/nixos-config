@@ -229,7 +229,7 @@ label:focus {
 }
 #power-profiles-daemon.balanced {
 	background-color: @crust;
-	color: @yellow;
+	color: @blue;
 }
 #power-profiles-daemon.power-saver {
 	background-color: @crust;

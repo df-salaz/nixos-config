@@ -101,7 +101,7 @@
 				tooltip = true;
 				format-icons = {
 					power-saver = "";
-					balanced = "";
+					balanced = "";
 					performance = "";
 				};
 			};
