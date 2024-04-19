@@ -137,4 +137,7 @@
 		};
 		style = ../config/waybar/style.css;
 	};
+	services.dunst = {
+		enable = true;
+	};
 }

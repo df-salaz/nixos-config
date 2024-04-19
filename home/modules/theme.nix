@@ -52,4 +52,14 @@ in
 			decoration.rounding = 5;
 		};
 	};
+	services = {
+		dunst = {
+			catppuccin.enable = true;
+			dunst.settings = {
+				global = {
+					corner_radius = 5;
+				};
+			};
+		};
+	};
 }
