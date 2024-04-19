@@ -22,10 +22,6 @@ window#waybar {
     transition-property: background-color;
 }
 
-window#waybar.empty #window {
-	background-color: transparent;
-}
-
 window {
 	border-radius: 0px;
 }
@@ -48,13 +44,13 @@ button:hover {
 
 #workspaces button {
     padding: 0 5px;
-    background-color: transparent;
+    background-color: @base;
     color: @text;
 }
 
-#workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
-}
+/* #workspaces button:hover { */
+/*     background: rgba(0, 0, 0, 0.2); */
+/* } */
 
 #workspaces button.active {
     background-color: @mauve;
@@ -100,7 +96,7 @@ button:hover {
 
 #window,
 #workspaces {
-    margin: 0 0px;
+    margin: 0px 0px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -221,6 +217,10 @@ label:focus {
 
 #custom-media.custom-vlc {
     background-color: #ffa000;
+}
+
+#power-profiles-daemon {
+	margin-right: 0px;
 }
 
 #power-profiles-daemon.performance {

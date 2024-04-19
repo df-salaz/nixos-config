@@ -53,6 +53,21 @@ in
 		};
 	};
 	services = {
-		dunst.catppuccin.enable = true;
+		dunst.settings = {
+			global = {
+				background = "#1e1e2e";
+				foreground = "#cdd6f4";
+				separator_color = "frame";
+			};
+			urgency_low = {
+				frame_color = "#a6e3a1";
+			};
+			urgency_normal = {
+				frame_color = "#f9e2af";
+			};
+			urgency_critical = {
+				frame_color = "#f38ba8";
+			};
+		};
 	};
 }
