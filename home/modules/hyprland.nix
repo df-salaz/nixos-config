@@ -8,7 +8,6 @@
 		fd
 		dart-sass
 		brightnessctl
-		swww
 		#inputs.matugen.packages.${system}.default
 	# Optional AGS dependencies:
 		hyprpicker
@@ -37,7 +36,7 @@
 			exec-once = [
 				"${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store"
 				"${pkgs.waybar}/bin/waybar"
-				"${pkgs.swww}/bin/swww-daemon && ${pkgs.swww}/bin/swww img ${userSettings.wallpaper}"
+				"${pkgs.wbg}/bin/wbg ${userSettings.wallpaper}"
 			];
 			input = {
 				kb_layout = "us";
