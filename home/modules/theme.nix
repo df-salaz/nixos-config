@@ -53,13 +53,6 @@ in
 		};
 	};
 	services = {
-		dunst = {
-			catppuccin.enable = true;
-			settings = {
-				global = {
-					corner_radius = 5;
-				};
-			};
-		};
+		dunst.catppuccin.enable = true;
 	};
 }

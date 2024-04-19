@@ -139,5 +139,27 @@
 	};
 	services.dunst = {
 		enable = true;
+		settings = {
+			global = {
+				monitor = 0;
+				follow = "none";
+				width = 300;
+				height = 300;
+				origin = "top-right";
+				offset = "16x16";
+				progress_bar = true;
+				icon_corner_radius = 4;
+				indicate_hidden = "yes";
+				padding = 8;
+				frame_width = 4;
+				gap_size = 0;
+				sort = "yes";
+				font = "JetBrainsMonoNerdFont 8";
+				corner_radius = 12;
+				mouse_left_click = "do_action, close_current";
+				mouse_middle_click = "close_all";
+				mouse_right_click = "close_current";
+			};
+		};
 	};
 }
