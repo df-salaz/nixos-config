@@ -63,7 +63,7 @@ in
 				frame_color = "#a6e3a1";
 			};
 			urgency_normal = {
-				frame_color = "#f9e2af";
+				frame_color = "#cba6f7";
 			};
 			urgency_critical = {
 				frame_color = "#f38ba8";
