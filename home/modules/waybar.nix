@@ -28,32 +28,6 @@
 				on-scroll-up = "hyprctl dispatch workspace e-1";
 				on-scroll-down = "hyprctl dispatch workspace e+1";
 			};
-			mpd = {
-				format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
-				format-disconnected = "Disconnected ";
-				format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
-				unknown-tag = "N/A";
-				interval = 2;
-				consume-icons = {
-					on = " ";
-				};
-				random-icons = {
-					off = "<span color=\"#f53c3c\"></span> ";
-					on = " ";
-				};
-				repeat-icons = {
-					on = " ";
-				};
-				single-icons = {
-					on = " " ;
-				};
-				state-icons = {
-					paused = "";
-					playing = "";
-				};
-				tooltip-format = "MPD (connected)";
-				tooltip-format-disconnected = "MPD (disconnected)";
-			};
 			tray = {
 				spacing = 10;
 				reverse-direction = true;
@@ -101,7 +75,7 @@
 				tooltip = true;
 				format-icons = {
 					power-saver = "";
-					balanced = "󰠠";
+					balanced = "";
 					performance = "";
 				};
 			};
