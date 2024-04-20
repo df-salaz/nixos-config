@@ -48,7 +48,7 @@
 						lines = 24;
 					};
 					dynamic_padding = true;
-					decorations = false;
+					decorations = "None";
 				};
 				font.size = 12;
 				mouse.hide_when_typing = true;
