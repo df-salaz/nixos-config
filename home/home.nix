@@ -10,10 +10,6 @@
 	home.username = userSettings.username;
 	home.homeDirectory = "/home/"+userSettings.username;
 
-	home.sessionVariables = {
-		EDITOR = "nvim";
-	};
-
 	nixpkgs.config.allowUnfree = true;
 	home.packages = with pkgs; [
 		vlc

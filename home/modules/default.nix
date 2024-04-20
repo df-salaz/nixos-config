@@ -6,6 +6,7 @@
 		./wofi.nix
 		./waybar.nix
 	# Programs
+		./nvim.nix
 		./git.nix
 		./cava.nix
 		./discord.nix
