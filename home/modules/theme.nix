@@ -22,6 +22,9 @@ in
 		".config/BetterDiscord/data/stable/custom.css".text =
 			lib.mkIf (userSettings.discord.enable && catppuccin)
 				''@import url("https://catppuccin.github.io/discord/dist/catppuccin-${userSettings.catppuccin.flavor}-${userSettings.catppuccin.accent}.theme.css");'';
+		".config/vesktop/settings/quickCss.css".text =
+			lib.mkIf (userSettings.discord.enable && catppuccin)
+				''@import url("https://catppuccin.github.io/discord/dist/catppuccin-${userSettings.catppuccin.flavor}-${userSettings.catppuccin.accent}.theme.css");'';
 	};
 	programs = {
 		alacritty = lib.mkIf catppuccin {
