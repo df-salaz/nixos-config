@@ -2,11 +2,11 @@
   "nodes": {
     "catppuccin": {
       "locked": {
-        "lastModified": 1713323853,
-        "narHash": "sha256-EfUm65RRsoch0tpfHZtEyqo+iWIYhuSX39U/fi0/4WU=",
+        "lastModified": 1713552048,
+        "narHash": "sha256-RcDJNnxjG9MTQHV/yG7JwPzffFub0JrwP2C1m6LxWFc=",
         "owner": "catppuccin",
         "repo": "nix",
-        "rev": "372decb578f3187d7aad837885ed98e73e8abd60",
+        "rev": "29bd8a3bda02434bf6ee3edf9ea6edd360a9ce17",
         "type": "github"
       },
       "original": {
@@ -22,46 +22,26 @@
         ]
       },
       "locked": {
-        "lastModified": 1713391096,
-        "narHash": "sha256-5xkzsy+ILgQlmvDDipL5xqAehnjWBenAQXV4/NLg2dE=",
+        "lastModified": 1713566308,
+        "narHash": "sha256-7Y91t8pheIzjJveUMAPyeh5NOq5F49Nq4Hl2532QpJs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f46814ec7cbef9c2aef18ca1cbe89f2bb1e8c394",
+        "rev": "057117a401a34259c9615ce62218aea7afdee4d3",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "matugen": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1711657889,
-        "narHash": "sha256-4VX7Rt+ftEH8nwg59eT7TsvHYUf8/euUmwh/JLc4rLc=",
-        "owner": "InioX",
-        "repo": "Matugen",
-        "rev": "566277529dadc2b149a8bd8b9859ea791ecdef26",
-        "type": "github"
-      },
-      "original": {
-        "owner": "InioX",
-        "repo": "Matugen",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1713248628,
-        "narHash": "sha256-NLznXB5AOnniUtZsyy/aPWOk8ussTuePp2acb9U+ISA=",
+        "lastModified": 1713297878,
+        "narHash": "sha256-hOkzkhLT59wR8VaMbh1ESjtZLbGi+XNaBN6h49SPqEc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5672bc9dbf9d88246ddab5ac454e82318d094bb8",
+        "rev": "66adc1e47f8784803f2deb6cacd5e07264ec2d5c",
         "type": "github"
       },
       "original": {
@@ -73,11 +53,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1713417627,
-        "narHash": "sha256-hi4gBe6dJaKXoZ9f+39DibLzStmIxtTLrR7c1Ig8kYE=",
+        "lastModified": 1713583462,
+        "narHash": "sha256-EtgyiLx/37e40Li1udBWpctb8SXFdyvO6wgOt5cWi7I=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "2a027ba6953bc4109b35360721509a3252011f30",
+        "rev": "ec82449d3347ab8a3af518bd03958eede7df82b8",
         "type": "github"
       },
       "original": {
@@ -90,7 +70,6 @@
       "inputs": {
         "catppuccin": "catppuccin",
         "home-manager": "home-manager",
-        "matugen": "matugen",
         "nixpkgs": "nixpkgs",
         "nur": "nur"
       }
