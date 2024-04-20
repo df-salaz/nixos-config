@@ -52,7 +52,7 @@
 			# - catppuccin
 			colorScheme = "catppuccin";
 			catppuccin.flavor = "mocha";
-			catppuccin.accent = "mauve";
+			catppuccin.accent = "blue";
 
 			darkTheme = true;
 			wallpaper = "~/Pictures/nix.png";

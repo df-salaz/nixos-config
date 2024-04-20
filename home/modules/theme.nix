@@ -24,7 +24,12 @@ in
 				''@import url("https://catppuccin.github.io/discord/dist/catppuccin-${userSettings.catppuccin.flavor}-${userSettings.catppuccin.accent}.theme.css");'';
 	};
 	programs = {
-		alacritty.catppuccin.enable = lib.mkIf catppuccin true;
+		alacritty = lib.mkIf catppuccin {
+			catppuccin.enable = true;
+			settings = {
+				colors.cursor.cursor = lib.mkForce "#cdd6f4";
+			};
+		};
 		bat.catppuccin.enable = lib.mkIf catppuccin true;
 		btop.catppuccin.enable = lib.mkIf catppuccin true;
 		fzf.catppuccin.enable = lib.mkIf catppuccin true;
@@ -53,7 +58,7 @@ in
 				frame_color = "#a6e3a1";
 			};
 			urgency_normal = {
-				frame_color = "#cba6f7";
+				frame_color = "#89b4fa";
 			};
 			urgency_critical = {
 				frame_color = "#f38ba8";
