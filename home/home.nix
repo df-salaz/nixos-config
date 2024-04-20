@@ -18,7 +18,6 @@
 	home.packages = with pkgs; [
 		vlc
 		dolphin-emu
-		neo
 		neovide
 		obsidian
 		mathematica
