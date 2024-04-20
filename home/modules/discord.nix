@@ -2,6 +2,6 @@
 {
 	home.packages = with pkgs; lib.optionals (userSettings.discord.enable) [
 		betterdiscordctl
-		discord
+		discord-screenaudio
 	];
 }
