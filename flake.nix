@@ -43,6 +43,10 @@
 			name = "David";
 			email = "df.salaz@gmail.com";
 
+			# Programs #
+			terminal = "alacritty";
+			discord.enable = true;
+
 			# Theming #
 			# Options:
 			# - catppuccin
@@ -53,9 +57,6 @@
 			darkTheme = true;
 			wallpaper = "~/Pictures/nix.png";
 			font = "JetBrainsMono Nerd Font";
-
-			# Programs #
-			discord.enable = true;
 		};
 	in {
 		nixosConfigurations.${systemSettings.hostname} = 

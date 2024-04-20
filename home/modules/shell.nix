@@ -1,9 +1,9 @@
-{ config, inputs, userSettings, pkgs, ... }:
+{ config, inputs, lib, userSettings, pkgs, ... }:
 
 {
 	programs = {
 		foot = {
-			enable = true;
+			enable = lib.mkIf (userSettings.terminal == "foot") true;
 			server.enable = false;
 			settings = {
 				main = {
@@ -37,6 +37,21 @@
 					bright7 = "a6adc8";
 					scrollback-indicator = "000000 98c379";
 				};
+			};
+		};
+		alacritty = {
+			enable = lib.mkIf (userSettings.terminal == "alacritty") true;
+			settings = {
+				window = {
+					dimensions = {
+						columns = 90;
+						lines = 24;
+					};
+					dynamic_padding = true;
+					decorations = false;
+				};
+				font.size = 12;
+				mouse.hide_when_typing = true;
 			};
 		};
 		zoxide = {

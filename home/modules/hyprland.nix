@@ -10,7 +10,7 @@
 		enable = true;
 		settings = {
 			monitor = "eDP-1, 1920x1080@60, 0x0, 1";
-			"$terminal" = "${pkgs.foot}/bin/foot";
+			"$terminal" = "${pkgs.${userSettings.terminal}}/bin/${userSettings.terminal}";
 			"$lock" = "${pkgs.swaylock-effects}/bin/swaylock";
 			"$mainMod" = "SUPER";
 			"$calculator" = "${pkgs.gnome.gnome-calculator}/bin/gnome-calculator";
@@ -76,7 +76,7 @@
 				force_default_wallpaper = 0;
 				vfr = true;
 				disable_autoreload = true;
-				swallow_regex = "^foot$";
+				swallow_regex = "^${userSettings.terminal}$";
 				focus_on_activate = true;
 				disable_splash_rendering = true;
 				enable_swallow = true;
@@ -88,7 +88,7 @@
 				overlay = false;
 			};
 			windowrule = [
-				"noblur,^(?!(foot|neovide|swayimg)) # Only blur the terminal and Neovim"
+				"noblur,^(?!(${userSettings.terminal}|neovide|swayimg)) # Only blur the terminal and Neovim"
 				"windowdance,title:^(Rhythm Doctor)$"
 				"forceinput,title:^(Rhythm Doctor)$"
 			];
@@ -148,7 +148,7 @@
 				"$mainMod, mouse:272, movewindow"
 				"$mainMod, mouse:273, resizewindow"
 			];
-			workspace = "special:scratchpad, on-created-empty:[float] ${pkgs.foot}/bin/foot -L sh -c '${pkgs.neofetch}/bin/neofetch && ${pkgs.zsh}/bin/zsh'";
+			workspace = "special:scratchpad, on-created-empty:[float] $terminal";
 		};
 	};
 
