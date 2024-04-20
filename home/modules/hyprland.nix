@@ -76,7 +76,7 @@
 				force_default_wallpaper = 0;
 				vfr = true;
 				disable_autoreload = true;
-				swallow_regex = "^${userSettings.terminal}$";
+				swallow_regex = "^(${userSettings.terminal}|Alacritty)$";
 				focus_on_activate = true;
 				disable_splash_rendering = true;
 				enable_swallow = true;
