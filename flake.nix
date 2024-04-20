@@ -72,6 +72,7 @@
 						inherit inputs;
 						inherit userSettings;
 					};
+					home-manager.backupFileExtension = "old";
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
 					home-manager.users = {
