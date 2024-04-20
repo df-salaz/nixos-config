@@ -47,7 +47,6 @@
 						columns = 90;
 						lines = 24;
 					};
-					dynamic_padding = true;
 					decorations = "None";
 				};
 				font.size = 12;
