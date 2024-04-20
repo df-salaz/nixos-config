@@ -88,7 +88,7 @@
 				overlay = false;
 			};
 			windowrule = [
-				"noblur,^(?!(${userSettings.terminal}|neovide|swayimg)) # Only blur the terminal and Neovim"
+				"noblur,^(?!(${userSettings.terminal}|neovide|Alacritty|swayimg)) # Only blur the terminal and Neovim"
 				"windowdance,title:^(Rhythm Doctor)$"
 				"forceinput,title:^(Rhythm Doctor)$"
 			];
