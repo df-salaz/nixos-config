@@ -24,7 +24,6 @@
 		cinnamon.nemo
 		rofimoji
 		zoom-us
-		gnome.nautilus
 		neofetch
 		firefox
 		chromium
