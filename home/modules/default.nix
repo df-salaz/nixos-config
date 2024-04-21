@@ -9,6 +9,7 @@
 		./nvim.nix
 		./git.nix
 		./cava.nix
+		./games.nix
 		./discord.nix
 		./spotify.nix
 	# Customization

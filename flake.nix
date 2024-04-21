@@ -42,6 +42,7 @@
 			# Programs #
 			terminal = "alacritty";
 			discord.enable = true;
+			games.extra = true;
 
 			# Theming #
 			# Options:
