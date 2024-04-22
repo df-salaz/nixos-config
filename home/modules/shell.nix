@@ -83,8 +83,7 @@
 				ll = "ls -l";
 				la = "ll -a";
 				c = "clear";
-				vim = "${pkgs.neovide}/bin/neovide --no-fork &> /dev/null";
-				svim = "sudo -E ${pkgs.neovide} --no-fork &> /dev/null";
+				svim = "sudoedit";
 				man = "${pkgs.bat-extras.batman}/bin/batman";
 				jrun = "${pkgs.maven}/bin/mvn compile && mvn exec:java";
 				jj = "javac *.java && java Main";

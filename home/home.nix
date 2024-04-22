@@ -14,7 +14,6 @@
 	home.packages = with pkgs; [
 		vlc
 		dolphin-emu
-		neovide
 		obsidian
 		mathematica
 		krita
@@ -28,7 +27,6 @@
 		firefox
 		chromium
 	];
-
 
 	programs = {
 		ripgrep.enable = true;
