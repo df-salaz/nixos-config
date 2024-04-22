@@ -10,6 +10,7 @@
 		./git.nix
 		./cava.nix
 		./games.nix
+		./tor.nix
 		./discord.nix
 		./spotify.nix
 	# Customization
