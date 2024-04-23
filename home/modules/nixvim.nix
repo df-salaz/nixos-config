@@ -14,6 +14,11 @@
         mode = "n";
         options.silent = true;
       }{
+        key = "<C-t>";
+        action = "<cmd>ToggleTerm<CR>";
+        mode = "n";
+        options.silent = true;
+      }{
         key = "H";
         action = "vim.cmd.bprevious";
         lua = true;
