@@ -70,6 +70,8 @@
       cmp = {
         enable = true;
         settings = {
+          completions.autocomplete = 
+            ["require('cmp.types').cmp.TriggerEvent.TextChanged"];
           expirimental = {ghost_text = true;};
           mapping = {
             "<Tab>" = "cmp.mapping.confirm({select = true})";
