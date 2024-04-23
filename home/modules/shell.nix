@@ -87,6 +87,7 @@
 				man = "${pkgs.bat-extras.batman}/bin/batman";
 				jrun = "${pkgs.maven}/bin/mvn compile && mvn exec:java";
 				jj = "javac *.java && java Main";
+				kk = "mvn compile && mvn exec:java";
 			};
 			autosuggestion.enable = true;
 			syntaxHighlighting.enable = true;
