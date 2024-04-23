@@ -14,6 +14,15 @@
         mode = "n";
         options.silent = true;
       }{
+        key = "<leader>rn";
+        action = "vim.lsp.buf.rename";
+        mode = "n";
+        lua = true;
+      }{
+        key = "<A-CR>";
+        action = "vim.lsp.buf.code_action";
+        lua = true;
+      }{
         key = "<C-t>";
         action = "<cmd>ToggleTerm<CR>";
         mode = "n";
@@ -67,30 +76,41 @@
     };
     plugins = {
       bufferline.enable = true;
-      cmp.enable = true;
+      cmp = {
+        enable = true;
+        settings = {
+          expirimental = {ghost_text = true;};
+        };
+      };
       cmp-nvim-lsp.enable = true;
       fugitive.enable = true;
       gitsigns.enable = true;
       lsp = {
         enable = true;
+        keymaps.lspBuf = {
+          K = "hover";
+          gD = "references";
+          gd = "definition";
+          gi = "implementation";
+          gt = "type_definition";
+        };
         servers = {
           lua-ls.enable = true;
           nixd.enable = true;
           texlab.enable = true;
         };
       };
-      lualine.enable = true;
-      lualine.globalstatus = true;
+      lualine = {
+        enable = true;
+        globalstatus = true;
+      };
       markdown-preview.enable = true;
       neo-tree.enable = true;
       nix.enable = true;
       nvim-jdtls = {
         enable = true;
-        cmd = [
-          (lib.getExe pkgs.jdt-language-server)
-        ];
+        cmd = [(lib.getExe pkgs.jdt-language-server)];
       };
-      statuscol.enable = true;
       surround.enable = true;
       telescope.enable = true;
       todo-comments.enable = true;
