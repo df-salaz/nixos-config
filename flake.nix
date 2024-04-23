@@ -5,13 +5,18 @@
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 		catppuccin.url = "github:catppuccin/nix";
 		nur.url = "github:nix-community/NUR";
+		nixvim = {
+			url = "github:nix-community/nixvim";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 		home-manager = {
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 	};
 
-	outputs = { self, nixpkgs, catppuccin, nur, home-manager, ... } @inputs:
+	outputs = { self, nixpkgs, catppuccin, nur, nixvim, home-manager, ... } 
+	@inputs:
 	let
 		#  Switches and Settings  #
 		# --- System Settings --- #
@@ -81,6 +86,7 @@
 							imports = [
 								./home/home.nix
 								catppuccin.homeManagerModules.catppuccin
+								nixvim.homeManagerModules.nixvim
 							];
 						};
 					};

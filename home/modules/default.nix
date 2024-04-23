@@ -6,7 +6,8 @@
 		./wofi.nix
 		./waybar.nix
 	# Programs
-		./nvim.nix
+		#./nvim.nix
+		./nixvim.nix
 		./git.nix
 		./cava.nix
 		./games.nix
