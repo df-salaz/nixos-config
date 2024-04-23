@@ -6,14 +6,49 @@
     defaultEditor = true;
     clipboard.register = "unnamedplus";
     colorschemes.catppuccin.enable = true;
+    globals.mapleader = " ";
     keymaps = [
       {
-        action = "<cmd>Telescope fd<CR>";
         key = "<leader>ff";
+        action = "<cmd>Telescope fd<CR>";
+        mode = "n";
+        options.silent = true;
+      }{
+        key = "H";
+        action = "vim.cmd.bprevious";
+        lua = true;
+        options.silent = true;
+      }{
+        key = "L";
+        action = "vim.cmd.bnext";
+        lua = true;
+        options.silent = true;
+      }{
+        key = "<";
+        action = "<gv";
+        mode = "v";
+        options.silent = true;
+      }{
+        key = ">";
+        action = ">gv";
+        mode = "v";
+        options.silent = true;
+      }{
+        # Copy entire file
+        key = "<C-S-y>";
+        action = "gg0yG<C-o>";
+        mode = "n";
+        options.silent = true;
+      }{
+        # Backspace whole words in insert mode
+        key = "<C-BS>";
+        action = "<C-w>";
+        mode = "i";
       }
     ];
     options = {
       updatetime = 100;
+      nu = true;
       relativenumber = true;
       cursorline = true;
       cursorlineopt = "number";
