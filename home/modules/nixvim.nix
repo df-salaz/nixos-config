@@ -1,4 +1,4 @@
-{ userSettings, pkgs, ... }:
+{ lib, userSettings, pkgs, ... }:
 
 {
   programs.nixvim = {
@@ -44,7 +44,12 @@
       markdown-preview.enable = true;
       neo-tree.enable = true;
       nix.enable = true;
-      nvim-jdtls.enable = true;
+      nvim-jdtls = {
+        enable = true;
+        cmd = [
+          (lib.getExe pkgs.jdt-language-server)
+        ];
+      };
       statuscol.enable = true;
       surround.enable = true;
       telescope.enable = true;
