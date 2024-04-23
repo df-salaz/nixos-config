@@ -14,15 +14,6 @@
         mode = "n";
         options.silent = true;
       }{
-        key = "<leader>rn";
-        action = "vim.lsp.buf.rename";
-        mode = "n";
-        lua = true;
-      }{
-        key = "<A-CR>";
-        action = "vim.lsp.buf.code_action";
-        lua = true;
-      }{
         key = "<C-t>";
         action = "<cmd>ToggleTerm<CR>";
         mode = "n";
@@ -80,8 +71,13 @@
         enable = true;
         settings = {
           expirimental = {ghost_text = true;};
+          mapping = {
+            "<Tab>" = "cmp.mapping.confirm({select = true})";
+            "<S-Tab>" = "cmp.mapping.close()";
+          };
         };
       };
+      cmp-buffer.enable = true;
       cmp-nvim-lsp.enable = true;
       fugitive.enable = true;
       gitsigns.enable = true;
@@ -94,6 +90,18 @@
           gi = "implementation";
           gt = "type_definition";
         };
+        keymaps.extra = [
+          {
+            key = "<leader>rn";
+            action = "vim.lsp.buf.rename";
+            mode = "n";
+            lua = true;
+          }{
+            key = "<A-CR>";
+            action = "vim.lsp.buf.code_action";
+            lua = true;
+          }
+        ];
         servers = {
           lua-ls.enable = true;
           nixd.enable = true;
