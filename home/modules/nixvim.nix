@@ -9,7 +9,7 @@
     keymaps = [
       {
         action = "<cmd>Telescope fd<CR>";
-        key = "<leader>ff"
+        key = "<leader>ff";
       }
     ];
     options = {
