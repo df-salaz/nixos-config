@@ -49,6 +49,15 @@
         key = "<C-BS>";
         action = "<C-w>";
         mode = "i";
+      }{
+        # Use alt + j/k to move lines of text
+        key = "<A-j>";
+        action = ":m +1<CR>";
+        mode = "n";
+      }{
+        key = "<A-k>";
+        action = ":m -2<CR>";
+        mode = "n";
       }
     ];
     options = {
@@ -70,8 +79,6 @@
       cmp = {
         enable = true;
         settings = {
-          completions.autocomplete = 
-            ["require('cmp.types').cmp.TriggerEvent.TextChanged"];
           expirimental = {ghost_text = true;};
           mapping = {
             "<Tab>" = "cmp.mapping.confirm({select = true})";
@@ -79,6 +86,7 @@
           };
         };
       };
+      cmp_luasnip.enable = true;
       cmp-buffer.enable = true;
       cmp-nvim-lsp.enable = true;
       fugitive.enable = true;
@@ -114,6 +122,7 @@
         enable = true;
         globalstatus = true;
       };
+      luasnip.enable = true;
       markdown-preview.enable = true;
       neo-tree.enable = true;
       nix.enable = true;
