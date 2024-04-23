@@ -6,6 +6,12 @@
     defaultEditor = true;
     clipboard.register = "unnamedplus";
     colorschemes.catppuccin.enable = true;
+    keymaps = [
+      {
+        action = "<cmd>Telescope fd<CR>";
+        key = "<leader>ff"
+      }
+    ];
     options = {
       updatetime = 100;
       relativenumber = true;
@@ -15,6 +21,9 @@
       smartindent = true;
       formatoptions = "tcro/qwa2nlj";
       conceallevel = 2;
+      scrolloff = 8;
+      incsearch = true;
+      ignorecase = true;
     };
     plugins = {
       bufferline.enable = true;
@@ -26,6 +35,7 @@
         enable = true;
         servers = {
           lua-ls.enable = true;
+          nixd.enable = true;
           texlab.enable = true;
         };
       };
@@ -37,10 +47,7 @@
       nvim-jdtls.enable = true;
       statuscol.enable = true;
       surround.enable = true;
-      telescope = {
-        enable = true;
-        "<leader>ff" = "find_files";
-      };
+      telescope.enable = true;
       todo-comments.enable = true;
       toggleterm.enable = true;
       treesitter.enable = true;
