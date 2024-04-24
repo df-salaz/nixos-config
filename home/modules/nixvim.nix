@@ -125,6 +125,7 @@
           texlab.enable = true;
         };
       };
+      lspkind.enable = true;
       lualine = {
         enable = true;
         globalstatus = true;
