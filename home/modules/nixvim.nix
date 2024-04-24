@@ -67,6 +67,7 @@
       cursorline = true;
       cursorlineopt = "number";
       tabstop = 4;
+      shiftwidth = 4;
       smartindent = true;
       formatoptions = "tcro/qwa2nlj";
       conceallevel = 2;
