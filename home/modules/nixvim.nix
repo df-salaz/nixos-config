@@ -89,6 +89,8 @@
           mapping = {
             "<Tab>" = "cmp.mapping.confirm({select = true})";
             "<S-Tab>" = "cmp.mapping.close()";
+            "<down>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+            "<up>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
           };
           snippet.expand = "luasnip";
           sources = [
