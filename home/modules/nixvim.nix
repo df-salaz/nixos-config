@@ -90,7 +90,7 @@
             "<Tab>" = "cmp.mapping.confirm({select = true})";
             "<S-Tab>" = "cmp.mapping.close()";
           };
-          snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+          snippet.expand = "luasnip";
           sources = [
             { name = "nvim_lsp"; }
             { name = "luasnip"; }
@@ -102,8 +102,10 @@
       cmp_luasnip.enable = true;
       cmp-buffer.enable = true;
       cmp-nvim-lsp.enable = true;
+      friendly-snippets.enable = true;
       fugitive.enable = true;
       gitsigns.enable = true;
+      indent-blankline.enable = true;
       lsp = {
         enable = true;
         keymaps.lspBuf = {
@@ -166,6 +168,7 @@
         ];
       };
       ts-autotag.enable = true;
+      ts-context-commentstring.enable = true;
       vim-matchup.enable = true;
       vimtex.enable = true;
     };
