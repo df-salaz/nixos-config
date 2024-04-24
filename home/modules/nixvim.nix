@@ -192,6 +192,7 @@
         cmd = [(lib.getExe pkgs.jdt-language-server)];
         rootDir.__raw = "vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw', 'pom.xml' }, { upward = true })[1])";
       };
+      statuscol.enable = true;
       surround.enable = true;
       telescope.enable = true;
       todo-comments.enable = true;
