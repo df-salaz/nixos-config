@@ -75,6 +75,16 @@
         key = "<leader>E";
         action = "<cmd>bd!<CR>";
         mode = "n";
+      }{
+        key = "<C-/>";
+        action = "<cmd>gcc<CR>";
+        mode = ["n" "i"];
+        silent = true;
+      }{
+        key = "<C-/>";
+        action = "<cmd>gb<CR>";
+        mode = "v";
+        silent = true;
       }
     ];
     options = {
@@ -125,6 +135,7 @@
       cmp_luasnip.enable = true;
       cmp-buffer.enable = true;
       cmp-nvim-lsp.enable = true;
+      comment.enable = true;
       friendly-snippets.enable = true;
       fugitive.enable = true;
       gitsigns.enable = true;
