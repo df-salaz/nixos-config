@@ -77,12 +77,12 @@
         mode = "n";
       }{
         key = "<C-/>";
-        action = "gcc<CR>";
+        action = "gcc";
         mode = ["n"];
         options.silent = true;
       }{
         key = "<C-/>";
-        action = "gb<CR>";
+        action = "gb";
         mode = "v";
         options.silent = true;
       }
