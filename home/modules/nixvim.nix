@@ -79,12 +79,12 @@
         key = "<C-/>";
         action = "<cmd>gcc<CR>";
         mode = ["n" "i"];
-        silent = true;
+        options.silent = true;
       }{
         key = "<C-/>";
         action = "<cmd>gb<CR>";
         mode = "v";
-        silent = true;
+        options.silent = true;
       }
     ];
     options = {
