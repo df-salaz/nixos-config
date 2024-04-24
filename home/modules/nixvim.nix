@@ -139,7 +139,11 @@
         enable = true;
         globalstatus = true;
       };
-      luasnip.enable = true;
+      luasnip = {
+        enable = true;
+        fromLua = [{}];
+        fromVscode = [{}];
+      };
       markdown-preview.enable = true;
       neo-tree.enable = true;
       nix.enable = true;
