@@ -77,14 +77,15 @@
         mode = "n";
       }{
         key = "<C-/>";
-        action = "gcc";
-        mode = ["n"];
+        action = "<cmd>normal gcc<CR>";
+        mode = ["n" "i"];
         options.silent = true;
       }{
         key = "<C-/>";
         action = "gb";
         mode = "v";
         options.silent = true;
+        options.remap = true;
       }
     ];
     options = {
