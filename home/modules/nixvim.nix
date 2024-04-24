@@ -131,7 +131,10 @@
           texlab.enable = true;
         };
       };
-      lspkind.enable = true;
+      lspkind = {
+        enable = true;
+        mode = "symbol";
+      };
       lualine = {
         enable = true;
         globalstatus = true;
@@ -140,6 +143,8 @@
       markdown-preview.enable = true;
       neo-tree.enable = true;
       nix.enable = true;
+      nvim-autopairs.enable = true;
+      nvim-colorizer.enable = true;
       nvim-jdtls = {
         enable = true;
         cmd = [(lib.getExe pkgs.jdt-language-server)];
@@ -156,7 +161,6 @@
         ];
       };
       ts-autotag.enable = true;
-      vim-css-color.enable = true;
       vim-matchup.enable = true;
       vimtex.enable = true;
     };
