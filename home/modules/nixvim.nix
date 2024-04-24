@@ -6,7 +6,14 @@
     defaultEditor = true;
     clipboard.register = "unnamedplus";
     colorschemes.catppuccin.enable = true;
-    globals.mapleader = " ";
+    globals = {
+      mapleader = " ";
+      neovide_hide_mouse_when_typing = true;
+      neovide_cursor_animation_length = 0.04;
+      neovide_cursor_unfocused_outline_width = 0.08;
+      neovide_floating_shadow = true;
+      neovide_scroll_animation_length = 0.2;
+    };
     keymaps = [
       {
         key = "<leader>ff";
@@ -52,11 +59,21 @@
       }{
         # Use alt + j/k to move lines of text
         key = "<A-j>";
-        action = ":m +1<CR>";
+        action = "<cmd>m +1<CR>";
         mode = "n";
+        options.silent = true;
       }{
         key = "<A-k>";
-        action = ":m -2<CR>";
+        action = "<cmd>m -2<CR>";
+        mode = "n";
+        options.silent = true;
+      }{
+        key = "<leader>e";
+        action = "<cmd>bd<CR>";
+        mode = "n";
+      }{
+        key = "<leader>E";
+        action = "<cmd>bd!<CR>";
         mode = "n";
       }
     ];
@@ -74,6 +91,10 @@
       scrolloff = 8;
       incsearch = true;
       ignorecase = true;
+      textwidth = 79;
+      fillchars.eob = " ";
+      wrap = false;
+      guifont = "JetBrainsMono Nerd Font:h12";
     };
     plugins = {
       bufferline = {
