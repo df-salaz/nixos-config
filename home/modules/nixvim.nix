@@ -141,7 +141,13 @@
       telescope.enable = true;
       todo-comments.enable = true;
       toggleterm.enable = true;
-      treesitter.enable = true;
+      treesitter = {
+        enable = true;
+        disabledLanguages = [
+          "latex"
+          "markdown"
+        ];
+      };
       ts-autotag.enable = true;
       vim-css-color.enable = true;
       vim-matchup.enable = true;
