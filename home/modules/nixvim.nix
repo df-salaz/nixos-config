@@ -79,7 +79,7 @@
       bufferline = {
         enable = true;
         middleMouseCommand = "bdelete! %d";
-        separatorStyle = "slope";
+        separatorStyle = "slant";
         showBufferCloseIcons = false;
       };
       cmp = {
