@@ -164,7 +164,8 @@
         ];
         servers = {
           lua-ls.enable = true;
-          nixd.enable = true;
+          nil_ls.enable = true;
+          rust-analyzer.enable = true;
           texlab.enable = true;
         };
       };
@@ -189,7 +190,7 @@
       nvim-jdtls = {
         enable = true;
         cmd = [(lib.getExe pkgs.jdt-language-server)];
-        rootDir = { __raw = "vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw', 'pom.xml' }, { upward = true })[1])"; };
+        rootDir.__raw = "vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw', 'pom.xml' }, { upward = true })[1])";
       };
       surround.enable = true;
       telescope.enable = true;
