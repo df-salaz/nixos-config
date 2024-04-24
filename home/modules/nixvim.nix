@@ -76,7 +76,12 @@
       ignorecase = true;
     };
     plugins = {
-      bufferline.enable = true;
+      bufferline = {
+        enable = true;
+        middleMouseCommand = "bdelete! %d";
+        separatorStyle = "slope";
+        showBufferCloseIcons = false;
+      };
       cmp = {
         enable = true;
         settings = {
