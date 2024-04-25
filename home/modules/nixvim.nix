@@ -86,6 +86,9 @@
         mode = "v";
         options.silent = true;
         options.remap = true;
+      }{
+        key = "<C-z>";
+        action = "<cmd>ZenMode<CR>";
       }
     ];
     options = {
@@ -206,8 +209,10 @@
       };
       ts-autotag.enable = true;
       ts-context-commentstring.enable = true;
+      twilight.enable = true;
       vim-matchup.enable = true;
       vimtex.enable = true;
+      zen-mode.enable = true;
     };
     viAlias = true;
     vimAlias = true;
