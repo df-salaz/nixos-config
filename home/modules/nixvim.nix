@@ -87,7 +87,7 @@
         options.silent = true;
         options.remap = true;
       }{
-        key = "<C-z>";
+        key = "<leader>z";
         action = "<cmd>ZenMode<CR>";
       }
     ];
