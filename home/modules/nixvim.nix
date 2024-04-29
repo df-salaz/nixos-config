@@ -1,6 +1,10 @@
 { lib, userSettings, pkgs, ... }:
 
 {
+
+  home.packages = with pkgs; [
+	texliveFull
+  ];
   programs.nixvim = {
     enable = true;
     defaultEditor = true;

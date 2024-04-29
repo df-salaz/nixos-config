@@ -18,11 +18,6 @@ in {
 	environment.systemPackages = with pkgs; [
 		libsForQt5.qt5.qtgraphicaleffects
 		libsForQt5.qt5.qtquickcontrols2
-		jdk8
-		jdt-language-server
-		lua-language-server
-		nil
-		rust-analyzer
 		intel-compute-runtime
 		intel-media-driver
 		git
@@ -30,8 +25,6 @@ in {
 		gcc
 		ntfs3g
 		killall
-		texliveFull
-		texlab
 	];
 	programs = {
 		zsh = {
