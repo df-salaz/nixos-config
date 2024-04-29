@@ -215,7 +215,10 @@
       ts-context-commentstring.enable = true;
       twilight.enable = true;
       vim-matchup.enable = true;
-      vimtex.enable = true;
+      vimtex = {
+        enable = true;
+        texlivePackage = pkgs.texliveFull;
+      };
       zen-mode.enable = true;
     };
     viAlias = true;
