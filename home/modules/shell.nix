@@ -94,8 +94,7 @@
 			autocd = true;
 			initExtra = ''ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion history)
 source ${toString ../config/p10k.zsh}
-source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-PATH="$HOME/.emacs.d/bin:$PATH"'';
+source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme'';
 		};
 	};
 }
