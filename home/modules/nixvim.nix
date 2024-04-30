@@ -1,4 +1,4 @@
-{ lib, userSettings, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
 
@@ -131,7 +131,7 @@
           expirimental = {ghost_text = true;};
           mapping = {
             "<Tab>" = "cmp.mapping.confirm({select = true})";
-            "<S-Tab>" = "cmp.mapping.close()";
+            "<Esc>" = "cmp.mapping.close()";
             "<down>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
             "<up>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
           };
