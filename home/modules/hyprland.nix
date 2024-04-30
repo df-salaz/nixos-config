@@ -45,6 +45,8 @@
         general = {
           layout = "dwindle";
           resize_on_border = true;
+          gaps_in = 4;
+          gaps_out = 8;
           allow_tearing = false;
         };
         animations = {
