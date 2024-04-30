@@ -25,6 +25,10 @@
         mode = "n";
         options.silent = true;
       }{
+        key = "<leader>k";
+        action = "<cmd>Neotree toggle<CR>";
+        options.silent = true;
+      }{
         key = "<C-t>";
         action = "<cmd>ToggleTerm<CR>";
         mode = "n";
