@@ -10,8 +10,8 @@
       spacing = 4;
       modules-left = [
         "power-profiles-daemon"
-        "hyprland/workspaces"
-        "hyprland/window"
+        "sway/workspaces"
+        "sway/window"
       ];
       modules-center = [
         "clock"
@@ -23,10 +23,10 @@
         "battery"
         "tray"
       ];
-      "hyprland/workspaces" = {
+      "sway/workspaces" = {
         all-outputs = true;
-        on-scroll-up = "hyprctl dispatch workspace e-1";
-        on-scroll-down = "hyprctl dispatch workspace e+1";
+        enable-bar-scroll = true;
+        wrap-on-scroll = false;
       };
       tray = {
         spacing = 10;

@@ -52,7 +52,7 @@ button:hover {
 /*     background: rgba(0, 0, 0, 0.2); */
 /* } */
 
-#workspaces button.active {
+#workspaces button.focused {
     background-color: @blue;
     font-weight: 900;
     color: @crust;
@@ -310,7 +310,6 @@ label:focus {
 }
 
 #scratchpad {
-    /* background: rgba(0, 0, 0, 0.2); */
     background: @base;
     color: @crust;
     margin-left: 0px;

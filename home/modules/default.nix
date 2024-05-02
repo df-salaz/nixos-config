@@ -3,6 +3,7 @@
   # System
     ./shell.nix
     ./hyprland.nix
+    ./sway.nix
     ./wofi.nix
     ./waybar.nix
     ./path.nix
