@@ -12,7 +12,6 @@
         "power-profiles-daemon"
         "sway/workspaces"
         "sway/window"
-        "sway/scratchpad"
       ];
       modules-center = [
         "clock"
