@@ -1,50 +1,153 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, userSettings, ... }:
 
 {
   wayland.windowManager.sway = {
     enable = true;
     config = let
       modifier = "Mod4";
-      menu = let
-        wofi = pkgs.getExe pkgs.wofi;
-      in "${wofi} -b -i -S drun | xargs swaymsg exec --";
+      terminal = "${lib.getExe pkgs.alacritty}";
+      menu = "${lib.getExe pkgs.wofi} -b -i -S drun | xargs swaymsg exec --";
     in {
       inherit modifier;
       inherit menu;
-      terminal = "${lib.getExe pkgs.alacritty}";
+      inherit terminal;
       keybindings = let
         wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
         ss-save = ''~/Pictures/Screenshots/Screenshot-$(date "+%a-%b-%d-%T-%Z-%Y").png)'';
-        grimshot = lib.getExe pkgs.grimshot;
+        grimshot = lib.getExe pkgs.sway-contrib.grimshot;
         wtype = lib.getExe pkgs.wtype;
         cliphist = lib.getExe pkgs.cliphist;
         wofi = lib.getExe pkgs.wofi;
         lock = lib.getExe pkgs.swaylock-effects;
         calculator = lib.getExe pkgs.gnome.gnome-calculator;
+        cfg = config.wayland.windowManager.sway;
+        brightnessctl = lib.getExe pkgs.brightnessctl;
+        pactl = "${pkgs.pulseaudio}/bin/pactl";
+        playerctl = "${pkgs.playerctl}/bin/playerctl";
       in {
+        "${modifier}+return" = "exec ${terminal}";
         "${modifier}+e" = "exec ${toString ../config/powermenu-sway.sh}";
+        "${modifier}+f" =  "fullscreen";
         "${modifier}+v" = "floating toggle";
         "${modifier}+c" = "kill";
         "${modifier}+q" = "exec ${calculator}";
-        "${modifier}+r" = menu;
+        "${modifier}+r" = "exec ${menu}";
         "${modifier}+m" = "exec ${lock}";
         "${modifier}+p" = "sticky toggle";
 
         "${modifier}+period" = "exec rofimoji --selector wofi";
         "${modifier}+comma" = "exec ${wtype} -- $(${cliphist} list | ${wofi} -S dmenu -P Paste | ${cliphist} decode)";
 
-        "${modifier}+shift+s" = "${wl-copy} < $(${grimshot} --notify save area ${ss-save})";
-        "${modifier}+shift+d" = "${wl-copy} < $(${grimshot} --notify --wait 5 save area ${ss-save})";
+        "${modifier}+shift+s" = "exec ${wl-copy} < $(${grimshot} --notify save area ${ss-save})";
+        "${modifier}+shift+d" = "exec ${wl-copy} < $(${grimshot} --notify --wait 5 save area ${ss-save})";
+
+        "${modifier}+shift+c" = "reload";
+
+        "${modifier}+1" = "workspace number 1";
+        "${modifier}+2" = "workspace number 2";
+        "${modifier}+3" = "workspace number 3";
+        "${modifier}+4" = "workspace number 4";
+        "${modifier}+5" = "workspace number 5";
+        "${modifier}+6" = "workspace number 6";
+        "${modifier}+7" = "workspace number 7";
+        "${modifier}+8" = "workspace number 8";
+        "${modifier}+9" = "workspace number 9";
+        "${modifier}+0" = "workspace number 10";
+
+        "--whole-window ${modifier}+button4" = "workspace prev";
+        "--whole-window ${modifier}+button5" = "workspace next";
+
+        "${modifier}+Shift+1" = "move container to workspace number 1";
+        "${modifier}+Shift+2" = "move container to workspace number 2";
+        "${modifier}+Shift+3" = "move container to workspace number 3";
+        "${modifier}+Shift+4" = "move container to workspace number 4";
+        "${modifier}+Shift+5" = "move container to workspace number 5";
+        "${modifier}+Shift+6" = "move container to workspace number 6";
+        "${modifier}+Shift+7" = "move container to workspace number 7";
+        "${modifier}+Shift+8" = "move container to workspace number 8";
+        "${modifier}+Shift+9" = "move container to workspace number 9";
+        "${modifier}+Shift+0" = "move container to workspace number 10";
+
+        "${modifier}+Shift+minus" = "move scratchpad";
+        "${modifier}+minus" = "scratchpad show";
+
+        "${modifier}+${cfg.config.left}" = "focus left";
+        "${modifier}+${cfg.config.down}" = "focus down";
+        "${modifier}+${cfg.config.up}" = "focus up";
+        "${modifier}+${cfg.config.right}" = "focus right";
+
+        "${modifier}+Left" = "focus left";
+        "${modifier}+Down" = "focus down";
+        "${modifier}+Up" = "focus up";
+        "${modifier}+Right" = "focus right";
+
+        "${modifier}+Shift+${cfg.config.left}" = "move left";
+        "${modifier}+Shift+${cfg.config.down}" = "move down";
+        "${modifier}+Shift+${cfg.config.up}" = "move up";
+        "${modifier}+Shift+${cfg.config.right}" = "move right";
+
+        "${modifier}+Shift+Left" = "move left";
+        "${modifier}+Shift+Down" = "move down";
+        "${modifier}+Shift+Up" = "move up";
+        "${modifier}+Shift+Right" = "move right";
+
+        "XF86MonBrightnessDown" = "exec ${brightnessctl} set 5%- -n 1920";
+        "XF86MonBrightnessUp" = "exec ${brightnessctl} set +5%";
+        "XF86AudioMute" = "exec ${pactl} set-sink-mute @DEFAULT_SINK@ toggle";
+        "XF86AudioLowerVolume" = "exec ${pactl} set-sink-volume @DEFAULT_SINK@ -2%";
+        "XF86AudioRaiseVolume" = "exec ${pactl} set-sink-volume @DEFAULT_SINK@ +2%";
+        "XF86AudioPrev" = "exec ${playerctl} previous";
+        "XF86AudioPlay" = "exec ${playerctl} play-pause";
+        "XF86AudioNext" = "exec ${playerctl} next";
       };
       output."eDP-1" = {
         mode = "1920x1080@60Hz";
-        scale = 1;
-        max_render_time = 7;
+        scale = "1";
+        max_render_time = "7";
       };
       startup = [
+        { command = "${lib.getExe pkgs.autotiling}"; }
         { command = "${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store"; }
-        { command = ""; }
+        { command = "${lib.getExe pkgs.xorg.xrandr} --output WAYLAND0 --primary"; always = true; }
+        { command = "${pkgs.wbg}/bin/wbg ${userSettings.wallpaper}"; }
       ];
+      bars = [{
+        command = "${lib.getExe pkgs.waybar}";
+      }];
+      floating = {
+        criteria = [
+          { app_id = "org.prismlauncher.PrismLauncher"; title = "^.*—.*$"; }
+          { instance="^.*Minecraft.*$"; }
+          { app_id="firefox"; title="^Picture-in-Picture$"; }
+          { app_id = "nemo"; }
+          { app_id = "pavucontrol"; }
+          { app_id = "org.gnome.Calculator"; }
+        ];
+      };
+      window = {
+        border = 2;
+        titlebar = false;
+      };
+      focus = {
+        newWindow = "focus";
+        mouseWarping = true;
+      };
+      gaps = {
+        smartBorders = "on";
+        smartGaps = true;
+      };
+      input."type:touchpad" = {
+        dwt = "enabled";
+        tap = "enabled";
+        natural_scroll = "enabled";
+        middle_emulation = "enabled";
+      };
+      input."type:keyboard" = {
+        xkb_numlock = "enabled";
+      };
+      input."type:pointer" = {
+        accel_profile = "flat";
+      };
       seat."*" = {
         hide_cursor = "when-typing enable";
       };

@@ -51,7 +51,7 @@ in
         sway = lib.mkIf catppuccin {
           catppuccin.enable = true;
           config.colors = let
-            accent = "$$${userSettings.catppuccin.accent}";
+            accent = "\$${userSettings.catppuccin.accent}";
             background = "$crust";
             unfocused = {
               inherit background;
@@ -75,6 +75,7 @@ in
               indicator = "$red";
               text = "$text";
             };
+            placeholder = unfocused;
             focusedInactive = unfocused;
             inherit unfocused;
             inherit background;

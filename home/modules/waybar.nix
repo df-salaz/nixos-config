@@ -26,7 +26,7 @@
       "sway/workspaces" = {
         all-outputs = true;
         enable-bar-scroll = true;
-        wrap-on-scroll = false;
+        disable-scroll-wraparound = true;
       };
       tray = {
         spacing = 10;
