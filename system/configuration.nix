@@ -71,25 +71,17 @@ in {
       driSupport32Bit = true;
     };
 
-# Set filesystem options outside of hardware-configuration.nix
-fileSystems."/" =
-  { device = "/dev/disk/by-uuid/91f3764f-2fb8-4a89-86b1-cb8b89f7f9ab";
-  fsType = "btrfs";
-  options = [ "subvol=@" "compress=zstd" ];
-};
-fileSystems."/boot" =
-  { device = "/dev/disk/by-uuid/443F-918E";
-  fsType = "vfat";
-};
-
 # Bootloader.
 boot.kernelPackages = pkgs.linuxPackages_latest;
-boot.loader.grub.enable = true;
-boot.loader.efi.canTouchEfiVariables = true;
-boot.loader.grub = {
-  efiSupport = true;
-  useOSProber = true;
-  device = "nodev";
+boot.loader = {
+  efi = {
+    canTouchEfiVariables = true;
+    efiSysMountPoint = "/boot";
+  };
+  grub = {
+    efiSupport = true;
+    device = "nodev";
+  };
 };
 boot.initrd.verbose = false;
 boot.consoleLogLevel = 0;
