@@ -13,7 +13,7 @@
       inherit terminal;
       keybindings = let
         wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
-        ss-save = ''~/Pictures/Screenshots/Screenshot-$(date "+%a-%b-%d-%T-%Z-%Y").png)'';
+        ss-save = ''~/Pictures/Screenshots/Screenshot-$(date "+%a-%b-%d-%T-%Z-%Y").png'';
         grimshot = lib.getExe pkgs.sway-contrib.grimshot;
         wtype = lib.getExe pkgs.wtype;
         cliphist = lib.getExe pkgs.cliphist;
@@ -38,8 +38,8 @@
         "${modifier}+period" = "exec rofimoji --selector wofi";
         "${modifier}+comma" = "exec ${wtype} -- $(${cliphist} list | ${wofi} -S dmenu -P Paste | ${cliphist} decode)";
 
-        "${modifier}+shift+s" = "exec ${wl-copy} < $(${grimshot} --notify save area ${ss-save})";
-        "${modifier}+shift+d" = "exec ${wl-copy} < $(${grimshot} --notify --wait 5 save area ${ss-save})";
+        "${modifier}+Shift+s" = "exec ${wl-copy} < $(${grimshot} --notify save area ${ss-save})";
+        "${modifier}+Shift+d" = "exec ${wl-copy} < $(${grimshot} --notify --wait 5 save area ${ss-save})";
 
         "${modifier}+shift+c" = "reload";
 
