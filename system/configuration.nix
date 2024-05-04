@@ -79,8 +79,9 @@ boot.loader = {
     efiSysMountPoint = "/boot";
   };
   grub = {
-    efiSupport = true;
     device = "nodev";
+    efiSupport = true;
+    useOSProber = true;
   };
 };
 boot.initrd.verbose = false;
