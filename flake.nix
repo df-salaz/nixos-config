@@ -23,7 +23,6 @@
     # ----------------------- #
     systemSettings = {
       # Hardware #
-      hostname = "nixos";
       system = "x86_64-linux";
 
       # Theming #
@@ -61,16 +60,14 @@
       font = "JetBrainsMono Nerd Font";
     };
   in {
-    nixosConfigurations.${systemSettings.hostname} = 
-    nixpkgs.lib.nixosSystem {
-      system = systemSettings.system;
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs;
         inherit systemSettings;
       };
       modules = [
         {nixpkgs.overlays = [ nur.overlay ]; }
-        ./system/configuration.nix
+        ./desktop/configuration.nix
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
         {

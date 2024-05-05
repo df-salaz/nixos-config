@@ -115,6 +115,8 @@
         command = "${lib.getExe pkgs.waybar}";
       }];
       floating = {
+        border = 2;
+        titlebar = false;
         criteria = [
           { app_id = "org.prismlauncher.PrismLauncher"; title = "^.*—.*$"; }
           { instance="^.*Minecraft.*$"; }
@@ -133,6 +135,8 @@
         mouseWarping = true;
       };
       gaps = {
+        inner = 4;
+        outer = 0;
         smartBorders = "on";
         smartGaps = true;
       };
@@ -151,6 +155,7 @@
       seat."*" = {
         hide_cursor = "when-typing enable";
       };
+      defaultWorkspace = "workspace number 1";
     };
     extraConfig = ''
       bindgesture swipe:right workspace prev

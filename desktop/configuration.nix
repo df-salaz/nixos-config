@@ -4,9 +4,7 @@
 
 { config, pkgs, lib, inputs, ... }:
 
-let
-  system = "x86_64-linux";
-in {
+{
   imports = [
     ./hardware-configuration.nix
     ./modules
@@ -90,7 +88,7 @@ boot.kernelParams = [ "quiet" "rd.systemd.show_status=false" "rd.udev.log_level=
 
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-networking.hostName = "nixos";
+networking.hostName = "desktop";
 networking.networkmanager.enable = true;
 
 # Set time and locale.
