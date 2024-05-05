@@ -5,10 +5,6 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
-
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
     environment.defaultPackages = [];

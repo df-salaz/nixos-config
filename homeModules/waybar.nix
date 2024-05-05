@@ -110,7 +110,7 @@
         on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
       };
     };
-    style = ../home/config/waybar/style.css ;
+    style = ./config/waybar/style.css ;
   };
   services.dunst = {
     enable = true;

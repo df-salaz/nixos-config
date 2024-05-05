@@ -60,12 +60,14 @@
     ];
   in {
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = system-modules ++ [./hosts/desktop];
       inherit specialArgs;
-      modules = system-modules ++ [./desktop];
     };
     nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = system-modules ++ [./hosts/laptop];
       inherit specialArgs;
-      modules = system-modules ++ [./laptop];
     };
   };
 }
