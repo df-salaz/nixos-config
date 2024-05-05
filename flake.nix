@@ -18,13 +18,37 @@
   outputs = { self, nixpkgs, catppuccin, nur, nixvim, home-manager, ... } 
   @inputs:
   let
+    specialArgs = {
+      inherit inputs;
+      inherit systemSettings;
+    };
+    system-modules = [
+      {nixpkgs.overlays = [ nur.overlay ]; }
+      catppuccin.nixosModules.catppuccin
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.extraSpecialArgs = {
+          inherit inputs;
+          inherit userSettings;
+        };
+        home-manager.backupFileExtension = "old";
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users = {
+          ${userSettings.username} = {
+            imports = [
+              ./home/home.nix
+              catppuccin.homeManagerModules.catppuccin
+              nixvim.homeManagerModules.nixvim
+            ];
+          };
+        };
+      }
+    ];
     #  Switches and Settings  #
     # --- System Settings --- #
     # ----------------------- #
     systemSettings = {
-      # Hardware #
-      system = "x86_64-linux";
-
       # Theming #
       # Options:
       # - catppuccin
@@ -60,35 +84,13 @@
       font = "JetBrainsMono Nerd Font";
     };
   in {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = {
-        inherit inputs;
-        inherit systemSettings;
-      };
-      modules = [
-        {nixpkgs.overlays = [ nur.overlay ]; }
-        ./desktop/configuration.nix
-        catppuccin.nixosModules.catppuccin
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.extraSpecialArgs = {
-            inherit inputs;
-            inherit userSettings;
-          };
-          home-manager.backupFileExtension = "old";
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users = {
-            ${userSettings.username} = {
-              imports = [
-                ./home/home.nix
-                catppuccin.homeManagerModules.catppuccin
-                nixvim.homeManagerModules.nixvim
-              ];
-            };
-          };
-        }
-      ];
+    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+      inherit specialArgs;
+      modules = system-modules ++ [./desktop];
+    };
+    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+      inherit specialArgs;
+      modules = system-modules ++ [./laptop];
     };
   };
 }
