@@ -180,7 +180,11 @@
           servers = {
             lua-ls.enable = true;
             nil_ls.enable = true;
-            rust-analyzer.enable = true;
+            rust-analyzer = {
+              enable = true;
+              installCargo = true;
+              installRustc = true;
+            };
             texlab.enable = true;
           };
         };

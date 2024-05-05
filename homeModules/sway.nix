@@ -27,7 +27,8 @@
           cliphist = lib.getExe pkgs.cliphist;
           wofi = lib.getExe pkgs.wofi;
           lock = lib.getExe pkgs.swaylock-effects;
-          calculator = lib.getExe pkgs.gnome.gnome-calculator;
+          calculator =
+            lib.getExe' pkgs.gnome.gnome-calculator "gnome-calculator";
           cfg = config.wayland.windowManager.sway;
           brightnessctl = lib.getExe pkgs.brightnessctl;
           pactl = "${pkgs.pulseaudio}/bin/pactl";
