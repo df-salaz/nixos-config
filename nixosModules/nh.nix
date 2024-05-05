@@ -1,10 +1,10 @@
 { pkgs, lib, config, ... }:
 
 {
-  options = {
-    nh.enable =
+  options.nh = {
+    enable =
       lib.mkEnableOption "Enables the nh helper program";
-    nh.flake = lib.mkOption {
+    flake = lib.mkOption {
       default = "/home/koye/.nixos";
     };
   };

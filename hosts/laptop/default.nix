@@ -1,9 +1,9 @@
 {
   imports = [
-    ./configuration.nix
     ./hardware-configuration.nix
   ];
 
+  networking.hostName = "laptop";
   nh.enable = true;
   theme.catppuccin = {
     enable = true;
