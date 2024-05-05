@@ -6,11 +6,17 @@
 
   config = lib.mkIf config.discord.enable {
     home.packages = with pkgs; [
-      betterdiscordctl
       vesktop
     ];
-    wayland.windowManager.hyprland.settings.exec-once = [
-      "${pkgs.vesktop}/bin/vesktop --start-minimized"
-    ];
+    wayland.windowManager = let
+      cmd = "${lib.getExe pkgs.vesktop} --start-minimized";
+    in {
+      sway.config.startup = [
+        { command = cmd; }
+      ];
+      hyprland.settings.exec-once = [
+        cmd
+      ];
+    };
   };
 }
