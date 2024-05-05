@@ -1,4 +1,4 @@
-{config, inputs, options, userSettings, pkgs, ... }:
+{config, lib, inputs, options, userSettings, pkgs, ... }:
 
 {
   ## Custom modules
@@ -22,10 +22,13 @@
     defaultTerminalEmulator = "alacritty";
   };
 
-  theme.catppuccin = {
+  theme = {
     enable = true;
-    flavor = "mocha";
-    accent = "blue";
+    catppuccin = {
+      enable = true;
+      flavor = "mocha";
+      accent = "blue";
+    };
   };
 
   ## End custom modules

@@ -1,66 +1,74 @@
-{ config, pkgs, userSettings, lib, ... }:
+{ config, pkgs, lib, ... }:
 {
   options.theme = {
+    enable = lib.mkEnableOption "Enable theming";
     catppuccin = {
       enable = lib.mkEnableOption "Enable the Catppuccin theme";
       flavor = lib.mkOption {
         default = "mocha";
       };
       accent = lib.mkOption {
-        default = "mocha";
+        default = "blue";
       };
     };
   };
 
-  config = lib.mkIf config.theme.catppuccin.enable {
+  config = let
+    cat = config.theme.catppuccin.enable;
+  in
+    lib.mkIf config.theme.enable {
     catppuccin.flavour =  config.theme.catppuccin.flavor;
     catppuccin.accent = config.theme.catppuccin.accent;
     gtk = {
-      catppuccin.enable = true;
-      iconTheme = {
+      enable = true;
+      catppuccin = lib.mkIf cat {
+        enable = true;
+        tweaks = [ "rimless" ];
+      };
+      iconTheme = lib.mkIf cat {
         name = "Papirus";
         package = pkgs.catppuccin-papirus-folders.override {
           flavor = config.catppuccin.flavour;
           accent = config.catppuccin.accent;
         };
       };
-      gtk3.extraConfig.Settings = true;
-      gtk4.extraConfig.Settings = true;
+      gtk3.extraConfig.Settings = "gtk-application-prefer-dark-theme = 1";
+      gtk4.extraConfig.Settings = "gtk-application-prefer-dark-theme = 1";
     };
-    home.file = {
+    home.file = lib.mkIf cat {
       ".config/vesktop/settings/quickCss.css".text =
         lib.mkIf (config.discord.enable)
-        ''@import url("https://catppuccin.github.io/discord/dist/catppuccin-${userSettings.catppuccin.flavor}-${userSettings.catppuccin.accent}.theme.css");'';
+        ''@import url("https://catppuccin.github.io/discord/dist/catppuccin-${config.catppuccin.flavour}-${config.catppuccin.accent}.theme.css");'';
     };
     programs = {
       alacritty = {
-        catppuccin.enable = true;
+        catppuccin.enable = cat;
         settings = {
           colors.cursor.cursor = lib.mkForce "#cdd6f4";
         };
       };
-      bat.catppuccin.enable = true;
-      btop.catppuccin.enable = true;
-      fzf.catppuccin.enable = true;
-      zathura.catppuccin.enable = true;
-      cava.catppuccin.enable = true;
+      bat.catppuccin.enable = cat;
+      btop.catppuccin.enable = cat;
+      fzf.catppuccin.enable = cat;
+      zathura.catppuccin.enable = cat;
+      cava.catppuccin.enable = cat;
     };
     wayland.windowManager = {
       hyprland = {
-        catppuccin.enable = true;
+        catppuccin.enable = cat;
         settings = {
-          general = {
+          general = lib.mkIf cat {
             "col.inactive_border" = "$base";
-            "col.active_border" = "\$${userSettings.catppuccin.accent}";
+            "col.active_border" = "\$${config.catppuccin.accent}";
             border_size = 2;
           };
           decoration.rounding = 5;
         };
       };
-      sway = {
+      sway = lib.mkIf cat {
         catppuccin.enable = true;
         config.colors = let
-          accent = "\$${userSettings.catppuccin.accent}";
+          accent = "\$${config.catppuccin.accent}";
           background = "$crust";
           unfocused = {
             inherit background;
@@ -92,7 +100,7 @@
       };
     };
     services = {
-      dunst.settings = {
+      dunst.settings = lib.mkIf cat {
         global = {
           background = "#1e1e2e";
           foreground = "#cdd6f4";

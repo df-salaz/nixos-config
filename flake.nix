@@ -3,7 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin.url =
+      "github:catppuccin/nix?rev=2788becbb58bd2a60666fbbf2d4f6ae1721112d5";
     nur.url = "github:nix-community/NUR";
     nixvim = {
       url = "github:nix-community/nixvim";

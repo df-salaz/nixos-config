@@ -35,7 +35,7 @@
           playerctl = "${pkgs.playerctl}/bin/playerctl";
         in {
           "${modifier}+return" = "exec ${terminal}";
-          "${modifier}+e" = "exec ${toString ../config/powermenu-sway.sh}";
+          "${modifier}+e" = "exec ${toString ./config/powermenu-sway.sh}";
           "${modifier}+f" =  "fullscreen";
           "${modifier}+v" = "floating toggle";
           "${modifier}+c" = "kill";
