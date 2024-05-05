@@ -1,16 +1,27 @@
-{pkgs, systemSettings, lib, ...}:
-
-let
-	catppuccin = systemSettings.colorScheme == "catppuccin";
-in
+{ config, pkgs, lib, ...}:
 {
-	catppuccin.flavour = lib.mkIf (catppuccin) systemSettings.catppuccin.flavor;
-	console.catppuccin.enable = lib.mkIf catppuccin true;
-	boot.loader.grub.catppuccin.enable = lib.mkIf catppuccin true;
-	services.displayManager.sddm.theme = lib.mkIf catppuccin 
-		"catppuccin-sddm-corners";
+  options.theme = {
+    catppuccin = {
+      enable = lib.mkEnableOption "Enable the Catppuccin theme";
+      flavor = lib.mkOption {
+        default = "mocha";
+      };
+    };
+  };
 
-	environment.systemPackages = with pkgs; lib.optionals (catppuccin) [
-		catppuccin-sddm-corners
-	];
+  config =
+  let
+    catppuccin = config.theme.catppuccin.enable;
+  in {
+    catppuccin.flavour = lib.mkIf (catppuccin)
+      config.theme.catppuccin.flavor;
+    console.catppuccin.enable = lib.mkIf catppuccin true;
+    boot.loader.grub.catppuccin.enable = lib.mkIf catppuccin true;
+    services.displayManager.sddm.theme = lib.mkIf catppuccin 
+    "catppuccin-sddm-corners";
+
+    environment.systemPackages = with pkgs; lib.optionals (catppuccin) [
+      catppuccin-sddm-corners
+    ];
+  };
 }

@@ -1,103 +1,113 @@
-{ pkgs, userSettings, lib, ... }:
+{ config, pkgs, userSettings, lib, ... }:
+{
+  options.theme = {
+    catppuccin = {
+      enable = lib.mkEnableOption "Enable the Catppuccin theme";
+      flavor = lib.mkOption {
+        default = "mocha";
+      };
+      accent = lib.mkOption {
+        default = "mocha";
+      };
+    };
+  };
 
-let
-  catppuccin = userSettings.colorScheme == "catppuccin";
-in
-  {
-    catppuccin.flavour = userSettings.catppuccin.flavor;
-    catppuccin.accent = userSettings.catppuccin.accent;
+  config = lib.mkIf config.theme.catppuccin.enable {
+    catppuccin.flavour = config.theme.catppuccin.flavor;
+    catppuccin.accent = config.theme.catppuccin.accent;
     gtk = {
-      catppuccin.enable = lib.mkIf catppuccin true;
-      iconTheme = lib.mkIf catppuccin {
+      catppuccin.enable = true;
+      iconTheme = {
         name = "Papirus";
         package = pkgs.catppuccin-papirus-folders.override {
-          flavor = userSettings.catppuccin.flavor;
-          accent = userSettings.catppuccin.accent;
+          flavor = config.catppuccin.flavor;
+          accent = config.catppuccin.accent;
         };
       };
-      gtk3.extraConfig.Settings = lib.mkIf userSettings.darkTheme ''gtk-application-prefer-dark-theme = 1;'';
-      gtk4.extraConfig.Settings = lib.mkIf userSettings.darkTheme ''gtk-application-prefer-dark-theme = 1;'';
+      gtk3.extraConfig.Settings = true;
+      gtk4.extraConfig.Settings = true;
     };
     home.file = {
       ".config/vesktop/settings/quickCss.css".text =
-        lib.mkIf (userSettings.discord.enable && catppuccin)
+        lib.mkIf (config.discord.enable)
         ''@import url("https://catppuccin.github.io/discord/dist/catppuccin-${userSettings.catppuccin.flavor}-${userSettings.catppuccin.accent}.theme.css");'';
-      };
-      programs = {
-        alacritty = lib.mkIf catppuccin {
-          catppuccin.enable = true;
-          settings = {
-            colors.cursor.cursor = lib.mkForce "#cdd6f4";
-          };
+    };
+    programs = {
+      alacritty = {
+        catppuccin.enable = true;
+        settings = {
+          colors.cursor.cursor = lib.mkForce "#cdd6f4";
         };
-        bat.catppuccin.enable = lib.mkIf catppuccin true;
-        btop.catppuccin.enable = lib.mkIf catppuccin true;
-        fzf.catppuccin.enable = lib.mkIf catppuccin true;
-        zathura.catppuccin.enable = lib.mkIf catppuccin true;
-        cava.catppuccin.enable = lib.mkIf catppuccin true;
       };
-      wayland.windowManager = lib.mkIf catppuccin {
-        hyprland = {
-          catppuccin.enable = true;
-          settings = {
-            general = {
-              "col.inactive_border" = "$base";
-              "col.active_border" = "\$${userSettings.catppuccin.accent}";
-              border_size = 2;
-            };
-            decoration.rounding = 5;
+      bat.catppuccin.enable = true;
+      btop.catppuccin.enable = true;
+      fzf.catppuccin.enable = true;
+      zathura.catppuccin.enable = true;
+      cava.catppuccin.enable = true;
+    };
+    wayland.windowManager = {
+      hyprland = {
+        catppuccin.enable = true;
+        settings = {
+          general = {
+            "col.inactive_border" = "$base";
+            "col.active_border" = "\$${userSettings.catppuccin.accent}";
+            border_size = 2;
           };
+          decoration.rounding = 5;
         };
-        sway = lib.mkIf catppuccin {
-          catppuccin.enable = true;
-          config.colors = let
-            accent = "\$${userSettings.catppuccin.accent}";
-            background = "$crust";
-            unfocused = {
-              inherit background;
-              border = "$crust";
-              childBorder = "$crust";
-              indicator = "$crust";
-              text = "$text";
-            };
-          in {
-            focused = {
-              inherit background;
-              border = accent;
-              childBorder = accent;
-              indicator = accent;
-              text = "$text";
-            };
-            urgent ={
-              inherit background;
-              border = "$red";
-              childBorder = "$red";
-              indicator = "$red";
-              text = "$text";
-            };
-            placeholder = unfocused;
-            focusedInactive = unfocused;
-            inherit unfocused;
+      };
+      sway = {
+        catppuccin.enable = true;
+        config.colors = let
+          accent = "\$${userSettings.catppuccin.accent}";
+          background = "$crust";
+          unfocused = {
             inherit background;
+            border = "$crust";
+            childBorder = "$crust";
+            indicator = "$crust";
+            text = "$text";
           };
+        in {
+          focused = {
+            inherit background;
+            border = accent;
+            childBorder = accent;
+            indicator = accent;
+            text = "$text";
+          };
+          urgent ={
+            inherit background;
+            border = "$red";
+            childBorder = "$red";
+            indicator = "$red";
+            text = "$text";
+          };
+          placeholder = unfocused;
+          focusedInactive = unfocused;
+          inherit unfocused;
+          inherit background;
         };
       };
-      services = {
-        dunst.settings = {
-          global = {
-            background = "#1e1e2e";
-            foreground = "#cdd6f4";
-            separator_color = "frame";
-          };
-          urgency_low = {
-            frame_color = "#a6e3a1";
-          };
-          urgency_normal = {
-            frame_color = "#89b4fa";
-          };
-          urgency_critical = {
-            frame_color = "#f38ba8";
-          };
+    };
+    services = {
+      dunst.settings = {
+        global = {
+          background = "#1e1e2e";
+          foreground = "#cdd6f4";
+          separator_color = "frame";
+        };
+        urgency_low = {
+          frame_color = "#a6e3a1";
+        };
+        urgency_normal = {
+          frame_color = "#89b4fa";
+        };
+        urgency_critical = {
+          frame_color = "#f38ba8";
         };
       };
-    }
+    };
+  };
+}

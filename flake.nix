@@ -16,8 +16,20 @@
   };
 
   outputs =
-    { self, nixpkgs, catppuccin, nur, nixvim, home-manager, ... } @inputs:
+    { self, nixpkgs, catppuccin, nur, nixvim, home-manager, ... }
+    @inputs:
   let
+    userSettings = {
+      username = "koye";
+      name = "David";
+      email = "df.salaz@gmail.com";
+      colorScheme = "catppuccin";
+      catppuccin = {
+        flavor = "mocha";
+        accent = "blue";
+      };
+      wallpaper = "~/Pictures/nix.png";
+    };
     specialArgs = {
       inherit inputs;
     };
@@ -29,6 +41,7 @@
       {
         home-manager.extraSpecialArgs = {
           inherit inputs;
+          inherit userSettings;
         };
         home-manager.backupFileExtension = "old";
         home-manager.useGlobalPkgs = true;

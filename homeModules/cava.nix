@@ -1,7 +1,7 @@
 { config, lib, inputs, pkgs, ... }:
 
 {
-  options = {
+  options.cava = {
     enable = lib.mkEnableOption "Enables cava";
   };
 

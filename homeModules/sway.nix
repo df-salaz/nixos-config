@@ -5,7 +5,8 @@
     enable = true;
     config = let
       modifier = "Mod4";
-      terminal = "${lib.getExe pkgs.alacritty}";
+      terminal = lib.mkIf config.terminalEmulator.enable "${lib.getExe 
+        pkgs.${config.terminalEmulator.defaultTerminalEmulator}}";
       menu = "${lib.getExe pkgs.wofi} -b -i -S drun | xargs swaymsg exec --";
     in {
       inherit modifier;

@@ -1,9 +1,16 @@
-{ userSettings, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-	home.packages = with pkgs; lib.optionals (userSettings.games.extra) [
-		openrct2
-		superTuxKart
-		mindustry-wayland
-	];
+  options.games = {
+    enable =
+      lib.mkEnableOption "Enable extra games";
+  };
+
+  config = lib.mkIf config.games.enable {
+    home.packages = with pkgs; [
+      openrct2
+      superTuxKart
+      mindustry-wayland
+    ];
+  };
 }

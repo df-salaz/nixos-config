@@ -5,4 +5,8 @@
   ];
 
   nh.enable = true;
+  theme.catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
 }

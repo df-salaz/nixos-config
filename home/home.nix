@@ -1,9 +1,33 @@
 {config, inputs, options, userSettings, pkgs, ... }:
 
 {
-  xdg.enable = true;
+  cava.enable = true;
+  spotify.enable = true;
 
   discord.enable = true;
+  games.enable = true;
+
+  git.enable = true;
+  nixvim.enable = true;
+
+  hyprland.enable = false;
+  sway.enable = true;
+  guiToolkits.enable = true;
+
+  shell.enable = true;
+  terminalEmulator = {
+    enable = true;
+    defaultTerminalEmulator = "alacritty";
+  };
+
+  theme.catppuccin = {
+    enable = true;
+    flavor = "mocha";
+    accent = "blue";
+  };
+
+
+  xdg.enable = true;
 
   home.username = userSettings.username;
   home.homeDirectory = "/home/"+userSettings.username;
@@ -24,6 +48,10 @@
     neofetch
     firefox
     chromium
+  ];
+  home.sessionPath = [
+    "$HOME/.emacs.d/bin"
+    "$HOME/.local/bin"
   ];
 
   programs = {

@@ -1,19 +1,26 @@
-{ pkgs, userSettings, ... }:
+{ lib, config, pkgs, userSettings, ... }:
 {
-  home.packages = with pkgs; [
-    pavucontrol
-    brightnessctl
-    hyprpicker
-    wl-clipboard
-  ];
-  wayland.windowManager.hyprland = {
-    enable = true;
-    settings = {
-      monitor = "eDP-1, 1920x1080@60, 0x0, 1";
-      "$terminal" = "${pkgs.${userSettings.terminal}}/bin/${userSettings.terminal}";
-      "$lock" = "${pkgs.swaylock-effects}/bin/swaylock";
-      "$mainMod" = "SUPER";
-      "$calculator" = "${pkgs.gnome.gnome-calculator}/bin/gnome-calculator";
+  options.hyprland = {
+    enable =
+      lib.mkEnableOption "Enable Hyprland";
+  };
+
+  config = lib.mkIf config.hyprland.enable {
+    home.packages = with pkgs; [
+      pavucontrol
+      brightnessctl
+      hyprpicker
+      wl-clipboard
+    ];
+    wayland.windowManager.hyprland = {
+      enable = true;
+      settings = {
+        monitor = "eDP-1, 1920x1080@60, 0x0, 1";
+        "$terminal" = lib.mkIf config.terminalEmulator.enable "${lib.getExe 
+          pkgs.${config.terminalEmulator.defaultTerminalEmulator}}";
+        "$lock" = "${pkgs.swaylock-effects}/bin/swaylock";
+        "$mainMod" = "SUPER";
+        "$calculator" = "${pkgs.gnome.gnome-calculator}/bin/gnome-calculator";
         # TODO: Power menu
         "$power" = "";
         "$emoji" = "${pkgs.rofimoji}/bin/rofimoji --selector wofi";
@@ -78,7 +85,6 @@
           force_default_wallpaper = 0;
           vfr = true;
           disable_autoreload = true;
-          #swallow_regex = "^(${userSettings.terminal}|Alacritty)$";
           focus_on_activate = true;
           disable_splash_rendering = true;
           enable_swallow = true;
@@ -90,7 +96,7 @@
           overlay = false;
         };
         windowrule = [
-          "noblur,^(?!(${userSettings.terminal}|neovide|Alacritty|swayimg)) # Only blur the terminal and Neovim"
+          "noblur,^(?!(Alacritty|swayimg))"
           "windowdance,title:^(Rhythm Doctor)$"
           "forceinput,title:^(Rhythm Doctor)$"
         ];
@@ -144,62 +150,63 @@
               "$mainMod, ${ws}, workspace, ${toString (x + 1)}"
               "$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
             ]
-            )10)
-            );
-            bindm = [
-              "$mainMod, mouse:272, movewindow"
-              "$mainMod, mouse:273, resizewindow"
-            ];
-            workspace = "special:scratchpad, on-created-empty:[float] $terminal";
-          };
-        };
+          )10)
+        );
+        bindm = [
+          "$mainMod, mouse:272, movewindow"
+          "$mainMod, mouse:273, resizewindow"
+        ];
+        workspace = "special:scratchpad, on-created-empty:[float] $terminal";
+      };
+    };
 
-        programs.bun.enable = true;
-        programs.swaylock = {
-          enable = true;
-          package = pkgs.swaylock-effects;
-          settings = {
-            indicator-idle-visible = true;
-            clock = true;
-            hide-keyboard-layout = true;
-            disable-caps-lock-text = true;
-            font = "JetBrainsMonoNerdFontMono";
-            timestr = "%I:%M %p";
-            effect-blur = "14x5";
-            effect-vignette = "0.7:0";
-            indicator-radius = "400";
-            indicator-thickness = "20";
-            key-hl-color = "ffffff";
-            separator-color = "00000000";
-            ring-color = "61afef";
-            ring-ver-color = "98c379";
-            ring-wrong-color = "e06c75";
-            ring-clear-color = "98c379";
-            line-color = "00000000";
-            line-wrong-color = "00000000";
-            line-ver-color = "00000000";
-            line-clear-color = "00000000";
-            inside-color = "000000aa";
-            inside-wrong-color = "000000aa";
-            inside-ver-color = "000000aa";
-            inside-clear-color = "000000aa";
-            text-wrong = "Incorrect";
-            text-ver = "";
-            text-color = "ffffff";
-            text-wrong-color = "ffffff";
-            text-clear-color = "ffffff";
-            bs-hl-color = "he06c75";
-            image = "~/Pictures/starship.png";
-          };
-        };
-        services.swayidle = {
-          enable = true;
-          events = [{
-            event = "before-sleep";
-            command = "${pkgs.swaylock-effects}/bin/swaylock";
-          }{
-            event = "lock";
-            command = "${pkgs.swaylock-effects}/bin/swaylock";
-          }];
-        };
-      }
+    programs.bun.enable = true;
+    programs.swaylock = {
+      enable = true;
+      package = pkgs.swaylock-effects;
+      settings = {
+        indicator-idle-visible = true;
+        clock = true;
+        hide-keyboard-layout = true;
+        disable-caps-lock-text = true;
+        font = "JetBrainsMonoNerdFontMono";
+        timestr = "%I:%M %p";
+        effect-blur = "14x5";
+        effect-vignette = "0.7:0";
+        indicator-radius = "400";
+        indicator-thickness = "20";
+        key-hl-color = "ffffff";
+        separator-color = "00000000";
+        ring-color = "61afef";
+        ring-ver-color = "98c379";
+        ring-wrong-color = "e06c75";
+        ring-clear-color = "98c379";
+        line-color = "00000000";
+        line-wrong-color = "00000000";
+        line-ver-color = "00000000";
+        line-clear-color = "00000000";
+        inside-color = "000000aa";
+        inside-wrong-color = "000000aa";
+        inside-ver-color = "000000aa";
+        inside-clear-color = "000000aa";
+        text-wrong = "Incorrect";
+        text-ver = "";
+        text-color = "ffffff";
+        text-wrong-color = "ffffff";
+        text-clear-color = "ffffff";
+        bs-hl-color = "he06c75";
+        image = "~/Pictures/starship.png";
+      };
+    };
+    services.swayidle = {
+      enable = true;
+      events = [{
+        event = "before-sleep";
+        command = "${pkgs.swaylock-effects}/bin/swaylock";
+      }{
+        event = "lock";
+        command = "${pkgs.swaylock-effects}/bin/swaylock";
+      }];
+    };
+  };
+}

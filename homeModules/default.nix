@@ -3,10 +3,10 @@
     ./cava.nix
     ./discord.nix
     ./games.nix
-    ./gtk.nix
+    ./git.nix
+    # ./guiToolkits.nix
     ./hyprland.nix
     ./nixvim.nix
-    ./path.nix
     ./shell.nix
     ./spotify.nix
     ./sway.nix
