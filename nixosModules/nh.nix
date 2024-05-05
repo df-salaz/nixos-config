@@ -4,7 +4,9 @@
   options = {
     nh.enable =
       lib.mkEnableOption "Enables the nh helper program";
-    flake = lib.mkDefault "/home/koye/.nixos";
+    flake = lib.mkOption {
+      default = "/home/koye/.nixos";
+    };
   };
 
   config = lib.mkIf config.nh.enable {
