@@ -49,7 +49,7 @@
         home-manager.users = {
           "koye" = {
             imports = [
-              ./home/home.nix
+              ./home.nix
               ./homeModules
               catppuccin.homeManagerModules.catppuccin
               nixvim.homeManagerModules.nixvim
