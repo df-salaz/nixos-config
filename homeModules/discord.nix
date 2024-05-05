@@ -1,11 +1,11 @@
-{ inputs, pkgs, lib, userSettings, config, ... }:
+{ inputs, pkgs, lib, config, ... }:
 {
   options = {
     enable = lib.mkEnableOption "Enables Discord";
   };
 
   config = lib.mkIf config.discord.enable {
-    home.packages = with pkgs; lib.optionals (userSettings.discord.enable) [
+    home.packages = with pkgs; [
       betterdiscordctl
       vesktop
     ];

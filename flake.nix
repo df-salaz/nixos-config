@@ -37,6 +37,7 @@
           "koye" = {
             imports = [
               ./home/home.nix
+              ./homeModules
               catppuccin.homeManagerModules.catppuccin
               nixvim.homeManagerModules.nixvim
             ];

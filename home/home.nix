@@ -3,9 +3,7 @@
 {
   xdg.enable = true;
 
-  imports = [
-    ./modules
-  ];
+  discord.enable = true;
 
   home.username = userSettings.username;
   home.homeDirectory = "/home/"+userSettings.username;
