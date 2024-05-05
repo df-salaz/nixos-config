@@ -83,7 +83,7 @@ boot.kernelParams = [ "quiet" "rd.systemd.show_status=false" "rd.udev.log_level=
 
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-networking.hostName = "desktop";
+networking.hostName = "laptop";
 networking.networkmanager.enable = true;
 
 # Set time and locale.
