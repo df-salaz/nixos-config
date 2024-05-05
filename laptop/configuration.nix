@@ -7,7 +7,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./modules
   ];
 
     # Allow unfree packages

@@ -1,6 +1,8 @@
 {config, inputs, options, userSettings, pkgs, ... }:
 
 {
+  ## Custom modules
+
   cava.enable = true;
   spotify.enable = true;
 
@@ -26,6 +28,7 @@
     accent = "blue";
   };
 
+  ## End custom modules
 
   xdg.enable = true;
 

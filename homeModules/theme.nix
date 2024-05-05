@@ -13,14 +13,14 @@
   };
 
   config = lib.mkIf config.theme.catppuccin.enable {
-    catppuccin.flavour = config.theme.catppuccin.flavor;
+    catppuccin.flavour =  config.theme.catppuccin.flavor;
     catppuccin.accent = config.theme.catppuccin.accent;
     gtk = {
       catppuccin.enable = true;
       iconTheme = {
         name = "Papirus";
         package = pkgs.catppuccin-papirus-folders.override {
-          flavor = config.catppuccin.flavor;
+          flavor = config.catppuccin.flavour;
           accent = config.catppuccin.accent;
         };
       };
