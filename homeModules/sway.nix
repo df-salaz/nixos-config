@@ -171,5 +171,6 @@
         bindgesture swipe:left workspace next
       '';
     };
+    swayidle.enable = true;
   };
 }
