@@ -1,12 +1,8 @@
-/* @define-color high #C8A2F7;
+@define-color high #89b4fa;
 @define-color text-dark #11111B;
 @define-color text-high #CDD6F4;
 @define-color term #1E1E2E;
-@defime-color dark #11111B; */
-@define-color text #cdd6f4;
-@define-color blue #89b4fa;
-@define-color base #1e1e2e;
-@define-color crust ##11111b;
+@defime-color dark #11111B;
 
 * {
 	font: JetBrainsMonoNerdFont 14;
@@ -18,9 +14,9 @@
 	border-radius: 8px;
 	outline: none;
 	box-shadow: none;
-	background-color: @crust; /* background color of the text input box itself */
-	color: @text; /* text color as you type inside the input box */
-	border-color: @blue;
+	background-color: @text-dark; /* background color of the text input box itself */
+	color: @text-high; /* text color as you type inside the input box */
+	border-color: @high;
 }
 
 #entry {
@@ -28,15 +24,15 @@
 }
 
 #entry:selected{
-	background-color: @blue;
-	color: @crust;
+	background-color: @high;
+	color: @text-dark;
 	outline: none;
 	border: none;
 }
 
 #text:selected{
 	font-weight: bold;
-	color: @crust;
+	color: @text-dark;
 	outline: none;
 }
 
@@ -44,15 +40,15 @@
 	margin: 5px;
 	box-shadow: none;
 	border: none; /* horizontal bar that appears above the search results */
-	background-color: @base; /* background color behind the search results */
-    color: @text; /* text color of each search result */
+	background-color: @term; /* background color behind the search results */
+    color: @text-high; /* text color of each search result */
 }
 
 #outer-box {
 	border-radius: 8px;
 	margin: 5px; /* margin between the outer edges of the main window and its contents inside */
 	border: none; /* border around all the internal window components */
-	background-color: @base; /* background color of entire inner window */
+	background-color: @term; /* background color of entire inner window */
 }
 
 #text {
@@ -61,7 +57,7 @@
 	margin: 5px;
 	border: none; /* border around each individual item within the search results */
 	background-color: transparent; /* background behind each individual item within the search results */
-    color: @text;
+    color: @text-high;
 }
 
 /* Remove the search icon 
@@ -72,14 +68,14 @@
 
 #scroll {
 	margin: 6px;
-	background-color: @base; /* background color behind the search slider */
+	background-color: @term; /* background color behind the search slider */
 }
 
 
 
 window {
 	margin: 10px;
-	border: 2px solid @blue; /* border around the entire window */
+	border: 2px solid @high; /* border around the entire window */
 	border-radius: 10px;
-	background-color: @base;
+	background-color: @term;
 }
