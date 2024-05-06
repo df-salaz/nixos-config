@@ -11,6 +11,6 @@
     };
   };
   home.file = {
-    ".config/style.css".source = ./config/wofi.css;
+    ".config/wofi/style.css".source = ./config/wofi.css;
   };
 }
