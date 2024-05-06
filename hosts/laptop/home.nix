@@ -44,9 +44,7 @@
     krita
     blender
     prismlauncher
-    gnome.gnome-calculator
     cinnamon.nemo
-    rofimoji
     zoom-us
     neofetch
     firefox

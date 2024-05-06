@@ -40,13 +40,10 @@
     vlc
     dolphin-emu
     obsidian
-#    mathematica
     krita
     blender
     prismlauncher
-    gnome.gnome-calculator
     cinnamon.nemo
-    rofimoji
     zoom-us
     neofetch
     firefox
