@@ -15,6 +15,7 @@
           pkgs.${config.terminalEmulator.defaultTerminalEmulator}}"; */
         terminal = "alacritty";
         menu = "${lib.getExe pkgs.wofi} -b -i -S drun | xargs swaymsg exec --";
+        rofimoji = "${lib.getExe pkgs.rofimoji}";
       in {
         inherit modifier;
         inherit menu;
@@ -44,7 +45,7 @@
           "${modifier}+m" = "exec ${lock}";
           "${modifier}+p" = "sticky toggle";
 
-          "${modifier}+period" = "exec rofimoji --selector wofi";
+          "${modifier}+period" = "exec ${rofimoji} --selector wofi";
           "${modifier}+comma" = "exec ${wtype} -- $(${cliphist} list | ${wofi} -S dmenu -P Paste | ${cliphist} decode)";
 
           "${modifier}+Shift+s" = "exec ${wl-copy} < $(${grimshot} --notify save area ${ss-save})";
