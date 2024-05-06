@@ -40,7 +40,7 @@
     vlc
     dolphin-emu
     obsidian
-#    mathematica
+    mathematica
     krita
     blender
     prismlauncher
