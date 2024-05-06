@@ -2,14 +2,18 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  home-manager.users = {
-    "koye" = {
+  home-manager.users = let
+    username = "koye";
+  in  {
+    ${username} = {
       imports = [
         ./home.nix
         ../../homeModules
         inputs.catppuccin.homeManagerModules.catppuccin
         inputs.nixvim.homeManagerModules.nixvim
       ];
+      home.username = username;
+      home.homeDirectory = "/home/"+username;
     };
   };
 

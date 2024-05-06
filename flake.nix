@@ -22,7 +22,6 @@
     @inputs:
   let
     userSettings = {
-      username = "koye";
       name = "David";
       email = "df.salaz@gmail.com";
       wallpaper = "~/Pictures/nix.png";

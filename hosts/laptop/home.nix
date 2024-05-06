@@ -35,9 +35,6 @@
 
   xdg.enable = true;
 
-  home.username = userSettings.username;
-  home.homeDirectory = "/home/"+userSettings.username;
-
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     vlc
