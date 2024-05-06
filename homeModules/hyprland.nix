@@ -16,8 +16,9 @@
       enable = true;
       settings = {
         monitor = "eDP-1, 1920x1080@60, 0x0, 1";
-        "$terminal" = lib.mkIf config.terminalEmulator.enable
-          "${config.terminalEmulator.defaultTerminalEmulator}";
+        "$terminal" = let
+          terminal-emulator = config.terminalEmulator.defaultTerminalEmulator;
+        in "${lib.getExe pkgs.${terminal-emulator}}";
         "$lock" = "${pkgs.swaylock-effects}/bin/swaylock";
         "$mainMod" = "SUPER";
         "$calculator" = "${pkgs.gnome.gnome-calculator}/bin/gnome-calculator";

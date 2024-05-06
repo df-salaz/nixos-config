@@ -11,8 +11,8 @@
       enable = true;
       config = let
         modifier = "Mod4";
-        terminal = lib.mkIf config.terminalEmulator.enable
-         "${config.terminalEmulator.defaultTerminalEmulator}";
+        terminal-pkg-name = config.terminalEmulator.defaultTerminalEmulator;
+        terminal = "${lib.getExe pkgs.${terminal-pkg-name}}";
         menu = "${lib.getExe pkgs.wofi} -b -i -S drun | xargs swaymsg exec --";
         rofimoji = "${lib.getExe pkgs.rofimoji}";
       in {
