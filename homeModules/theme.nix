@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, userSettings, ... }:
 {
   options.theme = {
     enable = lib.mkEnableOption "Enable theming";
@@ -73,7 +73,6 @@
           scrollback-indicator = "000000 98c379";
       swaylock = {
         enable = true;
-        catppuccin.enable = true;
         package = pkgs.swaylock-effects;
         settings = {
           indicator-idle-visible = true;
@@ -86,27 +85,27 @@
           effect-vignette = "0.7:0";
           indicator-radius = "400";
           indicator-thickness = "20";
-          # key-hl-color = "ffffff";
+          key-hl-color = "cdd6f4";
           separator-color = "00000000";
-          ring-color = "61afef";
-          ring-ver-color = "98c379";
-          # ring-wrong-color = "e06c75";
-          # ring-clear-color = "98c379";
-          # line-color = "00000000";
-          # line-wrong-color = "00000000";
-          # line-ver-color = "00000000";
-          # line-clear-color = "00000000";
-          # inside-color = "000000aa";
-          # inside-wrong-color = "000000aa";
-          # inside-ver-color = "000000aa";
-          # inside-clear-color = "000000aa";
+          ring-color = "89b4fa";
+          ring-ver-color = "a6e3a1";
+          ring-wrong-color = "f38ba8";
+          ring-clear-color = "f9e2af";
+          line-color = "00000000";
+          line-wrong-color = "00000000";
+          line-ver-color = "00000000";
+          line-clear-color = "00000000";
+          inside-color = "181825aa";
+          inside-wrong-color = "181825aa";
+          inside-ver-color = "181825aa";
+          inside-clear-color = "181825aa";
           text-wrong = "Incorrect";
           text-ver = "";
-          # text-color = "ffffff";
-          # text-wrong-color = "ffffff";
-          # text-clear-color = "ffffff";
-          # bs-hl-color = "he06c75";
-          image = "~/Pictures/starship.png";
+          text-color = "cdd6f4";
+          text-wrong-color = "cdd6f4";
+          text-clear-color = "cdd6f4";
+          bs-hl-color = "f38ba8";
+          image = userSettings.wallpaper;
         };
       };
       bat.catppuccin.enable = cat;
