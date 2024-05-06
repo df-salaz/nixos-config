@@ -10,6 +10,7 @@
     ./shell.nix
     ./spotify.nix
     ./sway.nix
+    ./swayidle.nix
     ./terminalEmulator.nix
     ./theme.nix
     ./tor.nix
