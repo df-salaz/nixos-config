@@ -31,10 +31,10 @@
     };
     system-modules = [
       ./nixosModules
-      { nixpkgs.overlays = [ nur.overlay ]; }
       catppuccin.nixosModules.catppuccin
       home-manager.nixosModules.home-manager
       {
+        nixpkgs.overlays = [ nur.overlay ];
         home-manager.backupFileExtension = "old";
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
