@@ -71,6 +71,8 @@
           bright6 = "94e2d5";
           bright7 = "a6adc8";
           scrollback-indicator = "000000 98c379";
+        };
+      };
       swaylock = {
         enable = true;
         package = pkgs.swaylock-effects;
