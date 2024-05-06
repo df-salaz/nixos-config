@@ -32,10 +32,13 @@
     };
     system-modules = [
       ./nixosModules
-      {nixpkgs.overlays = [ nur.overlay ]; }
+      { nixpkgs.overlays = [ nur.overlay ]; }
       catppuccin.nixosModules.catppuccin
       home-manager.nixosModules.home-manager
       {
+        home-manager.backupFileExtension = "old";
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = {
           inherit inputs;
           inherit userSettings;

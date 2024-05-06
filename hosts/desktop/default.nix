@@ -2,9 +2,6 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  home-manager.backupFileExtension = "old";
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
   home-manager.users = {
     "koye" = {
       imports = [
