@@ -126,6 +126,11 @@
           scale = "1";
           max_render_time = "7";
         };
+        output."HDMI-A-1" = {
+          mode = "1440x900@74.984Hz";
+          scale = "1";
+          max_render_time = "1";
+        };
         startup = [
           { command = "${lib.getExe pkgs.autotiling}"; }
           { command = "${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store"; }
