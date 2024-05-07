@@ -4,6 +4,8 @@
   options.sway = {
     enable =
       lib.mkEnableOption "Enable Sway configuration";
+    swayfx.enable =
+      lib.mkEnableOption "Enable SwayFX";
   };
 
   config = {
@@ -18,6 +20,7 @@
     };
     wayland.windowManager.sway = {
       enable = true;
+      package = lib.mkIf (config.sway.swayfx.enable) pkgs.swayfx;
       config = let
         modifier = "Mod4";
         terminal-pkg-name = config.terminalEmulator.defaultTerminalEmulator;
@@ -175,10 +178,24 @@
         };
         defaultWorkspace = "workspace number 1";
       };
-      extraConfig = ''
+      /* extraConfig = ''
         bindgesture swipe:right workspace prev
         bindgesture swipe:left workspace next
-      '';
+      '' + lib.mkIf (config.sway.swayfx.enable) ''
+        corner_radius 8
+      ''; */
+      checkConfig = false;
+      extraConfig = let
+        swipe-gestures = ''
+          bindgesture swipe:right workspace prev
+          bindgesture swipe:left workspace next
+        '';
+      in if config.sway.swayfx.enable then
+        swipe-gestures + ''
+          corner_radius 8
+        ''
+        else
+        swipe-gestures;
     };
     swayidle.enable = true;
   };

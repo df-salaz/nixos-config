@@ -48,7 +48,10 @@
       };
     };
     hyprland.enable = true;
-    sway.enable = true;
+    sway = {
+      enable = true;
+      package = pkgs.swayfx;
+    };
     virt-manager.enable = true;
     tmux = {
       enable = true;

@@ -14,6 +14,7 @@
 
   hyprland.enable = false;
   sway.enable = true;
+  sway.swayfx.enable = true;
   guiToolkits.enable = true;
 
   shell.enable = true;
