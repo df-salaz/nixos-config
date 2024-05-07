@@ -44,14 +44,12 @@
     krita
     blender
     prismlauncher
-    cinnamon.nemo
     zoom-us
     neofetch
     firefox
     chromium
   ];
   home.sessionPath = [
-    "$HOME/.emacs.d/bin"
     "$HOME/.local/bin"
   ];
 
@@ -59,7 +57,6 @@
     ripgrep.enable = true;
     obs-studio.enable = true;
     zathura.enable = true;
-    emacs.enable = true;
   };
 
   services = {
