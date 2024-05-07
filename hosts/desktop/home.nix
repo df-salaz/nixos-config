@@ -43,7 +43,6 @@
     krita
     blender
     prismlauncher
-    cinnamon.nemo
     zoom-us
     neofetch
     firefox

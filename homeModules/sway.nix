@@ -7,6 +7,9 @@
   };
 
   config = {
+    home.packages = with pkgs; [
+      cinnamon.nemo
+    ];
     wayland.windowManager.sway = {
       enable = true;
       config = let

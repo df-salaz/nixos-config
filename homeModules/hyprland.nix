@@ -11,6 +11,7 @@
       brightnessctl
       hyprpicker
       wl-clipboard
+      cinnamon.nemo
     ];
     wayland.windowManager.hyprland = {
       enable = true;
