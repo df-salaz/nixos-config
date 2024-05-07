@@ -12,7 +12,10 @@
     programs.nixvim = {
       enable = true;
       defaultEditor = true;
-      clipboard.register = "unnamedplus";
+      clipboard = {
+        providers.wl-copy.enable = true;
+        register = "unnamedplus";
+      };
       colorschemes.catppuccin.enable = true;
       globals = {
         mapleader = " ";
