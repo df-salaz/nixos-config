@@ -132,7 +132,7 @@
           max_render_time = "2";
         };
         startup = [
-          { command = "${lib.getExe pkgs.autotiling}"; }
+          { command = "${lib.getExe pkgs.autotiling-rs}"; }
           { command = "${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store"; }
           { command = "${lib.getExe pkgs.xorg.xrandr} --output WAYLAND0 --primary"; always = true; }
           { command = "${pkgs.wbg}/bin/wbg ${userSettings.wallpaper}"; }
