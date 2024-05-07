@@ -10,9 +10,13 @@
       pavucontrol
       brightnessctl
       hyprpicker
-      wl-clipboard
       cinnamon.nemo
     ];
+    services = {
+      cliphist.enable = true;
+      udiskie.enable = true;
+      udiskie.tray = "never";
+    };
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {

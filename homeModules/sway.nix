@@ -8,8 +8,14 @@
 
   config = {
     home.packages = with pkgs; [
+      pavucontrol
       cinnamon.nemo
     ];
+    services = {
+      cliphist.enable = true;
+      udiskie.enable = true;
+      udiskie.tray = "never";
+    };
     wayland.windowManager.sway = {
       enable = true;
       config = let

@@ -60,9 +60,6 @@
 
   services = {
     easyeffects.enable = true;
-    cliphist.enable = true;
-    udiskie.enable = true;
-    udiskie.tray = "never";
   };
 
     # Let Home Manager install and manage itself.
