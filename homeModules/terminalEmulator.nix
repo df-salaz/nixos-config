@@ -5,7 +5,6 @@
       lib.mkEnableOption "Configure a terminal emulator";
     defaultTerminalEmulator = lib.mkOption {
       default = "alacritty";
-      type = lib.types.string;
     };
   };
 
