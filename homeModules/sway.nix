@@ -173,9 +173,6 @@
         input."type:pointer" = {
           accel_profile = "flat";
         };
-        seat."*" = {
-          hide_cursor = "when-typing enable";
-        };
         defaultWorkspace = "workspace number 1";
       };
       /* extraConfig = ''
