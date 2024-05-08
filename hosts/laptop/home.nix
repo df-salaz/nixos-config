@@ -41,7 +41,6 @@
     vlc
     dolphin-emu
     obsidian
-    mathematica
     krita
     blender
     prismlauncher

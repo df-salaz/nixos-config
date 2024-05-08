@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
 
@@ -16,6 +16,10 @@
       home.homeDirectory = "/home/"+username;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    mathematica
+  ];
 
   networking.hostName = "laptop";
   nh.enable = true;
