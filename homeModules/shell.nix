@@ -35,8 +35,8 @@
         shellAliases = {
           grep = "grep --color=auto";
           ip = "ip -color=auto";
-          ll = "ls -l";
-          la = "ll -a";
+          la = "ls -a";
+          ll = "la -l";
           c = "clear";
           svim = "sudoedit";
           man = "${pkgs.bat-extras.batman}/bin/batman";
