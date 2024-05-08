@@ -43,6 +43,7 @@
           jrun = "${pkgs.maven}/bin/mvn compile && mvn exec:java";
           jj = "javac *.java && java Main";
           kk = "mvn compile && mvn exec:java";
+          "vim." = "nvim .";
         };
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
