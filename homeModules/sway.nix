@@ -188,7 +188,7 @@
         '';
       in if config.sway.swayfx.enable then
         swipe-gestures + ''
-          corner_radius 9
+          corner_radius 10
         ''
         else
         swipe-gestures;
