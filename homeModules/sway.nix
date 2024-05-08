@@ -129,7 +129,7 @@
         output."HDMI-A-1" = {
           mode = "1440x900@74.984Hz";
           scale = "1";
-          max_render_time = "1";
+          max_render_time = "2";
         };
         startup = [
           { command = "${lib.getExe pkgs.autotiling}"; }
