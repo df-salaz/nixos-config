@@ -23,7 +23,6 @@
       enable = true;
       catppuccin = lib.mkIf cat {
         enable = true;
-        tweaks = [ "rimless" ];
       };
       iconTheme = lib.mkIf cat {
         name = "Papirus";
