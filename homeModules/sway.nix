@@ -180,12 +180,6 @@
         };
         defaultWorkspace = "workspace number 1";
       };
-      /* extraConfig = ''
-        bindgesture swipe:right workspace prev
-        bindgesture swipe:left workspace next
-      '' + lib.mkIf (config.sway.swayfx.enable) ''
-        corner_radius 8
-      ''; */
       checkConfig = false;
       extraConfig = let
         swipe-gestures = ''
@@ -194,7 +188,7 @@
         '';
       in if config.sway.swayfx.enable then
         swipe-gestures + ''
-          corner_radius 8
+          corner_radius 9
         ''
         else
         swipe-gestures;
