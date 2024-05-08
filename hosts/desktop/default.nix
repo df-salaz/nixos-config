@@ -14,7 +14,7 @@
       ];
       home.username = username;
       home.homeDirectory = "/home/"+username;
-      wayland.windowManager.sway.startup = [{
+      wayland.windowManager.sway.config.startup = [{
         command = "${lib.getExe pkgs.steam} -silent";
       }];
     };
