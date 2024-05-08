@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
 
@@ -14,6 +14,9 @@
       ];
       home.username = username;
       home.homeDirectory = "/home/"+username;
+      wayland.windowManager.sway.startup = [{
+        command = "${lib.getExe pkgs.steam} -silent";
+      }];
     };
   };
 
