@@ -5,7 +5,7 @@
       lib.mkEnableOption "Enable Wofi";
   };
 
-  config = lib.mkIf config.wofi.enable {
+  config = lib.mkIf config.runners.wofi.enable {
     programs.wofi = {
       enable = true;
       settings = {
