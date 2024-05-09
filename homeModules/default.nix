@@ -2,6 +2,7 @@
   imports = [
     ./cava.nix
     ./discord.nix
+    ./fuzzel.nix
     ./games.nix
     ./git.nix
     ./guiToolkits.nix

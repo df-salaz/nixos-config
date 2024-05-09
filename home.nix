@@ -20,6 +20,11 @@
   sway.swayfx.enable = true;
   guiToolkits.enable = true;
 
+  runners = {
+    wofi.enable = false;
+    fuzzel.enable = true;
+  };
+
   shell.enable = true;
   terminalEmulator = {
     enable = true;

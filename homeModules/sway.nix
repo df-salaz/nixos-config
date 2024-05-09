@@ -25,7 +25,11 @@
         modifier = "Mod4";
         terminal-pkg-name = config.terminalEmulator.defaultTerminalEmulator;
         terminal = "${lib.getExe pkgs.${terminal-pkg-name}}";
-        menu = "${lib.getExe pkgs.wofi} -b -i -S drun | xargs swaymsg exec --";
+        menu = if config.runners.wofi.enable then
+          "${lib.getExe pkgs.wofi} -b -i -S drun | xargs swaymsg exec --"
+        else if config.runners.fuzzel.enable then
+          "${lib.getExe pkgs.fuzzel}"
+        else "";
         rofimoji = "${lib.getExe pkgs.rofimoji}";
       in {
         inherit modifier;
