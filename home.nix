@@ -53,7 +53,7 @@
     blender
     prismlauncher
     zoom-us
-    neofetch
+    fastfetch
     firefox
     chromium
   ];
