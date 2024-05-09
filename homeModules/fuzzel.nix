@@ -23,6 +23,7 @@
           border = "b4befeff";
         };
         main = {
+          dpi-aware = "no";
           horizontal-pad = 32;
           vertical-pad = 8;
           inner-pad = 8;
