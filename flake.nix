@@ -34,24 +34,25 @@
       catppuccin.nixosModules.catppuccin
       { nixpkgs.overlays = [ nur.overlay ]; }
     ];
+
+    system = "x86_64-linux";
   in {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         modules = system-modules ++ [./hosts/desktop];
+        inherit system;
         inherit specialArgs;
       };
+
       laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         modules = system-modules ++ [./hosts/laptop];
+        inherit system;
         inherit specialArgs;
       };
     };
     homeConfigurations = {
       koye = home-manager.lib.homeManagerConfiguration {
-        backupFileExtension = "old";
-        useGlobalPkgs = true;
-        useUserPackages = true;
+        pkgs = import nixpkgs { inherit system; };
 
         extraSpecialArgs = {
           inherit inputs;
@@ -63,6 +64,7 @@
           ./homeModules
           catppuccin.homeManagerModules.catppuccin
           nixvim.homeManagerModules.nixvim
+          { nixpkgs.overlays = [ nur.overlay ]; }
         ];
       };
     };

@@ -1,6 +1,9 @@
 {config, lib, inputs, options, userSettings, pkgs, ... }:
 
 {
+  home.username = "koye";
+  home.homeDirectory = "/home/koye";
+
   ## Custom modules
 
   cava.enable = true;
