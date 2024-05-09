@@ -38,7 +38,7 @@
           la = "ls -a";
           ll = "la -l";
           c = "clear";
-          nf = "${lib.getExe pkgs.fastfetch}";
+          ff = "${lib.getExe pkgs.fastfetch} --config paleofetch";
           svim = "sudoedit";
           man = "${lib.getExe pkgs.bat-extras.batman}";
           jrun = "${pkgs.maven}/bin/mvn compile && mvn exec:java";
