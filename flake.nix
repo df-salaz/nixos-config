@@ -59,7 +59,8 @@
 
     homeConfigurations = {
       koye = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = nixpkgs.legacyPackages.${system};
+        inherit system;
 
         extraSpecialArgs = {
           inherit inputs;
