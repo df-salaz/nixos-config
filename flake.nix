@@ -60,7 +60,6 @@
     homeConfigurations = {
       koye = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        inherit system;
 
         extraSpecialArgs = {
           inherit inputs;
