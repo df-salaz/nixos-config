@@ -26,34 +26,45 @@
       email = "df.salaz@gmail.com";
       wallpaper = "~/Pictures/nix.png";
     };
-    specialArgs = {
-      inherit inputs;
-    };
+
+    specialArgs = { inherit inputs; };
+
     system-modules = [
       ./nixosModules
       catppuccin.nixosModules.catppuccin
-      home-manager.nixosModules.home-manager
-      {
-        nixpkgs.overlays = [ nur.overlay ];
-        home-manager.backupFileExtension = "old";
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {
+      { nixpkgs.overlays = [ nur.overlay ]; }
+    ];
+  in {
+    nixosConfigurations = {
+      desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = system-modules ++ [./hosts/desktop];
+        inherit specialArgs;
+      };
+      laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = system-modules ++ [./hosts/laptop];
+        inherit specialArgs;
+      };
+    };
+    homeConfigurations = {
+      koye = home-manager.lib.homeManagerConfiguration {
+        backupFileExtension = "old";
+        useGlobalPkgs = true;
+        useUserPackages = true;
+
+        extraSpecialArgs = {
           inherit inputs;
           inherit userSettings;
         };
-      }
-    ];
-  in {
-    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = system-modules ++ [./hosts/desktop];
-      inherit specialArgs;
-    };
-    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = system-modules ++ [./hosts/laptop];
-      inherit specialArgs;
+
+        modules = [
+          ./home.nix
+          ./homeModules
+          catppuccin.homeManagerModules.catppuccin
+          nixvim.homeManagerModules.nixvim
+        ];
+      };
     };
   };
 }
