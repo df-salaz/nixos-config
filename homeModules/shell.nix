@@ -38,8 +38,9 @@
           la = "ls -a";
           ll = "la -l";
           c = "clear";
+          nf = "${lib.getExe pkgs.fastfetch}";
           svim = "sudoedit";
-          man = "${pkgs.bat-extras.batman}/bin/batman";
+          man = "${lib.getExe pkgs.bat-extras.batman}";
           jrun = "${pkgs.maven}/bin/mvn compile && mvn exec:java";
           jj = "javac *.java && java Main";
           kk = "mvn compile && mvn exec:java";
