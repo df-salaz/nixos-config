@@ -33,10 +33,11 @@
 
     specialArgs = { inherit inputs; };
 
+    nur-overlay = { nixpkgs.overlays = [ nur.overlay ]; };
     system-modules = [
       ./nixosModules
       catppuccin.nixosModules.catppuccin
-      { nixpkgs.overlays = [ nur.overlay ]; }
+      nur-overlay
     ];
 
     system = "x86_64-linux";
@@ -70,7 +71,7 @@
           ./homeModules
           catppuccin.homeManagerModules.catppuccin
           nixvim.homeManagerModules.nixvim
-          { nixpkgs.overlays = [ nur.overlay ]; }
+          nur-overlay
         ];
       };
     };
