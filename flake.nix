@@ -4,11 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Pinned catppuccin revision due to GTK bug
-    catppuccin.url =
-      "github:catppuccin/nix?rev=2788becbb58bd2a60666fbbf2d4f6ae1721112d5";
+    catppuccin.url = "github:catppuccin/nix";
 
-    nur.url = "github:nix-community/NUR";
+    # Pinned NUR due to NL-TCH repo being broken
+    nur.url =
+      "github:nix-community/NUR?rev=57486a778b5614bbdfc96aad2b3585ef60f18c96";
 
     nixvim = {
       url = "github:nix-community/nixvim";
