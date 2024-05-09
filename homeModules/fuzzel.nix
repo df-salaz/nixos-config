@@ -28,7 +28,7 @@
           vertical-pad = 8;
           inner-pad = 8;
           width = 48;
-          lines = 16;
+          lines = 15;
           line-height = 24;
           icon-theme = "Papirus";
           terminal = config.terminalEmulator.defaultTerminalEmulator + " -e";
