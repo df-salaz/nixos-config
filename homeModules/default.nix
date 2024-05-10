@@ -6,6 +6,7 @@
     ./games.nix
     ./git.nix
     ./guiToolkits.nix
+    ./hyfetch.nix
     ./hyprland.nix
     ./nixvim.nix
     ./shell.nix

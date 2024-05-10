@@ -7,8 +7,9 @@
   ## Custom modules
 
   cava.enable = true;
-  spotify.enable = true;
+  hyfetch.enable = true;
 
+  spotify.enable = true;
   discord.enable = true;
   games.enable = true;
 
@@ -53,7 +54,6 @@
     blender
     prismlauncher
     zoom-us
-    fastfetch
     firefox
     chromium
   ];
