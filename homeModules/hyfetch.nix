@@ -18,6 +18,7 @@
         lightness = 0.75;
         color_align.mode = "horizontal";
         backend = "fastfetch";
+        args = "--config paleofetch";
       };
     };
   };
