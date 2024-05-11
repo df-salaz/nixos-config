@@ -187,16 +187,17 @@
       };
       checkConfig = false;
       extraConfig = let
-        swipe-gestures = ''
+        extras = ''
+          for_window [app_id=".*"] border pixel 2
           bindgesture swipe:right workspace prev
           bindgesture swipe:left workspace next
         '';
       in if config.sway.swayfx.enable then
-        swipe-gestures + ''
-          corner_radius 10
+        extras + ''
+          corner_radius 12
         ''
         else
-        swipe-gestures;
+        extras;
     };
     swayidle.enable = true;
   };
