@@ -42,6 +42,7 @@
           wtype = lib.getExe pkgs.wtype;
           cliphist = lib.getExe pkgs.cliphist;
           wofi = lib.getExe pkgs.wofi;
+          fuzzel = lib.getExe pkgs.fuzzel;
           lock = lib.getExe pkgs.swaylock-effects;
           calculator =
             lib.getExe' pkgs.gnome.gnome-calculator "gnome-calculator";
@@ -60,8 +61,8 @@
           "${modifier}+m" = "exec ${lock}";
           "${modifier}+p" = "sticky toggle";
 
-          "${modifier}+period" = "exec ${rofimoji} --selector wofi";
-          "${modifier}+comma" = "exec ${wtype} -- $(${cliphist} list | ${wofi} -S dmenu -P Paste | ${cliphist} decode)";
+          "${modifier}+period" = "exec ${rofimoji} --selector fuzzel --prompt '> '";
+          "${modifier}+comma" = "exec ${wtype} -- $(${cliphist} list | ${fuzzel} -d | ${cliphist} decode)";
 
           "${modifier}+Shift+s" = "exec ${wl-copy} < $(${grimshot} --notify save area ${ss-save})";
           "${modifier}+Shift+d" = "exec ${wl-copy} < $(${grimshot} --notify --wait 5 save area ${ss-save})";
