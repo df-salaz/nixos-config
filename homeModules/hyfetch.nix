@@ -9,6 +9,12 @@
     home.packages = with pkgs; [
       fastfetch
     ];
+    xdg = {
+      enable = true;
+      configFile."fastfetch/config.jsonc" = {
+        source = ./config/fastfetch.jsonc;
+      };
+    };
     programs.hyfetch = {
       enable = true;
       settings = {
@@ -18,7 +24,6 @@
         lightness = 0.75;
         color_align.mode = "horizontal";
         backend = "fastfetch";
-        args = "--config paleofetch";
       };
     };
   };
