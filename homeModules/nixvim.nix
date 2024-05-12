@@ -190,6 +190,7 @@
               installRustc = true;
             };
             texlab.enable = true;
+            tsserver.enable = true;
           };
         };
         lspkind = {
