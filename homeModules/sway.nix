@@ -8,7 +8,7 @@
       lib.mkEnableOption "Enable SwayFX";
   };
 
-  config = lib.mkIf config.sway.enable {
+  config = {
     home.packages = with pkgs; [
       pavucontrol
       cinnamon.nemo
