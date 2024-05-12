@@ -8,6 +8,7 @@
     ./guiToolkits.nix
     ./hyfetch.nix
     ./hyprland.nix
+    ./i3.nix
     ./nixvim.nix
     ./shell.nix
     ./spotify.nix

@@ -67,20 +67,20 @@
           "${modifier}+Shift+minus" = "move scratchpad";
           "${modifier}+minus" = "scratchpad show";
 
-          "${modifier}+${cfg.config.left}" = "focus left";
-          "${modifier}+${cfg.config.down}" = "focus down";
-          "${modifier}+${cfg.config.up}" = "focus up";
-          "${modifier}+${cfg.config.right}" = "focus right";
+          "${modifier}+h" = "focus left";
+          "${modifier}+j" = "focus down";
+          "${modifier}+k" = "focus up";
+          "${modifier}+l" = "focus right";
 
           "${modifier}+Left" = "focus left";
           "${modifier}+Down" = "focus down";
           "${modifier}+Up" = "focus up";
           "${modifier}+Right" = "focus right";
 
-          "${modifier}+Shift+${cfg.config.left}" = "move left";
-          "${modifier}+Shift+${cfg.config.down}" = "move down";
-          "${modifier}+Shift+${cfg.config.up}" = "move up";
-          "${modifier}+Shift+${cfg.config.right}" = "move right";
+          "${modifier}+Shift+h" = "move left";
+          "${modifier}+Shift+j" = "move down";
+          "${modifier}+Shift+k" = "move up";
+          "${modifier}+Shift+l" = "move right";
 
           "${modifier}+Shift+Left" = "move left";
           "${modifier}+Shift+Down" = "move down";
@@ -96,16 +96,6 @@
           "XF86AudioPlay" = "exec ${playerctl} play-pause";
           "XF86AudioNext" = "exec ${playerctl} next";
         };
-        output."eDP-1" = {
-          mode = "1920x1080@60Hz";
-          scale = "1";
-          max_render_time = "7";
-        };
-        output."HDMI-A-1" = {
-          mode = "1440x900@74.984Hz";
-          scale = "1";
-          max_render_time = "3";
-        };
         startup = [
           { command = "${lib.getExe pkgs.autotiling-rs}"; }
           { command = "${lib.getExe pkgs.feh} --bg-scale ${userSettings.wallpaper}"; }
@@ -116,12 +106,7 @@
           border = 2;
           titlebar = false;
           criteria = [
-            { app_id = "org.prismlauncher.PrismLauncher"; title = "^.*—.*$"; }
             { instance="^.*Minecraft.*$"; }
-            { app_id="firefox"; title="^Picture-in-Picture$"; }
-            { app_id = "nemo"; }
-            { app_id = "pavucontrol"; }
-            { app_id = "org.gnome.Calculator"; }
           ];
         };
         window = {
@@ -137,18 +122,6 @@
           outer = 0;
           smartBorders = "on";
           smartGaps = true;
-        };
-        input."type:touchpad" = {
-          dwt = "enabled";
-          tap = "enabled";
-          natural_scroll = "enabled";
-          middle_emulation = "enabled";
-        };
-        input."type:keyboard" = {
-          xkb_numlock = "enabled";
-        };
-        input."type:pointer" = {
-          accel_profile = "flat";
         };
         defaultWorkspace = "workspace number 1";
         colors = let
