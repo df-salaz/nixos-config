@@ -122,9 +122,7 @@
           general = lib.mkIf cat {
             "col.inactive_border" = "$base";
             "col.active_border" = "\$${config.catppuccin.accent}";
-            border_size = 2;
           };
-          decoration.rounding = 5;
         };
       };
       sway = lib.mkIf cat {

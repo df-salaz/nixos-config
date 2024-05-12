@@ -24,15 +24,14 @@
         "$terminal" = let
           terminal-emulator = config.terminalEmulator.defaultTerminalEmulator;
         in "${lib.getExe pkgs.${terminal-emulator}}";
-        "$lock" = "${pkgs.swaylock-effects}/bin/swaylock";
+        "$lock" = "${lib.getExe pkgs.swaylock-effects}";
         "$mainMod" = "SUPER";
         "$calculator" = "${pkgs.gnome.gnome-calculator}/bin/gnome-calculator";
-        # TODO: Power menu
-        "$power" = "";
-        "$emoji" = "${pkgs.rofimoji}/bin/rofimoji --selector wofi";
+        "$power" = toString ./config/powermenu-sway.sh;
+        "$emoji" = "${pkgs.rofimoji}/bin/rofimoji --selector fuzzel";
         "$clipboard" = "${pkgs.wtype}/bin/wtype -- $(${pkgs.cliphist}/bin/cliphist list | ${pkgs.wofi}/bin/wofi -S dmenu -P Paste | ${pkgs.cliphist}/bin/cliphist decode)";
         "$runner" = "${pkgs.wofi}/bin/wofi -b -i -S run | xargs hyprctl dispatch exec --";
-        "$menu" = "${pkgs.wofi}/bin/wofi --show drun";
+        "$menu" = "${lib.getExe pkgs.fuzzel}";
         "$screenshots" = "/home/koye/Pictures/Screenshots";
         "$ss-save" = "$screenshots/Screenshot-$(date '+%a-%b-%d-%T-%Z-%Y').png";
         "$ss" = "${pkgs.wl-clipboard}/bin/wl-copy < $(${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save area $ss-save)";
@@ -56,6 +55,7 @@
           };
         };
         general = {
+          border_size = 2;
           layout = "dwindle";
           resize_on_border = true;
           gaps_in = 4;
@@ -79,6 +79,7 @@
         };
         decoration = {
           drop_shadow = false;
+          rounding = 12;
         };
         gestures = {
           workspace_swipe = true;
@@ -166,7 +167,6 @@
       };
     };
 
-    programs.bun.enable = true;
     swayidle.enable = true;
   };
 }
