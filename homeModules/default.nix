@@ -1,5 +1,6 @@
 {
   imports = [
+    ./ags.nix
     ./cava.nix
     ./discord.nix
     ./fuzzel.nix

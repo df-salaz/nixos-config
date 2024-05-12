@@ -6,6 +6,8 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
+    ags.url = "github:Aylur/ags";
+
     # Pinned NUR due to NL-TCH repo being broken
     nur.url =
       "github:nix-community/NUR?rev=57486a778b5614bbdfc96aad2b3585ef60f18c96";
@@ -22,7 +24,14 @@
   };
 
   outputs =
-    { self, nixpkgs, catppuccin, nur, nixvim, home-manager, ... }
+    { self,
+    nixpkgs,
+    catppuccin,
+    nur,
+    nixvim,
+    home-manager,
+    ags,
+    ... }
     @inputs:
   let
     userSettings = {
@@ -71,6 +80,7 @@
           ./homeModules
           catppuccin.homeManagerModules.catppuccin
           nixvim.homeManagerModules.nixvim
+          ags.homeManagerModules.default
           nur-overlay
         ];
       };

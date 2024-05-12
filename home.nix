@@ -21,6 +21,8 @@
   sway.swayfx.enable = true;
   guiToolkits.enable = true;
 
+  ags.enable = true;
+
   runners = {
     wofi.enable = false;
     fuzzel.enable = true;
@@ -47,7 +49,6 @@
 
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    ags
     vlc
     dolphin-emu
     obsidian
