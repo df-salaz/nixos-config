@@ -39,7 +39,7 @@
     };
     steam = {
       enable = true;
-      gamescopeSession = lib.mkDefault true;
+      gamescopeSession.enable = lib.mkDefault true;
     };
     hyprland.enable = true;
     sway = {
