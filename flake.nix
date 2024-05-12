@@ -22,7 +22,13 @@
   };
 
   outputs =
-    { self, nixpkgs, catppuccin, nur, nixvim, home-manager, ... }
+    { self,
+    nixpkgs,
+    catppuccin,
+    nur,
+    nixvim,
+    home-manager,
+    ... }
     @inputs:
   let
     userSettings = {
@@ -33,11 +39,16 @@
 
     specialArgs = { inherit inputs; };
 
-    nur-overlay = { nixpkgs.overlays = [ nur.overlay ]; };
+    overlays = { nixpkgs.overlays = [
+      nur.overlay
+      (final: prev: {
+        # gamescope = nixpkgs-gamescope.legacyPackages.${system}.gamescope;
+      })
+    ];};
     system-modules = [
       ./nixosModules
       catppuccin.nixosModules.catppuccin
-      nur-overlay
+      overlays
     ];
 
     system = "x86_64-linux";
@@ -71,7 +82,7 @@
           ./homeModules
           catppuccin.homeManagerModules.catppuccin
           nixvim.homeManagerModules.nixvim
-          nur-overlay
+          overlays
         ];
       };
     };

@@ -239,6 +239,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-gamescope": {
+      "locked": {
+        "lastModified": 1712563187,
+        "narHash": "sha256-l6MTeYk0JJY27AFNvTKTV1BUSPgRom7AHNhIcBNfryA=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "aa71ddadfa6158532d5267dda4d6db01237db5bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "aa71ddadfa6158532d5267dda4d6db01237db5bd",
+        "type": "github"
+      }
+    },
     "nixvim": {
       "inputs": {
         "devshell": "devshell",
@@ -316,6 +332,7 @@
         "catppuccin": "catppuccin",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-gamescope": "nixpkgs-gamescope",
         "nixvim": "nixvim",
         "nur": "nur"
       }

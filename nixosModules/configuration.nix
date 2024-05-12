@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, inputs, ... }:
+{ config, nixpkgs-gamescope, pkgs, lib, inputs, ... }:
 
 {
 # Allow unfree packages
@@ -38,15 +38,7 @@
       vimAlias = true;
       viAlias = true;
     };
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-      package = pkgs.steam.override {
-        extraEnv = {
-          SDL_VIDEODRIVER = "x11";
-        };
-      };
-    };
+    steam.enable = true;
     hyprland.enable = true;
     sway = {
       enable = true;
