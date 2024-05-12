@@ -106,6 +106,7 @@
 # Enable the X11 windowing system.
 #	services.xserver.enable = true;
 #	services.xserver.excludePackages = [ pkgs.xterm ];
+  services.xserver.windowManager.i3.enable = true;
 
 # Enable login manager
   services.displayManager.sddm = {
