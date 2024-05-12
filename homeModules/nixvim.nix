@@ -138,7 +138,7 @@
             expirimental = {ghost_text = true;};
             mapping = {
               "<Tab>" = "cmp.mapping.confirm({select = true})";
-              # "<Esc>" = "cmp.mapping.close()";
+              "<S-Tab>" = "cmp.mapping.close()";
               "<down>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
               "<up>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
             };
@@ -190,6 +190,7 @@
               installRustc = true;
             };
             texlab.enable = true;
+            tsserver.enable = true;
           };
         };
         lspkind = {
