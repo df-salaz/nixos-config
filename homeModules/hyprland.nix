@@ -20,7 +20,10 @@
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
-        monitor = "eDP-1, 1920x1080@60, 0x0, 1";
+        monitor = [
+          "eDP-1, 1920x1080@60, 0x0, 1"
+          "HDMI-A-1, 1440x900@74.98, 0x0, 1"
+        ];
         "$terminal" = let
           terminal-emulator = config.terminalEmulator.defaultTerminalEmulator;
         in "${lib.getExe pkgs.${terminal-emulator}}";
@@ -111,6 +114,9 @@
           "float,class:^(org.gnome.Calculator)$"
           "suppressevent maximize, class:.*"
           "immediate, class:.*"
+        ];
+        env = [
+          "WLR_DRM_NO_ATOMIC,1"
         ];
         bind = [
           "$mainMod, return, exec, $terminal"
