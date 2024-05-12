@@ -16,7 +16,6 @@
   git.enable = true;
   nixvim.enable = true;
 
-  i3.enable = true;
   hyprland.enable = false;
   sway.enable = true;
   sway.swayfx.enable = true;
