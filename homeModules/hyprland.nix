@@ -60,7 +60,7 @@
           resize_on_border = true;
           gaps_in = 4;
           gaps_out = 8;
-          allow_tearing = false;
+          allow_tearing = true;
         };
         animations = {
           first_launch_animation = true;
