@@ -8,6 +8,8 @@
       position = "top";
       height = 30;
       spacing = 4;
+      ipc = true;
+      modes.dock.layer = "top";
       modules-left = [
         "power-profiles-daemon"
         "sway/workspaces"
