@@ -8,4 +8,7 @@
     enable = true;
     flavor = "mocha";
   };
+
+  # Broken on this hardware
+  programs.steam.gamescopeSession.enable = false;
 }

@@ -2,10 +2,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, nixpkgs-gamescope, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
-# Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   environment.defaultPackages = [];
   environment.systemPackages = with pkgs; [
@@ -38,7 +37,10 @@
       vimAlias = true;
       viAlias = true;
     };
-    steam.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession = lib.mkDefault true;
+    };
     hyprland.enable = true;
     sway = {
       enable = true;
