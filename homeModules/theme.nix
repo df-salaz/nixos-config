@@ -46,6 +46,9 @@
           colors.cursor.cursor = lib.mkForce "#cdd6f4";
         };
       };
+      kitty = {
+        catppuccin.enable = cat;
+      };
       foot.settings = {
         cursor = {
           color = "111111 cccccc";

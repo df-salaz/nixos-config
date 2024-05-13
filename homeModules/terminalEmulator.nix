@@ -37,6 +37,23 @@
           mouse.hide_when_typing = true;
         };
       };
+      kitty = {
+        enable = true;
+        font = {
+          name = "JetBrainsMono Nerd Font";
+          package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
+          size = 12;
+        };
+        shellIntegration.enableZshIntegration = true;
+        settings = {
+          repaint_delay = 4;
+          input_delay = 3;
+          sync_to_monitor = "no";
+          enable_audio_bell = "no";
+          window_alert_on_bell = "yes";
+          placement_strategy = "top-left";
+        };
+      };
     };
   };
 }
