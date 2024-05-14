@@ -56,6 +56,7 @@
     zoom-us
     firefox
     chromium
+    kdePackages.kdenlive
   ];
   home.sessionPath = [
     "$HOME/.local/bin"
