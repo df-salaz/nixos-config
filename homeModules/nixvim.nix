@@ -230,6 +230,11 @@
         toggleterm.enable = true;
         treesitter = {
           enable = true;
+          ensureInstalled = [
+            "lua"
+            "luau"
+            "css"
+          ];
           disabledLanguages = [
             "latex"
             "markdown"
