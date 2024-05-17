@@ -182,7 +182,13 @@
             }
           ];
           servers = {
-            lua-ls.enable = true;
+            lua-ls = {
+              enable = true;
+              filetypes = [
+                "lua"
+                "luau"
+              ];
+            };
             nil_ls.enable = true;
             html.enable = true;
             rust-analyzer = {
