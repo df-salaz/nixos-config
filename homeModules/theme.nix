@@ -34,9 +34,8 @@
       gtk3.extraConfig.Settings = "gtk-application-prefer-dark-theme = 1";
       gtk4.extraConfig.Settings = "gtk-application-prefer-dark-theme = 1";
     };
-    home.file = lib.mkIf cat {
+    home.file = lib.mkIf (cat && config.discord.enable) {
       ".config/vesktop/settings/quickCss.css".text =
-        lib.mkIf (config.discord.enable)
         ''@import url("https://catppuccin.github.io/discord/dist/catppuccin-${config.catppuccin.flavour}-${config.catppuccin.accent}.theme.css");'';
     };
     programs = {
