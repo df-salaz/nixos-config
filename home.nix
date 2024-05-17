@@ -7,7 +7,7 @@
   ## Custom modules
 
   # Visual Flare
-  cava.enable = true;
+  cava.enable = false;
   hyfetch.enable = true;
   theme = {
     enable = true;
@@ -19,9 +19,9 @@
   };
 
   # Entertainment
-  spotify.enable = true;
-  discord.enable = true;
-  games.enable = true;
+  spotify.enable = false;
+  discord.enable = false;
+  games.enable = false;
 
   # Development
   shell.enable = true;
@@ -30,16 +30,16 @@
   rojo.enable = true;
 
   # GUI
-  hyprland.enable = true;
-  sway.enable = true;
-  sway.swayfx.enable = true;
-  guiToolkits.enable = true;
+  hyprland.enable = false;
+  sway.enable = false;
+  sway.swayfx.enable = false;
+  guiToolkits.enable = false;
   runners = {
     wofi.enable = false;
-    fuzzel.enable = true;
+    fuzzel.enable = false;
   };
   terminalEmulator = {
-    enable = true;
+    enable = false;
     defaultTerminalEmulator = "alacritty";
   };
 
@@ -50,17 +50,6 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     gh
-    vlc
-    dolphin-emu
-    obsidian
-    krita
-    blender
-    prismlauncher
-    zoom-us
-    firefox
-    chromium
-    libsForQt5.kdenlive
-    godot_4
   ];
   home.sessionPath = [
     "$HOME/.local/bin"
@@ -68,12 +57,12 @@
 
   programs = {
     ripgrep.enable = true;
-    obs-studio.enable = true;
-    zathura.enable = true;
+    obs-studio.enable = false;
+    zathura.enable = false;
   };
 
   services = {
-    easyeffects.enable = true;
+    easyeffects.enable = false;
   };
 
     # Let Home Manager install and manage itself.
