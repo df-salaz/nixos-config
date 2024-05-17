@@ -150,12 +150,10 @@
               { name = "nvim_lsp"; }
               { name = "luasnip"; }
               { name = "path"; }
-              { name = "buffer"; }
             ];
           };
         };
         cmp_luasnip.enable = true;
-        cmp-buffer.enable = true;
         cmp-nvim-lsp.enable = true;
         comment.enable = true;
         friendly-snippets.enable = true;
