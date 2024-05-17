@@ -6,32 +6,9 @@
 
   ## Custom modules
 
+  # Visual Flare
   cava.enable = true;
   hyfetch.enable = true;
-
-  spotify.enable = true;
-  discord.enable = true;
-  games.enable = true;
-
-  git.enable = true;
-  nixvim.enable = true;
-
-  hyprland.enable = true;
-  sway.enable = true;
-  sway.swayfx.enable = true;
-  guiToolkits.enable = true;
-
-  runners = {
-    wofi.enable = false;
-    fuzzel.enable = true;
-  };
-
-  shell.enable = true;
-  terminalEmulator = {
-    enable = true;
-    defaultTerminalEmulator = "alacritty";
-  };
-
   theme = {
     enable = true;
     catppuccin = {
@@ -39,6 +16,31 @@
       flavor = "mocha";
       accent = "blue";
     };
+  };
+
+  # Entertainment
+  spotify.enable = true;
+  discord.enable = true;
+  games.enable = true;
+
+  # Development
+  shell.enable = true;
+  git.enable = true;
+  nixvim.enable = true;
+  rojo.enable = true;
+
+  # GUI
+  hyprland.enable = true;
+  sway.enable = true;
+  sway.swayfx.enable = true;
+  guiToolkits.enable = true;
+  runners = {
+    wofi.enable = false;
+    fuzzel.enable = true;
+  };
+  terminalEmulator = {
+    enable = true;
+    defaultTerminalEmulator = "alacritty";
   };
 
   ## End custom modules

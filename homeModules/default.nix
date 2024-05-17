@@ -9,6 +9,7 @@
     ./hyfetch.nix
     ./hyprland.nix
     ./nixvim.nix
+    ./rojo.nix
     ./shell.nix
     ./spotify.nix
     ./sway.nix
