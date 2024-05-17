@@ -47,6 +47,7 @@
 
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    gh
     vlc
     dolphin-emu
     obsidian
