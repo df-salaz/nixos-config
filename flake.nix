@@ -38,6 +38,10 @@
     };
 
     specialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs; inherit userSettings; };
+
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
 
     overlays = { nixpkgs.overlays = [
       nur.overlay
@@ -45,13 +49,18 @@
         # gamescope = nixpkgs-gamescope.legacyPackages.${system}.gamescope;
       })
     ];};
+
     system-modules = [
       ./nixosModules
       catppuccin.nixosModules.catppuccin
       overlays
     ];
-
-    system = "x86_64-linux";
+    home-modules = [
+      ./homeModules
+      catppuccin.homeManagerModules.catppuccin
+      nixvim.homeManagerModules.nixvim
+      overlays
+    ];
 
   in {
     nixosConfigurations = {
@@ -69,21 +78,16 @@
     };
 
     homeConfigurations = {
-      koye = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
+      "koye" = home-manager.lib.homeManagerConfiguration {
+        modules = home-modules ++ [./homes/home.nix];
+        inherit pkgs;
+        inherit extraSpecialArgs;
+      };
 
-        extraSpecialArgs = {
-          inherit inputs;
-          inherit userSettings;
-        };
-
-        modules = [
-          ./home.nix
-          ./homeModules
-          catppuccin.homeManagerModules.catppuccin
-          nixvim.homeManagerModules.nixvim
-          overlays
-        ];
+      "koye@david-windows" = home-manager.lib.homeManagerConfiguration {
+        modules = home-modules ++ [./homes/home-wsl.nix];
+        inherit pkgs;
+        inherit extraSpecialArgs;
       };
     };
   };
