@@ -95,6 +95,12 @@
         inherit pkgs;
         inherit extraSpecialArgs;
       };
+
+      "koye@lenovo" = home-manager.lib.homeManagerConfiguration {
+        modules = home-modules ++ [./homes/home-lenovo.nix];
+        inherit pkgs;
+        inherit extraSpecialArgs;
+      };
     };
   };
 }
