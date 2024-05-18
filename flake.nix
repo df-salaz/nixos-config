@@ -76,7 +76,7 @@
         inherit specialArgs;
       };
 
-      nixos = nixpkgs.lib.nixosSystem {
+      lenovo = nixpkgs.lib.nixosSystem {
         modules = system-modules ++ [./hosts/lenovo];
         inherit system;
         inherit specialArgs;
