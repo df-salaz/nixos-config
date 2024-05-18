@@ -21,7 +21,7 @@
   # Entertainment
   spotify.enable = true;
   discord.enable = true;
-  games.enable = true;
+  games.enable = false;
 
   # Development
   shell.enable = true;
@@ -30,7 +30,7 @@
   nixvim = {
     enable = true;
     luau.enable = false;
-    tex.enable = true;
+    tex.enable = false;
   };
 
   # GUI
@@ -55,16 +55,10 @@
   home.packages = with pkgs; [
     gh
     vlc
-    dolphin-emu
-    obsidian
-    krita
-    blender
     prismlauncher
     zoom-us
     firefox
     chromium
-    libsForQt5.kdenlive
-    godot_4
   ];
   home.sessionPath = [
     "$HOME/.local/bin"

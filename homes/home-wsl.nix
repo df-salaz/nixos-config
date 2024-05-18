@@ -30,6 +30,7 @@
   nixvim = {
     enable = true;
     luau.enable = true;
+    tex.enable = false;
   };
 
   # GUI
