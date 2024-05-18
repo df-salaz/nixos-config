@@ -56,6 +56,9 @@
     gh
     nh
   ];
+  home.sessionVariables = {
+    FLAKE = "~/.nixos";
+  };
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
