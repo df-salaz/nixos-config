@@ -1,5 +1,7 @@
 {
   imports = [
+    ./neovim
+
     ./cava.nix
     ./discord.nix
     ./fuzzel.nix
@@ -8,7 +10,6 @@
     ./guiToolkits.nix
     ./hyfetch.nix
     ./hyprland.nix
-    ./nixvim.nix
     ./rojo.nix
     ./shell.nix
     ./spotify.nix

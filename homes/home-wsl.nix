@@ -26,8 +26,11 @@
   # Development
   shell.enable = true;
   git.enable = true;
-  nixvim.enable = true;
   rojo.enable = true;
+  nixvim = {
+    enable = true;
+    luau.enable = true;
+  };
 
   # GUI
   hyprland.enable = false;
