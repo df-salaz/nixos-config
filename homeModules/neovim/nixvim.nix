@@ -6,9 +6,6 @@
   };
 
   config = lib.mkIf config.nixvim.enable {
-    home.packages = with pkgs; [
-      texliveFull
-    ];
     programs.nixvim = {
       enable = true;
       defaultEditor = true;
