@@ -75,6 +75,12 @@
         inherit system;
         inherit specialArgs;
       };
+
+      nixos = nixpkgs.lib.nixosSystem {
+        modules = system-modules ++ [./hosts/lenovo];
+        inherit system;
+        inherit specialArgs;
+      };
     };
 
     homeConfigurations = {
