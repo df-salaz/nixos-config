@@ -50,6 +50,7 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     gh
+    nh
   ];
   home.sessionPath = [
     "$HOME/.local/bin"
@@ -57,8 +58,6 @@
 
   programs = {
     ripgrep.enable = true;
-    obs-studio.enable = false;
-    zathura.enable = false;
   };
 
   services = {
