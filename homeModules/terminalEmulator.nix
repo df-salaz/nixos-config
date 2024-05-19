@@ -15,7 +15,6 @@
         server.enable = false;
         settings = {
           main = {
-            font = "JetBrainsMono Nerd Font:size=12";
             initial-window-size-chars = "90x24";
           };
           mouse = {
@@ -33,17 +32,11 @@
             };
             decorations = "None";
           };
-          font.size = 12;
           mouse.hide_when_typing = true;
         };
       };
       kitty = {
         enable = true;
-        font = {
-          name = "JetBrainsMono Nerd Font";
-          package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
-          size = 12;
-        };
         shellIntegration.enableZshIntegration = true;
         settings = {
           repaint_delay = 4;

@@ -1,8 +1,9 @@
 { ... }:
 {
   imports = [
-    ./nh.nix
-    ./theme.nix
     ./configuration.nix
+    ./nh.nix
+    ./stylix.nix
+    ./theme.nix
   ];
 }

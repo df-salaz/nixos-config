@@ -13,6 +13,7 @@
     ./rojo.nix
     ./shell.nix
     ./spotify.nix
+    ./stylix.nix
     ./sway.nix
     ./swayidle.nix
     ./terminalEmulator.nix

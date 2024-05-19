@@ -10,6 +10,8 @@
     nur.url =
       "github:nix-community/NUR?rev=57486a778b5614bbdfc96aad2b3585ef60f18c96";
 
+    stylix.url = "github:danth/stylix";
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,7 +29,6 @@
     userSettings = {
       name = "David";
       email = "df.salaz@gmail.com";
-      wallpaper = "~/Pictures/nix.png";
     };
 
     specialArgs = { inherit inputs; };
@@ -44,14 +45,18 @@
     ];};
 
     system-modules = [
+      ./sharedModules
       ./nixosModules
       inputs.catppuccin.nixosModules.catppuccin
+      inputs.stylix.nixosModules.stylix
       overlays
     ];
     home-modules = [
+      ./sharedModules
       ./homeModules
-      inputs.catppuccin.homeManagerModules.catppuccin
       inputs.nixvim.homeManagerModules.nixvim
+      inputs.catppuccin.homeManagerModules.catppuccin
+      inputs.stylix.homeManagerModules.stylix
       overlays
     ];
 

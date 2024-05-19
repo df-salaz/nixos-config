@@ -39,15 +39,15 @@
         ''@import url("https://catppuccin.github.io/discord/dist/catppuccin-${config.catppuccin.flavour}-${config.catppuccin.accent}.theme.css");'';
     };
     programs = {
-      alacritty = {
+      /* alacritty = {
         catppuccin.enable = cat;
         settings = {
           colors.cursor.cursor = lib.mkForce "#cdd6f4";
         };
-      };
-      kitty = {
+      }; */
+      /* kitty = {
         catppuccin.enable = cat;
-      };
+      }; */
       foot.settings = {
         cursor = {
           color = "111111 cccccc";
@@ -108,7 +108,7 @@
           text-wrong-color = "cdd6f4";
           text-clear-color = "cdd6f4";
           bs-hl-color = "f38ba8";
-          image = userSettings.wallpaper;
+          image = toString ../wallpaper.png;
         };
       };
       bat.catppuccin.enable = cat;
@@ -121,10 +121,10 @@
       hyprland = {
         catppuccin.enable = cat;
         settings = {
-          general = lib.mkIf cat {
+          general = lib.mkIf cat (lib.mkForce {
             "col.inactive_border" = "$base";
             "col.active_border" = "\$${config.catppuccin.accent}";
-          };
+          });
         };
       };
       sway = lib.mkIf cat {
@@ -139,7 +139,7 @@
             indicator = "$crust";
             text = "$text";
           };
-        in {
+        in lib.mkForce {
           focused = {
             inherit background;
             border = accent;
@@ -162,7 +162,7 @@
       };
     };
     services = {
-      dunst.settings = lib.mkIf cat {
+      /* dunst.settings = lib.mkIf cat {
         global = {
           background = "#1e1e2e";
           foreground = "#cdd6f4";
@@ -177,7 +177,7 @@
         urgency_critical = {
           frame_color = "#f38ba8";
         };
-      };
+      }; */
     };
   };
 }

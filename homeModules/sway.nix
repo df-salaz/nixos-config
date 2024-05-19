@@ -1,4 +1,4 @@
-{ config, lib, pkgs, userSettings, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   options.sway = {
@@ -140,7 +140,6 @@
           { command = "${lib.getExe pkgs.autotiling-rs}"; }
           { command = "${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store"; }
           { command = "${lib.getExe pkgs.xorg.xrandr} --output WAYLAND0 --primary"; always = true; }
-          { command = "${lib.getExe pkgs.wbg} ${userSettings.wallpaper}"; }
         ];
         bars = [{
           command = "${lib.getExe pkgs.waybar}";

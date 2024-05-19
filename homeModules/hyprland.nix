@@ -43,7 +43,6 @@
         exec-once = [
           "${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store"
           "${pkgs.waybar}/bin/waybar"
-          "${pkgs.wbg}/bin/wbg ${userSettings.wallpaper}"
         ];
         input = {
           kb_layout = "us";

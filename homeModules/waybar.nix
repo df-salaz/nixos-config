@@ -136,7 +136,6 @@
         separator_height = 1;
         gap_size = 0;
         sort = "yes";
-        font = "JetBrainsMonoNerdFont 11";
         corner_radius = 8;
         mouse_left_click = "do_action, close_current";
         mouse_middle_click = "close_all";
