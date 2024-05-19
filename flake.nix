@@ -22,14 +22,7 @@
   };
 
   outputs =
-    { self,
-    nixpkgs,
-    catppuccin,
-    nur,
-    nixvim,
-    home-manager,
-    ... }
-    @inputs:
+  { nixpkgs, home-manager, ... } @inputs:
   let
     userSettings = {
       name = "David";
@@ -44,7 +37,7 @@
     pkgs = nixpkgs.legacyPackages.${system};
 
     overlays = { nixpkgs.overlays = [
-      nur.overlay
+      inputs.nur.overlay
       (final: prev: {
         # gamescope = nixpkgs-gamescope.legacyPackages.${system}.gamescope;
       })
@@ -52,13 +45,13 @@
 
     system-modules = [
       ./nixosModules
-      catppuccin.nixosModules.catppuccin
+      inputs.catppuccin.nixosModules.catppuccin
       overlays
     ];
     home-modules = [
       ./homeModules
-      catppuccin.homeManagerModules.catppuccin
-      nixvim.homeManagerModules.nixvim
+      inputs.catppuccin.homeManagerModules.catppuccin
+      inputs.nixvim.homeManagerModules.nixvim
       overlays
     ];
 
