@@ -34,9 +34,14 @@
   };
 
   # GUI
-  hyprland.enable = true;
+  hyprland.enable = false;
   sway.enable = true;
   sway.swayfx.enable = true;
+  wayland.windowManager.sway.config.output."eDP-1" = {
+    mode = "1366x768@59.973Hz";
+    scale = "1";
+    max_render_time = "7";
+  };
   guiToolkits.enable = true;
   runners = {
     wofi.enable = false;
