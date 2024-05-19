@@ -126,12 +126,12 @@
           "XF86AudioPlay" = "exec ${playerctl} play-pause";
           "XF86AudioNext" = "exec ${playerctl} next";
         };
-        output."eDP-1" = {
+        output."eDP-1" = lib.mkDefault {
           mode = "1920x1080@60Hz";
           scale = "1";
           max_render_time = "7";
         };
-        output."HDMI-A-1" = {
+        output."HDMI-A-1" = lib.mkDefault {
           mode = "1440x900@74.984Hz";
           scale = "1";
           max_render_time = "3";
