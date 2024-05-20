@@ -18,7 +18,6 @@
     ./swayidle.nix
     ./terminalEmulator.nix
     ./theme.nix
-    ./tor.nix
     ./waybar.nix
     ./wofi.nix
   ];
