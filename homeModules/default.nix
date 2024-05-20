@@ -8,6 +8,7 @@
     ./games.nix
     ./git.nix
     ./guiToolkits.nix
+    ./helix.nix
     ./hyfetch.nix
     ./hyprland.nix
     ./rojo.nix
