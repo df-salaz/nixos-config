@@ -6,6 +6,7 @@
       btop.enable = false;
       fuzzel.enable = false;
       gtk.enable = false;
+      helix.enable = false;
       swaylock.enable = false;
       vim.enable = false;
       waybar.enable = false;

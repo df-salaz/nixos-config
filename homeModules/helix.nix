@@ -8,10 +8,12 @@
     programs.helix = {
       enable = true;
       settings = {
+        theme = "catppuccin_mocha";
         editor = {
           scrolloff = 8;
           line-number = "relative";
           cursorline = true;
+          true-color = true;
           bufferline = "multiple";
           cursor-shape = {
             normal = "block";
@@ -35,7 +37,6 @@
             max-indent-retain = 40;
             wrap-at-text-width = true;
           };
-          true-color = true;
         };
       };
     };
