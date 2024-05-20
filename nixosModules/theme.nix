@@ -22,6 +22,8 @@
 
     environment.systemPackages = with pkgs; lib.optionals (catppuccin) [
       catppuccin-sddm-corners
+      libsForQt5.qt5.qtgraphicaleffects
+      libsForQt5.qt5.qtquickcontrols2
     ];
   };
 }
