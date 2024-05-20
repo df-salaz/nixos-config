@@ -7,6 +7,7 @@
       fuzzel.enable = false;
       gtk.enable = false;
       swaylock.enable = false;
+      vim.enable = false;
       waybar.enable = false;
       zathura.enable = false;
     };
