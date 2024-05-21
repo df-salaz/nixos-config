@@ -27,6 +27,7 @@
   shell.enable = true;
   git.enable = true;
   rojo.enable = false;
+  helix.enable = true;
   zellij.enable = true;
   nixvim = {
     enable = true;
