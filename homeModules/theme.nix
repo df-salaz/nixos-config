@@ -92,6 +92,7 @@
       fzf.catppuccin.enable = cat;
       zathura.catppuccin.enable = cat;
       cava.catppuccin.enable = cat;
+      zellij.catppuccin.enable = cat;
     };
     wayland.windowManager = {
       hyprland = {

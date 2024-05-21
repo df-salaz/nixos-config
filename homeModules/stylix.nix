@@ -11,6 +11,7 @@
       vim.enable = false;
       waybar.enable = false;
       zathura.enable = false;
+      zellij.enable = false;
     };
 
     cursor = {
