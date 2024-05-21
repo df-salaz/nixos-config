@@ -44,7 +44,7 @@
         bufferline = {
           enable = true;
           middleMouseCommand = "bdelete! %d";
-          separatorStyle = "slant";
+          separatorStyle = "thin";
           showBufferCloseIcons = false;
         };
         cmp = {
