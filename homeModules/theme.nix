@@ -105,9 +105,9 @@
           background = "$crust";
           unfocused = {
             inherit background;
-            border = "$base";
-            childBorder = "$base";
-            indicator = "$base";
+            border = "$crust";
+            childBorder = "$crust";
+            indicator = "$crust";
             text = "$text";
           };
         in lib.mkForce {
@@ -131,6 +131,24 @@
           inherit background;
         };
       };
+    };
+    services = {
+      /* dunst.settings = lib.mkIf cat {
+        global = {
+          background = "#1e1e2e";
+          foreground = "#cdd6f4";
+          separator_color = "frame";
+        };
+        urgency_low = {
+          frame_color = "#a6e3a1";
+        };
+        urgency_normal = {
+          frame_color = "#89b4fa";
+        };
+        urgency_critical = {
+          frame_color = "#f38ba8";
+        };
+      }; */
     };
   };
 }
