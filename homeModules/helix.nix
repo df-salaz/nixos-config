@@ -14,7 +14,7 @@
           line-number = "relative";
           cursorline = true;
           true-color = true;
-          bufferline = "multiple";
+          bufferline = "always";
           cursor-shape = {
             normal = "block";
             insert = "bar";
