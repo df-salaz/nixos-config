@@ -28,6 +28,7 @@
   git.enable = true;
   rojo.enable = true;
   helix.enable = true;
+  zellij.enable = true;
   nixvim = {
     enable = true;
     luau.enable = true;
