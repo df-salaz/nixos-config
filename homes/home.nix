@@ -67,6 +67,7 @@
     chromium
     libsForQt5.kdenlive
     godot_4
+    neo
   ];
   home.sessionPath = [
     "$HOME/.local/bin"

@@ -65,6 +65,7 @@
     zoom-us
     firefox
     chromium
+    neo
   ];
   home.sessionPath = [
     "$HOME/.local/bin"

@@ -57,6 +57,7 @@
   home.packages = with pkgs; [
     gh
     nh
+    neo
   ];
   home.sessionVariables = {
     FLAKE = "/home/koye/.nixos";
