@@ -8,6 +8,7 @@
     };
     grub = {
       device = "nodev";
+      default = "saved";
       efiSupport = true;
       useOSProber = true;
     };
