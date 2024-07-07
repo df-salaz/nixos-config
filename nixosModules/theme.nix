@@ -13,7 +13,7 @@
   let
     catppuccin = config.theme.catppuccin.enable;
   in {
-    catppuccin.flavour = lib.mkIf (catppuccin)
+    catppuccin.flavor = lib.mkIf (catppuccin)
       config.theme.catppuccin.flavor;
     console.catppuccin.enable = lib.mkIf catppuccin true;
     boot.loader.grub.catppuccin.enable = lib.mkIf catppuccin true;

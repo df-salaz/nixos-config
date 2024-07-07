@@ -17,7 +17,7 @@
     cat = config.theme.catppuccin.enable;
   in
     lib.mkIf config.theme.enable {
-    catppuccin.flavour =  config.theme.catppuccin.flavor;
+      catppuccin.flavor =  config.theme.catppuccin.flavor;
     catppuccin.accent = config.theme.catppuccin.accent;
     gtk = {
       enable = true;
@@ -27,7 +27,7 @@
       iconTheme = lib.mkIf cat {
         name = "Papirus";
         package = pkgs.catppuccin-papirus-folders.override {
-          flavor = config.catppuccin.flavour;
+          flavor = config.catppuccin.flavor;
           accent = config.catppuccin.accent;
         };
       };
@@ -36,7 +36,8 @@
     };
     home.file = lib.mkIf (cat && config.discord.enable) {
       ".config/vesktop/settings/quickCss.css".text =
-        ''@import url("https://catppuccin.github.io/discord/dist/catppuccin-${config.catppuccin.flavour}-${config.catppuccin.accent}.theme.css");'';
+        ''@import 
+    url("https://catppuccin.github.io/discord/dist/catppuccin-${config.catppuccin.flavor}-${config.catppuccin.accent}.theme.css");'';
     };
     programs = {
       foot.settings = {
