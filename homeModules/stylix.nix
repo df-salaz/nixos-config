@@ -5,6 +5,7 @@
       bat.enable = false;
       btop.enable = false;
       fuzzel.enable = false;
+      fzf.enable = false;
       gtk.enable = false;
       helix.enable = false;
       swaylock.enable = false;
